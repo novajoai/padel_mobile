@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../engagement/domain/engagement_entities.dart';
+
 import '../../../partners/domain/entities/partner.dart';
 import 'achievement.dart';
 import 'player.dart';
@@ -104,6 +106,12 @@ class PlayerProfile extends Equatable {
   final List<ResultRow> recentResults;
   final ThreeDProfileRef? threeDProfile;
 
+  /// Green gems — separate from Playmaker Coins.
+  final Popularity? popularity;
+
+  /// Free ready-made 3D character (the Premium 3D identity wins when there is one).
+  final AvatarCharacter? character;
+
   const PlayerProfile({
     required this.player,
     this.rankings,
@@ -113,6 +121,8 @@ class PlayerProfile extends Equatable {
     this.achievements = const AchievementsSummary(),
     this.recentResults = const [],
     this.threeDProfile,
+    this.popularity,
+    this.character,
   });
 
   PlayerProfile copyWith({SocialSummary? social}) => PlayerProfile(
@@ -124,9 +134,11 @@ class PlayerProfile extends Equatable {
         achievements: achievements,
         recentResults: recentResults,
         threeDProfile: threeDProfile,
+        popularity: popularity,
+        character: character,
       );
 
   @override
   List<Object?> get props =>
-      [player, rankings, stats, partners, social, achievements, recentResults, threeDProfile];
+      [player, rankings, stats, partners, social, achievements, recentResults, threeDProfile, popularity, character];
 }

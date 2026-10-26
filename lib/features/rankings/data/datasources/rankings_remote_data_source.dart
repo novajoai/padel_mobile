@@ -11,6 +11,7 @@ abstract class RankingsRemoteDataSource {
     RankingType type = RankingType.season,
     String? season,
     String? level,
+    Map<String, String> filters = const {},
     String? q,
     int page = 1,
   });
@@ -28,6 +29,7 @@ class RankingsRemoteDataSourceImpl implements RankingsRemoteDataSource {
     RankingType type = RankingType.season,
     String? season,
     String? level,
+    Map<String, String> filters = const {},
     String? q,
     int page = 1,
   }) async {
@@ -35,6 +37,7 @@ class RankingsRemoteDataSourceImpl implements RankingsRemoteDataSource {
       'type': type.apiValue,
       'season': ?season,
       'level': ?level,
+      ...filters,
       if (q != null && q.isNotEmpty) 'q': q,
       'page': page,
     });

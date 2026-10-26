@@ -45,6 +45,20 @@ class StatsSummaryGrid extends StatelessWidget {
             ),
             StatCard(label: l10n.statWins, value: '${stats.wins}', icon: Icons.trending_up_rounded, accent: AppColors.success),
             StatCard(label: l10n.statLosses, value: '${stats.losses}', icon: Icons.trending_down_rounded),
+            StatCard(
+              label: l10n.statWinners,
+              value: stats.winners?.toString(),
+              icon: Icons.bolt_rounded,
+              accent: AppColors.success,
+              caption: l10n.statWinnersHint,
+            ),
+            StatCard(
+              label: l10n.statErrors,
+              value: stats.errors?.toString(),
+              icon: Icons.error_outline_rounded,
+              accent: AppColors.danger,
+              caption: l10n.statErrorsHint,
+            ),
             StatCard(label: l10n.statStreak, value: streakValue, icon: Icons.local_fire_department_rounded),
             StatCard(label: l10n.statBestStreak, value: '${stats.bestWinStreak}', icon: Icons.whatshot_rounded),
             StatCard(label: l10n.statSets, value: '${stats.setsWon}–${stats.setsLost}', icon: Icons.grid_view_rounded),
@@ -151,7 +165,196 @@ class AdvancedStatsView extends StatelessWidget {
             ],
           ),
         ),
+        if (stats.deepDive != null) ...[
+          Gap.md,
+          DeepDiveView(deep: stats.deepDive!),
+        ],
       ],
+    );
+  }
+}
+
+/// Premium deep dive: form, rounds, sets, partners, opponents, serve, points, match by match.
+class DeepDiveView extends StatelessWidget {
+  final DeepDive deep;
+
+  const DeepDiveView({super.key, required this.deep});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    Widget card(String title, List<Widget> children) => Padding(
+          padding: const EdgeInsetsDirectional.only(bottom: AppSpacing.md),
+          child: AppCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Text(title, style: context.text.titleSmall), Gap.sm, ...children],
+            ),
+          ),
+        );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        card(l10n.statsForm, [
+          if (deep.form.isNotEmpty)
+            Wrap(
+              spacing: AppSpacing.xs,
+              runSpacing: AppSpacing.xs,
+              children: [
+                for (final r in deep.form)
+                  Container(
+                    width: 28,
+                    height: 28,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: (r == 'W' ? AppColors.success : AppColors.danger).withValues(alpha: 0.18),
+                      borderRadius: AppRadius.smAll,
+                    ),
+                    child: Text(r == 'W' ? l10n.resultWon : l10n.resultLost, style: AppTypography.number(context, size: 13, color: r == 'W' ? AppColors.success : AppColors.danger)),
+                  ),
+              ],
+            ),
+          Gap.sm,
+          _RecordBar(label: l10n.statsLast10, record: deep.last10),
+          _RecordBar(label: l10n.statsOverall, record: deep.overall),
+        ]),
+        if (deep.byRound.isNotEmpty)
+          card(l10n.statsByRound, [
+            for (final e in deep.byRound.entries) _RecordBar(label: context.enums.label(EnumGroup.matchRounds, e.key), record: e.value),
+          ]),
+        card(l10n.statsSetsAnalysis, [
+          _RecordBar(label: l10n.statsWonFirstSet, record: deep.wonFirstSet),
+          _RecordBar(label: l10n.statsLostFirstSet, record: deep.lostFirstSet),
+          _RecordBar(label: l10n.statsTiebreaks, record: deep.tiebreaks),
+          _InlineValue(label: l10n.statsComebacks, value: '${deep.comebacks}'),
+        ]),
+        card(l10n.statsServeAndPoints, [
+          _InlineValue(label: l10n.statsAces, value: '${deep.aces}', color: AppColors.success),
+          _InlineValue(label: l10n.statsDoubleFaults, value: '${deep.doubleFaults}', color: AppColors.danger),
+          _InlineValue(label: l10n.statsPointsWon, value: '${deep.pointsWon} / ${deep.pointsWon + deep.pointsLost}'),
+          _InlineValue(label: l10n.statsPointsShare, value: Formatters.percent(deep.pointsShare) ?? l10n.valueDash, color: context.tokens.highlight),
+        ]),
+        if (deep.byPartner.isNotEmpty)
+          card(l10n.statsByPartner, [for (final p in deep.byPartner) _RecordBar(label: p.player.name, record: p.record)]),
+        if (deep.byOpponent.isNotEmpty)
+          card(l10n.statsByOpponent, [for (final o in deep.byOpponent) _RecordBar(label: o.label, record: o.record)]),
+        if (deep.perMatch.isNotEmpty)
+          card(l10n.statsPerMatch, [
+            Row(
+              children: [
+                const Expanded(child: SizedBox.shrink()),
+                SizedBox(width: 56, child: Text(l10n.statWinners, style: context.text.labelSmall, textAlign: TextAlign.center)),
+                SizedBox(width: 56, child: Text(l10n.statErrors, style: context.text.labelSmall, textAlign: TextAlign.center)),
+              ],
+            ),
+            for (final m in deep.perMatch)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(top: AppSpacing.xs),
+                child: Row(
+                  children: [
+                    Text(m.won ? l10n.resultWon : l10n.resultLost, style: AppTypography.number(context, size: 14, color: m.won ? AppColors.success : AppColors.danger)),
+                    Gap.sm,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(m.score.isEmpty ? (m.tournament ?? '') : m.score, style: context.text.bodyMedium),
+                          Text(
+                            [m.tournament, if (m.date != null) DateFormatter.dayMonth(m.date!)].whereType<String>().join(' · '),
+                            style: context.text.labelSmall,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 56, child: Text(m.winners?.toString() ?? l10n.valueDash, textAlign: TextAlign.center, style: AppTypography.number(context, size: 15, color: AppColors.success))),
+                    SizedBox(width: 56, child: Text(m.errors?.toString() ?? l10n.valueDash, textAlign: TextAlign.center, style: AppTypography.number(context, size: 15, color: AppColors.danger))),
+                  ],
+                ),
+              ),
+          ]),
+      ],
+    );
+  }
+}
+
+class _InlineValue extends StatelessWidget {
+  final String label;
+  final String value;
+  final Color? color;
+
+  const _InlineValue({required this.label, required this.value, this.color});
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsetsDirectional.only(bottom: AppSpacing.sm),
+        child: Row(
+          children: [
+            Expanded(child: Text(label, style: context.text.bodySmall)),
+            Text(value, style: AppTypography.number(context, size: 15, color: color)),
+          ],
+        ),
+      );
+}
+
+/// The key numbers on the front of the profile; tap to open the full stats.
+class ProfileStatsStrip extends StatelessWidget {
+  final PlayerStats stats;
+  final VoidCallback? onTap;
+
+  const ProfileStatsStrip({super.key, required this.stats, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final streak = stats.currentStreak;
+    final streakValue = streak.type == null || streak.count == 0
+        ? l10n.valueDash
+        : streak.type == StreakType.win
+            ? l10n.streakWins(streak.count)
+            : l10n.streakLosses(streak.count);
+    Widget cell(String label, String value, {Color? color}) => Expanded(
+          child: Column(
+            children: [
+              FittedBox(fit: BoxFit.scaleDown, child: Text(value, style: AppTypography.number(context, size: 20, color: color))),
+              Gap.xxs,
+              Text(label, style: context.text.labelSmall, textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.ellipsis),
+            ],
+          ),
+        );
+    return AppCard(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              cell(l10n.statMatches, '${stats.matchesPlayed}'),
+              cell(l10n.statWinRate, Formatters.percent(stats.winRate) ?? l10n.valueDash, color: context.tokens.highlight),
+              cell('${l10n.statWins}–${l10n.statLosses}', '${stats.wins}–${stats.losses}'),
+            ],
+          ),
+          Gap.md,
+          Row(
+            children: [
+              cell(l10n.statWinners, stats.winners?.toString() ?? l10n.valueDash, color: AppColors.success),
+              cell(l10n.statErrors, stats.errors?.toString() ?? l10n.valueDash, color: AppColors.danger),
+              cell(l10n.statStreak, streakValue),
+            ],
+          ),
+          if (onTap != null) ...[
+            Gap.sm,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(l10n.statsSeeAll, style: context.text.labelMedium?.copyWith(color: context.tokens.highlight)),
+                Icon(Icons.chevron_right_rounded, size: 18, color: context.tokens.highlight),
+              ],
+            ),
+          ],
+        ],
+      ),
     );
   }
 }

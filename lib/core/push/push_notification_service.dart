@@ -20,11 +20,16 @@ class PushNotificationService implements DeviceTokenProvider {
 
   PushNotificationService(this.dio);
 
+  /// Same whistle as the Playmaker football app (res/raw/whistle, Runner/whistle.caf).
+  /// The server sends this channel id (services.fcm.android_channel); a new id
+  /// because an Android channel's sound can't change once it exists.
   static const _channel = AndroidNotificationChannel(
-    'padel_default',
-    'Padel',
+    'padel_whistle',
+    'Playmaker Padel',
     description: 'Match, tournament, booking and social updates',
     importance: Importance.high,
+    sound: RawResourceAndroidNotificationSound('whistle'),
+    playSound: true,
   );
 
   final FlutterLocalNotificationsPlugin _local =
@@ -187,12 +192,15 @@ class PushNotificationService implements DeviceTokenProvider {
           channelDescription: _channel.description,
           importance: Importance.high,
           priority: Priority.high,
+          sound: _channel.sound,
+          playSound: true,
           icon: '@mipmap/launcher_icon',
         ),
         iOS: const DarwinNotificationDetails(
           presentAlert: true,
           presentBadge: true,
           presentSound: true,
+          sound: 'whistle.caf',
         ),
       ),
       payload: jsonEncode(message.data),

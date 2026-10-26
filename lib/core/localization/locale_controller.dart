@@ -11,19 +11,32 @@ class LocaleController {
 
   static final LocaleController instance = LocaleController._internal();
 
+  /// Languages the app speaks — Arabic is right-to-left, the others left-to-right.
+  static const supported = ['ar', 'en', 'es', 'pt', 'nl', 'de'];
+
+  /// Each language's own name (never translated).
+  static const nativeNames = {
+    'ar': 'العربية',
+    'en': 'English',
+    'es': 'Español',
+    'pt': 'Português',
+    'nl': 'Nederlands',
+    'de': 'Deutsch',
+  };
+
   /// Backend default is Arabic when no header is sent; we mirror that.
   final ValueNotifier<String> languageCode = ValueNotifier<String>('ar');
 
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     final saved = prefs.getString(StorageKeys.locale);
-    if (saved == 'ar' || saved == 'en') {
-      languageCode.value = saved!;
+    if (saved != null && supported.contains(saved)) {
+      languageCode.value = saved;
     }
   }
 
   Future<void> setLanguage(String code) async {
-    if (code != 'ar' && code != 'en') return;
+    if (!supported.contains(code)) return;
     languageCode.value = code;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(StorageKeys.locale, code);

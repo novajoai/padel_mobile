@@ -1868,6 +1868,305 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registrationCancel => 'Cancel registration';
 
   @override
+  String get statsForm => 'Form (last 10 matches)';
+
+  @override
+  String get statsLast10 => 'Last 10';
+
+  @override
+  String get statsOverall => 'Overall';
+
+  @override
+  String get statsByRound => 'By round';
+
+  @override
+  String get statsSetsAnalysis => 'Sets';
+
+  @override
+  String get statsWonFirstSet => 'After winning the first set';
+
+  @override
+  String get statsLostFirstSet => 'After losing the first set';
+
+  @override
+  String get statsTiebreaks => 'Tie-break sets';
+
+  @override
+  String get statsComebacks => 'Comeback wins';
+
+  @override
+  String get statsServeAndPoints => 'Serve & points';
+
+  @override
+  String get statsAces => 'Aces';
+
+  @override
+  String get statsDoubleFaults => 'Double faults';
+
+  @override
+  String get statsPointsWon => 'Points won';
+
+  @override
+  String get statsPointsShare => 'Share of points won';
+
+  @override
+  String get statsByPartner => 'With each partner';
+
+  @override
+  String get statsByOpponent => 'Against opponents';
+
+  @override
+  String get statsPerMatch => 'Match by match';
+
+  @override
+  String get statsSeeAll => 'All stats';
+
+  @override
+  String get predictionsTitle => 'Predictions';
+
+  @override
+  String get predictionsTabOpen => 'Matches';
+
+  @override
+  String get predictionsTabMine => 'My predictions';
+
+  @override
+  String get predictionsTabLeaderboard => 'Top predictors';
+
+  @override
+  String predictionsRules(int winner, int exact) {
+    return 'Certified tournaments only. Right winner: $winner points · exact sets: +$exact.';
+  }
+
+  @override
+  String get predictionsEmpty => 'No matches open for predictions right now.';
+
+  @override
+  String get predictionsMineEmpty => 'You haven\'t predicted any match yet.';
+
+  @override
+  String get predictionsLeaderboardEmpty => 'No predictors yet.';
+
+  @override
+  String get predictionPointsLabel => 'Prediction points';
+
+  @override
+  String predictionPosition(int position) {
+    return 'Rank #$position';
+  }
+
+  @override
+  String predictionWonCount(int won, int settled) {
+    return '$won/$settled correct';
+  }
+
+  @override
+  String predictionCrowdCount(int count) {
+    return '$count predictions';
+  }
+
+  @override
+  String get predictionPredict => 'Predict';
+
+  @override
+  String get predictionEdit => 'Change';
+
+  @override
+  String get predictionClosed => 'Closed';
+
+  @override
+  String predictionStatusWon(int points) {
+    return 'Correct +$points';
+  }
+
+  @override
+  String get predictionStatusLost => 'Wrong';
+
+  @override
+  String get predictionStatusVoid => 'Void';
+
+  @override
+  String get predictionStatusPending => 'Waiting for the result';
+
+  @override
+  String get predictionSaved => 'Prediction saved';
+
+  @override
+  String get predictionPick => 'Who wins?';
+
+  @override
+  String get predictionExactScore => 'Exact sets (optional, bonus points)';
+
+  @override
+  String get predictionSave => 'Save prediction';
+
+  @override
+  String get coinsTitle => 'My points';
+
+  @override
+  String get coinsBalance => 'Playmaker Coins balance';
+
+  @override
+  String get coinsStore => 'Store';
+
+  @override
+  String coinsRate(int coins) {
+    return '$coins B = 1 JOD';
+  }
+
+  @override
+  String get coinsBuy => 'Buy';
+
+  @override
+  String get coinsHistory => 'History';
+
+  @override
+  String get coinsHistoryEmpty => 'No movements yet.';
+
+  @override
+  String get coinsSeparateNote =>
+      'Playmaker Coins are separate from popularity gems.';
+
+  @override
+  String get popularityTitle => 'Popularity';
+
+  @override
+  String popularityGems(int count) {
+    return '$count gems';
+  }
+
+  @override
+  String popularityGifts(int count) {
+    return '$count gifts received';
+  }
+
+  @override
+  String popularityNextRank(int gems, String rank) {
+    return '$gems gems to $rank';
+  }
+
+  @override
+  String get popularityTopRank => 'Top rank reached';
+
+  @override
+  String get popularityReceivedTitle => 'Gifts received';
+
+  @override
+  String get popularityLatest => 'Latest gifts';
+
+  @override
+  String get popularityEmpty => 'No gifts yet — be the first to send one!';
+
+  @override
+  String get popularityNote =>
+      'Gems only show popularity — they are never spent or converted.';
+
+  @override
+  String get giftsTitle => 'Gifts & popularity';
+
+  @override
+  String get giftsSend => 'Send a gift';
+
+  @override
+  String giftsSendTitle(String name) {
+    return 'Send a gift to $name';
+  }
+
+  @override
+  String get giftsDailyClaim => 'Claim today\'s gift';
+
+  @override
+  String get giftsDailyClaimed => 'Today\'s gift claimed';
+
+  @override
+  String get giftsDailyClaimedSnack =>
+      'Today\'s gift is yours — send it to a player!';
+
+  @override
+  String get giftsMyStock => 'My free gifts';
+
+  @override
+  String get giftsStockEmpty =>
+      'No free gifts yet. Claim the daily gift, play verified matches or enter tournaments to earn them.';
+
+  @override
+  String get giftsSendToPlayers => 'Find a player to send gifts to';
+
+  @override
+  String get giftsCatalog => 'All gifts';
+
+  @override
+  String get giftsFree => 'Free';
+
+  @override
+  String get giftsNoneLeft => 'None left';
+
+  @override
+  String get giftsPaidSection => 'Premium gifts';
+
+  @override
+  String get giftsMinorCantBuy =>
+      'Buying gifts is for players aged 18 and over.';
+
+  @override
+  String get giftsSent => 'Gift sent!';
+
+  @override
+  String get statWinners => 'Winner';
+
+  @override
+  String get statWinnersHint => 'Points won with a direct winning shot';
+
+  @override
+  String get statErrors => 'Loser';
+
+  @override
+  String get statErrorsHint => 'Points lost with own errors';
+
+  @override
+  String get rankingsFilters => 'Filters';
+
+  @override
+  String get rankingsFilterGender => 'Boys / Girls';
+
+  @override
+  String get rankingsFilterNationality => 'Nationality';
+
+  @override
+  String get rankingsFilterAge => 'Age group';
+
+  @override
+  String get rankingsFiltersApply => 'Apply';
+
+  @override
+  String get rankingsFiltersClear => 'Clear all';
+
+  @override
+  String get filterGenderMale => 'Boys / Men';
+
+  @override
+  String get filterGenderFemale => 'Girls / Women';
+
+  @override
+  String get filterJordanian => 'Jordanian';
+
+  @override
+  String get filterForeign => 'Non-Jordanian';
+
+  @override
+  String ageUnder(int age) {
+    return 'Under $age';
+  }
+
+  @override
+  String get ageAdults => 'Adults (18+)';
+
+  @override
+  String ageOver(int age) {
+    return '$age+';
+  }
+
+  @override
   String tournamentEntryFee(String amount) {
     return 'Entry fee $amount per team';
   }
@@ -2701,4 +3000,32 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get findPartnerHint =>
       'Search by name or player ID, open the player\'s profile, then tap \"Request as main partner\".';
+
+  @override
+  String get characterTitle => '3D character';
+
+  @override
+  String get characterChange => 'Change';
+
+  @override
+  String get characterPick => 'Pick your free 3D character';
+
+  @override
+  String get characterPickHint =>
+      'Free for everyone. Premium members can also turn their own photo into a personal 3D character.';
+
+  @override
+  String get characterEmpty => 'No characters yet';
+
+  @override
+  String get characterSaved => 'Your character has been saved.';
+
+  @override
+  String get characterCurrent => 'Your character';
+
+  @override
+  String get characterUse => 'Use this character';
+
+  @override
+  String get characterRemove => 'Remove character';
 }

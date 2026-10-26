@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notification whistle: referenced by name only (channel padel_whistle), so release resource shrinking must keep it. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@raw/whistle" />

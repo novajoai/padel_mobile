@@ -28,6 +28,7 @@ import '../../../partners/presentation/bloc/partners_cubits.dart';
 import '../../../partners/presentation/widgets/duo_3d_card.dart';
 import '../../../partners/presentation/widgets/partner_widgets.dart';
 import '../../../partners/presentation/widgets/recommended_partners_section.dart';
+import '../../../engagement/presentation/engagement_pages.dart';
 import '../../../premium/domain/entities/ai_insight.dart';
 import '../../../premium/domain/usecases/premium_usecases.dart';
 import '../../../premium/presentation/widgets/three_d_viewer.dart';
@@ -35,6 +36,7 @@ import '../../domain/entities/achievement.dart';
 import '../../domain/entities/player_history.dart';
 import '../../domain/entities/player_profile.dart';
 import '../../domain/entities/player_stats.dart';
+import '../bloc/player_profile_cubit.dart';
 import '../bloc/player_tab_cubits.dart';
 import 'achievement_badge.dart';
 import 'achievements_grid.dart';
@@ -42,6 +44,13 @@ import 'result_row_tile.dart';
 import 'stats_views.dart';
 
 void _openResult(BuildContext context, ResultRow r) => context.openRoute(AppRoutes.match(r.tournamentId, r.matchId));
+
+/// Opens the free characters and reloads the profile when one was picked.
+Future<void> _pickCharacter(BuildContext context, String playerId) async {
+  final profile = context.read<PlayerProfileCubit>();
+  final changed = await context.push<bool>(AppRoutes.characters);
+  if (changed == true) profile.load(playerId, silent: true);
+}
 
 /// Overview: contact (owner), 3D identity, achievements shelf, recent
 /// results, partner cards, stats and tournament timeline.
@@ -59,12 +68,54 @@ class ProfileOverviewTab extends StatelessWidget {
 
     final children = <Widget>[
       if (player.isOwner) _ContactCard(profile: profile),
+      if (profile.stats != null)
+        ProfileStatsStrip(
+          stats: profile.stats!,
+          // The stats tab is the last one.
+          onTap: () {
+            final tabs = DefaultTabController.maybeOf(context);
+            tabs?.animateTo(tabs.length - 1);
+          },
+        ),
+      if (profile.popularity != null)
+        PopularityCard(
+          popularity: profile.popularity!,
+          onTap: () => context.push(AppRoutes.playerPopularity(player.playerId)),
+        ),
       if (asset != null && asset.isNotEmpty) ...[
         SectionHeader(eyebrow: l10n.premiumLabel, eyebrowColor: AppColors.premiumGold, title: l10n.profile3dIdentity),
         ThreeDViewer(assetUrl: asset, alt: player.name),
+      ] else if (profile.character != null) ...[
+        SectionHeader(
+          title: l10n.characterTitle,
+          actionLabel: player.isOwner ? l10n.characterChange : null,
+          onAction: () => _pickCharacter(context, player.playerId),
+        ),
+        ThreeDViewer(assetUrl: profile.character!.modelUrl, alt: profile.character!.name),
       ] else if (!player.isOwner && player.isPremium)
         _PublicThreeD(playerId: player.playerId, name: player.name)
-      else if (player.isOwner && player.isPremium)
+      else if (player.isOwner)
+        AppCard(
+          onTap: () => _pickCharacter(context, player.playerId),
+          child: Row(
+            children: [
+              Icon(Icons.accessibility_new_rounded, color: context.tokens.highlight),
+              Gap.md,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.characterPick, style: context.text.titleSmall),
+                    Text(l10n.characterPickHint, style: context.text.bodySmall),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right_rounded),
+            ],
+          ),
+        ),
+      // Premium: their own 3D identity from a photo (shown instead of the character).
+      if (player.isOwner && player.isPremium && (asset == null || asset.isEmpty))
         AppCard(
           onTap: () => context.push(AppRoutes.threeD),
           borderColor: AppColors.premiumGold.withValues(alpha: 0.4),

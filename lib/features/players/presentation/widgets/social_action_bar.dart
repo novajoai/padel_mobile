@@ -14,6 +14,9 @@ class SocialActionBar extends StatelessWidget {
   final VoidCallback onChallenge;
   final VoidCallback? onRequestPartner;
 
+  /// Send a popularity gift (green gems).
+  final VoidCallback? onGift;
+
   const SocialActionBar({
     super.key,
     required this.isFollowing,
@@ -22,6 +25,7 @@ class SocialActionBar extends StatelessWidget {
     required this.onChallenge,
     this.hasRespected = false,
     this.onRequestPartner,
+    this.onGift,
   });
 
   @override
@@ -58,6 +62,10 @@ class SocialActionBar extends StatelessWidget {
         if (onRequestPartner != null) ...[
           Gap.sm,
           _RoundAction(icon: Icons.handshake_rounded, tooltip: l10n.partnerRequestAsMain, onPressed: onRequestPartner),
+        ],
+        if (onGift != null) ...[
+          Gap.sm,
+          _RoundAction(icon: Icons.card_giftcard_rounded, tooltip: l10n.giftsSend, onPressed: onGift),
         ],
       ],
     );

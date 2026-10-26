@@ -6,7 +6,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_ar.dart';
+import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
+import 'app_localizations_nl.dart';
+import 'app_localizations_pt.dart';
 
 // ignore_for_file: type=lint
 
@@ -95,7 +99,11 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
+    Locale('de'),
     Locale('en'),
+    Locale('es'),
+    Locale('nl'),
+    Locale('pt'),
   ];
 
   /// No description provided for @appTitle.
@@ -3350,6 +3358,546 @@ abstract class AppLocalizations {
   /// **'Cancel registration'**
   String get registrationCancel;
 
+  /// No description provided for @statsForm.
+  ///
+  /// In en, this message translates to:
+  /// **'Form (last 10 matches)'**
+  String get statsForm;
+
+  /// No description provided for @statsLast10.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 10'**
+  String get statsLast10;
+
+  /// No description provided for @statsOverall.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall'**
+  String get statsOverall;
+
+  /// No description provided for @statsByRound.
+  ///
+  /// In en, this message translates to:
+  /// **'By round'**
+  String get statsByRound;
+
+  /// No description provided for @statsSetsAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets'**
+  String get statsSetsAnalysis;
+
+  /// No description provided for @statsWonFirstSet.
+  ///
+  /// In en, this message translates to:
+  /// **'After winning the first set'**
+  String get statsWonFirstSet;
+
+  /// No description provided for @statsLostFirstSet.
+  ///
+  /// In en, this message translates to:
+  /// **'After losing the first set'**
+  String get statsLostFirstSet;
+
+  /// No description provided for @statsTiebreaks.
+  ///
+  /// In en, this message translates to:
+  /// **'Tie-break sets'**
+  String get statsTiebreaks;
+
+  /// No description provided for @statsComebacks.
+  ///
+  /// In en, this message translates to:
+  /// **'Comeback wins'**
+  String get statsComebacks;
+
+  /// No description provided for @statsServeAndPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Serve & points'**
+  String get statsServeAndPoints;
+
+  /// No description provided for @statsAces.
+  ///
+  /// In en, this message translates to:
+  /// **'Aces'**
+  String get statsAces;
+
+  /// No description provided for @statsDoubleFaults.
+  ///
+  /// In en, this message translates to:
+  /// **'Double faults'**
+  String get statsDoubleFaults;
+
+  /// No description provided for @statsPointsWon.
+  ///
+  /// In en, this message translates to:
+  /// **'Points won'**
+  String get statsPointsWon;
+
+  /// No description provided for @statsPointsShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share of points won'**
+  String get statsPointsShare;
+
+  /// No description provided for @statsByPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'With each partner'**
+  String get statsByPartner;
+
+  /// No description provided for @statsByOpponent.
+  ///
+  /// In en, this message translates to:
+  /// **'Against opponents'**
+  String get statsByOpponent;
+
+  /// No description provided for @statsPerMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Match by match'**
+  String get statsPerMatch;
+
+  /// No description provided for @statsSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All stats'**
+  String get statsSeeAll;
+
+  /// No description provided for @predictionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Predictions'**
+  String get predictionsTitle;
+
+  /// No description provided for @predictionsTabOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Matches'**
+  String get predictionsTabOpen;
+
+  /// No description provided for @predictionsTabMine.
+  ///
+  /// In en, this message translates to:
+  /// **'My predictions'**
+  String get predictionsTabMine;
+
+  /// No description provided for @predictionsTabLeaderboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Top predictors'**
+  String get predictionsTabLeaderboard;
+
+  /// No description provided for @predictionsRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Certified tournaments only. Right winner: {winner} points · exact sets: +{exact}.'**
+  String predictionsRules(int winner, int exact);
+
+  /// No description provided for @predictionsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No matches open for predictions right now.'**
+  String get predictionsEmpty;
+
+  /// No description provided for @predictionsMineEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t predicted any match yet.'**
+  String get predictionsMineEmpty;
+
+  /// No description provided for @predictionsLeaderboardEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No predictors yet.'**
+  String get predictionsLeaderboardEmpty;
+
+  /// No description provided for @predictionPointsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction points'**
+  String get predictionPointsLabel;
+
+  /// No description provided for @predictionPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank #{position}'**
+  String predictionPosition(int position);
+
+  /// No description provided for @predictionWonCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{won}/{settled} correct'**
+  String predictionWonCount(int won, int settled);
+
+  /// No description provided for @predictionCrowdCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} predictions'**
+  String predictionCrowdCount(int count);
+
+  /// No description provided for @predictionPredict.
+  ///
+  /// In en, this message translates to:
+  /// **'Predict'**
+  String get predictionPredict;
+
+  /// No description provided for @predictionEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get predictionEdit;
+
+  /// No description provided for @predictionClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get predictionClosed;
+
+  /// No description provided for @predictionStatusWon.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct +{points}'**
+  String predictionStatusWon(int points);
+
+  /// No description provided for @predictionStatusLost.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong'**
+  String get predictionStatusLost;
+
+  /// No description provided for @predictionStatusVoid.
+  ///
+  /// In en, this message translates to:
+  /// **'Void'**
+  String get predictionStatusVoid;
+
+  /// No description provided for @predictionStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for the result'**
+  String get predictionStatusPending;
+
+  /// No description provided for @predictionSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction saved'**
+  String get predictionSaved;
+
+  /// No description provided for @predictionPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Who wins?'**
+  String get predictionPick;
+
+  /// No description provided for @predictionExactScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Exact sets (optional, bonus points)'**
+  String get predictionExactScore;
+
+  /// No description provided for @predictionSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save prediction'**
+  String get predictionSave;
+
+  /// No description provided for @coinsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My points'**
+  String get coinsTitle;
+
+  /// No description provided for @coinsBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Playmaker Coins balance'**
+  String get coinsBalance;
+
+  /// No description provided for @coinsStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Store'**
+  String get coinsStore;
+
+  /// No description provided for @coinsRate.
+  ///
+  /// In en, this message translates to:
+  /// **'{coins} B = 1 JOD'**
+  String coinsRate(int coins);
+
+  /// No description provided for @coinsBuy.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy'**
+  String get coinsBuy;
+
+  /// No description provided for @coinsHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get coinsHistory;
+
+  /// No description provided for @coinsHistoryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No movements yet.'**
+  String get coinsHistoryEmpty;
+
+  /// No description provided for @coinsSeparateNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Playmaker Coins are separate from popularity gems.'**
+  String get coinsSeparateNote;
+
+  /// No description provided for @popularityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Popularity'**
+  String get popularityTitle;
+
+  /// No description provided for @popularityGems.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} gems'**
+  String popularityGems(int count);
+
+  /// No description provided for @popularityGifts.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} gifts received'**
+  String popularityGifts(int count);
+
+  /// No description provided for @popularityNextRank.
+  ///
+  /// In en, this message translates to:
+  /// **'{gems} gems to {rank}'**
+  String popularityNextRank(int gems, String rank);
+
+  /// No description provided for @popularityTopRank.
+  ///
+  /// In en, this message translates to:
+  /// **'Top rank reached'**
+  String get popularityTopRank;
+
+  /// No description provided for @popularityReceivedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gifts received'**
+  String get popularityReceivedTitle;
+
+  /// No description provided for @popularityLatest.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest gifts'**
+  String get popularityLatest;
+
+  /// No description provided for @popularityEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No gifts yet — be the first to send one!'**
+  String get popularityEmpty;
+
+  /// No description provided for @popularityNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Gems only show popularity — they are never spent or converted.'**
+  String get popularityNote;
+
+  /// No description provided for @giftsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gifts & popularity'**
+  String get giftsTitle;
+
+  /// No description provided for @giftsSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a gift'**
+  String get giftsSend;
+
+  /// No description provided for @giftsSendTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a gift to {name}'**
+  String giftsSendTitle(String name);
+
+  /// No description provided for @giftsDailyClaim.
+  ///
+  /// In en, this message translates to:
+  /// **'Claim today\'s gift'**
+  String get giftsDailyClaim;
+
+  /// No description provided for @giftsDailyClaimed.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s gift claimed'**
+  String get giftsDailyClaimed;
+
+  /// No description provided for @giftsDailyClaimedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s gift is yours — send it to a player!'**
+  String get giftsDailyClaimedSnack;
+
+  /// No description provided for @giftsMyStock.
+  ///
+  /// In en, this message translates to:
+  /// **'My free gifts'**
+  String get giftsMyStock;
+
+  /// No description provided for @giftsStockEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No free gifts yet. Claim the daily gift, play verified matches or enter tournaments to earn them.'**
+  String get giftsStockEmpty;
+
+  /// No description provided for @giftsSendToPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Find a player to send gifts to'**
+  String get giftsSendToPlayers;
+
+  /// No description provided for @giftsCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'All gifts'**
+  String get giftsCatalog;
+
+  /// No description provided for @giftsFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get giftsFree;
+
+  /// No description provided for @giftsNoneLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'None left'**
+  String get giftsNoneLeft;
+
+  /// No description provided for @giftsPaidSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium gifts'**
+  String get giftsPaidSection;
+
+  /// No description provided for @giftsMinorCantBuy.
+  ///
+  /// In en, this message translates to:
+  /// **'Buying gifts is for players aged 18 and over.'**
+  String get giftsMinorCantBuy;
+
+  /// No description provided for @giftsSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift sent!'**
+  String get giftsSent;
+
+  /// No description provided for @statWinners.
+  ///
+  /// In en, this message translates to:
+  /// **'Winner'**
+  String get statWinners;
+
+  /// No description provided for @statWinnersHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Points won with a direct winning shot'**
+  String get statWinnersHint;
+
+  /// No description provided for @statErrors.
+  ///
+  /// In en, this message translates to:
+  /// **'Loser'**
+  String get statErrors;
+
+  /// No description provided for @statErrorsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Points lost with own errors'**
+  String get statErrorsHint;
+
+  /// No description provided for @rankingsFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Filters'**
+  String get rankingsFilters;
+
+  /// No description provided for @rankingsFilterGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Boys / Girls'**
+  String get rankingsFilterGender;
+
+  /// No description provided for @rankingsFilterNationality.
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality'**
+  String get rankingsFilterNationality;
+
+  /// No description provided for @rankingsFilterAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age group'**
+  String get rankingsFilterAge;
+
+  /// No description provided for @rankingsFiltersApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get rankingsFiltersApply;
+
+  /// No description provided for @rankingsFiltersClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get rankingsFiltersClear;
+
+  /// No description provided for @filterGenderMale.
+  ///
+  /// In en, this message translates to:
+  /// **'Boys / Men'**
+  String get filterGenderMale;
+
+  /// No description provided for @filterGenderFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'Girls / Women'**
+  String get filterGenderFemale;
+
+  /// No description provided for @filterJordanian.
+  ///
+  /// In en, this message translates to:
+  /// **'Jordanian'**
+  String get filterJordanian;
+
+  /// No description provided for @filterForeign.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-Jordanian'**
+  String get filterForeign;
+
+  /// No description provided for @ageUnder.
+  ///
+  /// In en, this message translates to:
+  /// **'Under {age}'**
+  String ageUnder(int age);
+
+  /// No description provided for @ageAdults.
+  ///
+  /// In en, this message translates to:
+  /// **'Adults (18+)'**
+  String get ageAdults;
+
+  /// No description provided for @ageOver.
+  ///
+  /// In en, this message translates to:
+  /// **'{age}+'**
+  String ageOver(int age);
+
   /// No description provided for @tournamentEntryFee.
   ///
   /// In en, this message translates to:
@@ -4855,6 +5403,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search by name or player ID, open the player\'s profile, then tap \"Request as main partner\".'**
   String get findPartnerHint;
+
+  /// No description provided for @characterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'3D character'**
+  String get characterTitle;
+
+  /// No description provided for @characterChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get characterChange;
+
+  /// No description provided for @characterPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick your free 3D character'**
+  String get characterPick;
+
+  /// No description provided for @characterPickHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Free for everyone. Premium members can also turn their own photo into a personal 3D character.'**
+  String get characterPickHint;
+
+  /// No description provided for @characterEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No characters yet'**
+  String get characterEmpty;
+
+  /// No description provided for @characterSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Your character has been saved.'**
+  String get characterSaved;
+
+  /// No description provided for @characterCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Your character'**
+  String get characterCurrent;
+
+  /// No description provided for @characterUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Use this character'**
+  String get characterUse;
+
+  /// No description provided for @characterRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove character'**
+  String get characterRemove;
 }
 
 class _AppLocalizationsDelegate
@@ -4867,8 +5469,14 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['ar', 'en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'ar',
+    'de',
+    'en',
+    'es',
+    'nl',
+    'pt',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -4879,8 +5487,16 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'ar':
       return AppLocalizationsAr();
+    case 'de':
+      return AppLocalizationsDe();
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
+    case 'nl':
+      return AppLocalizationsNl();
+    case 'pt':
+      return AppLocalizationsPt();
   }
 
   throw FlutterError(

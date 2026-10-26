@@ -53,6 +53,8 @@ import '../../domain/entities/notification_item.dart';
       NotificationType.registrationPartnerInvite => (Icons.group_add_rounded, context.tokens.highlight),
       NotificationType.registrationPartnerAccepted => (Icons.how_to_reg_rounded, AppColors.success),
       NotificationType.registrationPartnerDeclined => (Icons.person_off_rounded, AppColors.danger),
+      NotificationType.giftReceived => (Icons.card_giftcard_rounded, const Color(0xFF2ECC71)),
+      NotificationType.predictionWon => (Icons.insights_rounded, AppColors.success),
       NotificationType.unknown => (Icons.notifications_rounded, context.tokens.textMuted),
     };
 

@@ -16,11 +16,12 @@ class RankingsRepositoryImpl implements RankingsRepository {
     RankingType type = RankingType.season,
     String? season,
     String? level,
+    Map<String, String> filters = const {},
     String? q,
     int page = 1,
   }) =>
       guard(() async {
-        final result = await remote.getRankings(type: type, season: season, level: level, q: q, page: page);
+        final result = await remote.getRankings(type: type, season: season, level: level, filters: filters, q: q, page: page);
         return result.map((e) => e.toEntity());
       });
 

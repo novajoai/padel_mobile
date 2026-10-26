@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../../core/models/player_summary.dart';
+
 enum StreakType { win, loss }
 
 class StreakInfo extends Equatable {
@@ -31,6 +33,12 @@ class PlayerStats extends Equatable {
   final int finalsReached;
   final DateTime? lastPlayedAt;
 
+  /// Winner: points the player ended with a direct winning shot (winner / ace). Null = not recorded yet.
+  final int? winners;
+
+  /// Loser: points the player lost with their own error. Null = not recorded yet.
+  final int? errors;
+
   const PlayerStats({
     this.matchesPlayed = 0,
     this.wins = 0,
@@ -48,10 +56,14 @@ class PlayerStats extends Equatable {
     this.titles = 0,
     this.finalsReached = 0,
     this.lastPlayedAt,
+    this.winners,
+    this.errors,
   });
 
   @override
   List<Object?> get props => [
+        winners,
+        errors,
         matchesPlayed,
         wins,
         losses,
@@ -123,6 +135,7 @@ class AdvancedStats extends Equatable {
   final Map<String, WinRecord> byCompetition;
   final PointStats pointStats;
   final List<RatingPoint> ratingTimeline;
+  final DeepDive? deepDive;
 
   const AdvancedStats({
     this.byStage = const {},
@@ -130,10 +143,90 @@ class AdvancedStats extends Equatable {
     this.byCompetition = const {},
     this.pointStats = const PointStats(),
     this.ratingTimeline = const [],
+    this.deepDive,
   });
 
   @override
-  List<Object?> get props => [byStage, decidingSets, byCompetition, pointStats, ratingTimeline];
+  List<Object?> get props => [byStage, decidingSets, byCompetition, pointStats, ratingTimeline, deepDive];
+}
+
+class PartnerRecord extends Equatable {
+  final PlayerSummary player;
+  final WinRecord record;
+
+  const PartnerRecord(this.player, this.record);
+
+  @override
+  List<Object?> get props => [player, record];
+}
+
+class OpponentRecord extends Equatable {
+  final String label;
+  final WinRecord record;
+
+  const OpponentRecord(this.label, this.record);
+
+  @override
+  List<Object?> get props => [label, record];
+}
+
+/// One of the last matches with the player's own Winner / Loser (null = not recorded).
+class MatchLine extends Equatable {
+  final DateTime? date;
+  final String? tournament;
+  final bool won;
+  final String score;
+  final int? winners;
+  final int? errors;
+
+  const MatchLine({this.date, this.tournament, required this.won, this.score = '', this.winners, this.errors});
+
+  @override
+  List<Object?> get props => [date, tournament, won, score, winners, errors];
+}
+
+/// Premium deep dive (`advanced.deep_dive`).
+class DeepDive extends Equatable {
+  final Map<String, WinRecord> byRound;
+
+  /// Newest first: 'W' / 'L'.
+  final List<String> form;
+  final WinRecord last10;
+  final WinRecord overall;
+  final WinRecord tiebreaks;
+  final WinRecord wonFirstSet;
+  final WinRecord lostFirstSet;
+  final int comebacks;
+  final List<PartnerRecord> byPartner;
+  final List<OpponentRecord> byOpponent;
+  final int aces;
+  final int doubleFaults;
+  final int pointsWon;
+  final int pointsLost;
+  final double? pointsShare;
+  final List<MatchLine> perMatch;
+
+  const DeepDive({
+    this.byRound = const {},
+    this.form = const [],
+    this.last10 = const WinRecord(),
+    this.overall = const WinRecord(),
+    this.tiebreaks = const WinRecord(),
+    this.wonFirstSet = const WinRecord(),
+    this.lostFirstSet = const WinRecord(),
+    this.comebacks = 0,
+    this.byPartner = const [],
+    this.byOpponent = const [],
+    this.aces = 0,
+    this.doubleFaults = 0,
+    this.pointsWon = 0,
+    this.pointsLost = 0,
+    this.pointsShare,
+    this.perMatch = const [],
+  });
+
+  @override
+  List<Object?> get props => [byRound, form, last10, overall, tiebreaks, wonFirstSet, lostFirstSet, comebacks, byPartner, byOpponent, aces, doubleFaults, pointsWon, pointsLost, pointsShare, perMatch];
 }
 
 /// `GET players/{id}/stats`.

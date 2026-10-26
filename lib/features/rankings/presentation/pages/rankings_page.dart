@@ -50,6 +50,7 @@ class _RankingsViewState extends State<_RankingsView> with SingleTickerProviderS
     for (final type in RankingType.values) type: RankingBoardCubit(sl(), type),
   };
   String? _level;
+  Map<String, String> _filters = const {};
   String? _season;
   Timer? _debounce;
   bool _searching = false;
@@ -74,10 +75,17 @@ class _RankingsViewState extends State<_RankingsView> with SingleTickerProviderS
     super.dispose();
   }
 
-  void _applyAll({String? level, bool clearLevel = false, String? query}) {
+  void _applyAll({String? level, bool clearLevel = false, String? query, Map<String, String>? filters}) {
     for (final b in _boards.values) {
-      b.apply(level: level, clearLevel: clearLevel, query: query);
+      b.apply(level: level, clearLevel: clearLevel, query: query, filters: filters);
     }
+  }
+
+  Future<void> _openFilters() async {
+    final picked = await showRankingFiltersSheet(context, _filters);
+    if (picked == null || !mounted) return;
+    setState(() => _filters = picked);
+    _applyAll(filters: picked);
   }
 
   @override
@@ -97,6 +105,15 @@ class _RankingsViewState extends State<_RankingsView> with SingleTickerProviderS
               )
             : Text(l10n.rankingsTitle),
         actions: [
+          IconButton(
+            tooltip: AppLocalizations.of(context).rankingsFilters,
+            icon: Badge(
+              isLabelVisible: _filters.isNotEmpty,
+              label: Text('${_filters.length}'),
+              child: const Icon(Icons.tune_rounded),
+            ),
+            onPressed: _openFilters,
+          ),
           IconButton(
             icon: Icon(_searching ? Icons.close_rounded : Icons.search_rounded),
             onPressed: () {
@@ -129,6 +146,15 @@ class _RankingsViewState extends State<_RankingsView> with SingleTickerProviderS
               _applyAll(level: level, clearLevel: level == null);
             },
           ),
+          if (_filters.isNotEmpty)
+            _ActiveFilters(
+              filters: _filters,
+              onRemove: (key) {
+                final next = Map<String, String>.of(_filters)..remove(key);
+                setState(() => _filters = next);
+                _applyAll(filters: next);
+              },
+            ),
           Expanded(
             child: TabBarView(
               controller: _tabs,
@@ -136,7 +162,7 @@ class _RankingsViewState extends State<_RankingsView> with SingleTickerProviderS
                 for (final type in RankingType.values)
                   BlocProvider.value(
                     value: _boards[type]!,
-                    child: _Board(type: type, myId: myId, showPodium: !_searching && _level == null),
+                    child: _Board(type: type, myId: myId, showPodium: !_searching && _level == null && _filters.isEmpty),
                   ),
               ],
             ),
@@ -279,6 +305,137 @@ class _SeasonPicker extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+/// Label of one ranking filter value, in the app language.
+String rankingFilterLabel(AppLocalizations l10n, String key, String value) => switch ('$key:$value') {
+      'gender:male' => l10n.filterGenderMale,
+      'gender:female' => l10n.filterGenderFemale,
+      'nationality:jordanian' => l10n.filterJordanian,
+      'nationality:foreign' => l10n.filterForeign,
+      'age_group:u12' => l10n.ageUnder(12),
+      'age_group:u14' => l10n.ageUnder(14),
+      'age_group:u16' => l10n.ageUnder(16),
+      'age_group:u18' => l10n.ageUnder(18),
+      'age_group:adults' => l10n.ageAdults,
+      'age_group:over_35' => l10n.ageOver(35),
+      'age_group:over_45' => l10n.ageOver(45),
+      _ => value,
+    };
+
+const _filterGroups = {
+  'gender': ['male', 'female'],
+  'nationality': ['jordanian', 'foreign'],
+  'age_group': ['u12', 'u14', 'u16', 'u18', 'adults', 'over_35', 'over_45'],
+};
+
+/// Gender · nationality · age group — any combination (e.g. girls + Jordanian + under 16).
+Future<Map<String, String>?> showRankingFiltersSheet(BuildContext context, Map<String, String> current) {
+  return showModalBottomSheet<Map<String, String>>(
+    context: context,
+    isScrollControlled: true,
+    useSafeArea: true,
+    builder: (_) => _RankingFiltersSheet(initial: current),
+  );
+}
+
+class _RankingFiltersSheet extends StatefulWidget {
+  final Map<String, String> initial;
+
+  const _RankingFiltersSheet({required this.initial});
+
+  @override
+  State<_RankingFiltersSheet> createState() => _RankingFiltersSheetState();
+}
+
+class _RankingFiltersSheetState extends State<_RankingFiltersSheet> {
+  late final Map<String, String> _picked = Map.of(widget.initial);
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final titles = {
+      'gender': l10n.rankingsFilterGender,
+      'nationality': l10n.rankingsFilterNationality,
+      'age_group': l10n.rankingsFilterAge,
+    };
+    return Padding(
+      padding: const EdgeInsetsDirectional.fromSTEB(AppSpacing.xl, 0, AppSpacing.xl, AppSpacing.xl),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(l10n.rankingsFilters, style: Theme.of(context).textTheme.titleLarge),
+            for (final group in _filterGroups.entries) ...[
+              Gap.lg,
+              Text(titles[group.key]!, style: Theme.of(context).textTheme.titleSmall),
+              Gap.sm,
+              Wrap(
+                spacing: AppSpacing.sm,
+                runSpacing: AppSpacing.sm,
+                children: [
+                  for (final v in group.value)
+                    ChoiceChip(
+                      label: Text(rankingFilterLabel(l10n, group.key, v)),
+                      selected: _picked[group.key] == v,
+                      onSelected: (on) => setState(() => on ? _picked[group.key] = v : _picked.remove(group.key)),
+                    ),
+                ],
+              ),
+            ],
+            Gap.xl,
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () => Navigator.of(context).pop(<String, String>{}),
+                    child: Text(l10n.rankingsFiltersClear),
+                  ),
+                ),
+                Gap.md,
+                Expanded(
+                  child: FilledButton(
+                    onPressed: () => Navigator.of(context).pop(Map<String, String>.of(_picked)),
+                    child: Text(l10n.rankingsFiltersApply),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ActiveFilters extends StatelessWidget {
+  final Map<String, String> filters;
+  final ValueChanged<String> onRemove;
+
+  const _ActiveFilters({required this.filters, required this.onRemove});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return SizedBox(
+      height: 44,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: AppSpacing.md),
+        children: [
+          for (final e in filters.entries)
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
+              child: InputChip(
+                label: Text(rankingFilterLabel(l10n, e.key, e.value)),
+                onDeleted: () => onRemove(e.key),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

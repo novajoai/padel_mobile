@@ -12,6 +12,7 @@ import '../../../../core/widgets/feedback.dart';
 import '../../../../core/widgets/shimmer_skeleton.dart';
 import '../../../../core/widgets/state_views.dart';
 import '../../../../l10n/gen/app_localizations.dart';
+import '../../../engagement/presentation/engagement_pages.dart';
 import '../../../partners/presentation/bloc/partners_cubits.dart';
 import '../../domain/entities/player_profile.dart';
 import '../../../auth/presentation/widgets/delete_account_dialog.dart';
@@ -271,6 +272,10 @@ class _VisitorActions extends StatelessWidget {
         ),
         onRequestPartner: () =>
             context.read<PartnerActionCubit>().send(player.playerId),
+        onGift: () async {
+          await showSendGiftSheet(context, playerId: player.playerId, playerName: player.name);
+          if (context.mounted) context.read<PlayerProfileCubit>().load(player.playerId, silent: true);
+        },
       ),
     );
   }

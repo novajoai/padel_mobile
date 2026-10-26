@@ -122,7 +122,7 @@ class _PadelAppState extends State<PadelApp> with WidgetsBindingObserver {
                 darkTheme: AppTheme.dark(languageCode: languageCode),
                 themeMode: themeMode,
                 locale: Locale(languageCode),
-                supportedLocales: const [Locale('ar'), Locale('en')],
+                supportedLocales: [for (final code in LocaleController.supported) Locale(code)],
                 localizationsDelegates: const [
                   AppLocalizations.delegate,
                   GlobalMaterialLocalizations.delegate,

@@ -1,0 +1,1 @@
+{"status":true,"message":"Checkout started.","data":{"reference":"PAY-YSHIUFVTPPMGJNMC","type":"coins_purchase","amount":5,"currency":"JOD","provider":"fake","status":"requires_action","checkout_url":"https:\/\/pay.test","client_data":null,"failure_reason":null,"paid_at":null,"created_at":"2026-10-24T20:55:04+03:00"}}

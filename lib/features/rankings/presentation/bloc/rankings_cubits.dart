@@ -11,16 +11,20 @@ class RankingBoardCubit extends PagedCubit<RankingEntry> {
   final RankingType type;
   String? season;
   String? level;
+
+  /// gender (male|female) · nationality (jordanian|foreign) · age_group (u12…over_45) — combinable.
+  Map<String, String> filters = const {};
   String query = '';
 
   RankingBoardCubit(this.getRankings, this.type);
 
   @override
   ApiResult<Paginated<RankingEntry>> fetchPage(int page) =>
-      getRankings(type: type, season: season, level: level, q: query, page: page);
+      getRankings(type: type, season: season, level: level, filters: filters, q: query, page: page);
 
-  Future<void> apply({String? season, String? level, String? query, bool clearLevel = false}) {
+  Future<void> apply({String? season, String? level, String? query, bool clearLevel = false, Map<String, String>? filters}) {
     if (season != null) this.season = season;
+    if (filters != null) this.filters = filters;
     if (level != null || clearLevel) this.level = level;
     if (query != null) this.query = query;
     return load();

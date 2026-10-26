@@ -7,6 +7,7 @@ abstract class RankingsRepository {
     RankingType type = RankingType.season,
     String? season,
     String? level,
+    Map<String, String> filters = const {},
     String? q,
     int page = 1,
   });

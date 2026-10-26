@@ -30,6 +30,7 @@ _TournamentCategoryModel _$TournamentCategoryModelFromJson(
   completedAt: json['completed_at'] == null
       ? null
       : DateTime.parse(json['completed_at'] as String),
+  championPhotoUrl: json['champion_photo_url'] as String?,
   champion: json['champion'] == null
       ? null
       : MatchTeamModel.fromJson(json['champion'] as Map<String, dynamic>),
@@ -55,6 +56,7 @@ Map<String, dynamic> _$TournamentCategoryModelToJson(
   'is_full': instance.isFull,
   'waitlist_count': instance.waitlistCount,
   'completed_at': instance.completedAt?.toIso8601String(),
+  'champion_photo_url': instance.championPhotoUrl,
   'champion': instance.champion?.toJson(),
 };
 

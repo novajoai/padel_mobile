@@ -1881,6 +1881,302 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registrationCancel => 'إلغاء التسجيل';
 
   @override
+  String get statsForm => 'المستوى (آخر 10 مباريات)';
+
+  @override
+  String get statsLast10 => 'آخر 10';
+
+  @override
+  String get statsOverall => 'الإجمالي';
+
+  @override
+  String get statsByRound => 'حسب الدور';
+
+  @override
+  String get statsSetsAnalysis => 'السيتات';
+
+  @override
+  String get statsWonFirstSet => 'بعد الفوز بالسيت الأول';
+
+  @override
+  String get statsLostFirstSet => 'بعد خسارة السيت الأول';
+
+  @override
+  String get statsTiebreaks => 'سيتات التاي بريك';
+
+  @override
+  String get statsComebacks => 'انتصارات بعد التأخر';
+
+  @override
+  String get statsServeAndPoints => 'الإرسال والنقاط';
+
+  @override
+  String get statsAces => 'Aces';
+
+  @override
+  String get statsDoubleFaults => 'أخطاء إرسال مزدوجة';
+
+  @override
+  String get statsPointsWon => 'النقاط المكسوبة';
+
+  @override
+  String get statsPointsShare => 'نسبة النقاط المكسوبة';
+
+  @override
+  String get statsByPartner => 'مع كل شريك';
+
+  @override
+  String get statsByOpponent => 'ضد الخصوم';
+
+  @override
+  String get statsPerMatch => 'مباراة بمباراة';
+
+  @override
+  String get statsSeeAll => 'كل الإحصائيات';
+
+  @override
+  String get predictionsTitle => 'التوقعات';
+
+  @override
+  String get predictionsTabOpen => 'المباريات';
+
+  @override
+  String get predictionsTabMine => 'توقعاتي';
+
+  @override
+  String get predictionsTabLeaderboard => 'أفضل المتوقعين';
+
+  @override
+  String predictionsRules(int winner, int exact) {
+    return 'لمباريات البطولات المعتمدة فقط. الفائز الصحيح: $winner نقاط · نتيجة السيتات الصحيحة: +$exact.';
+  }
+
+  @override
+  String get predictionsEmpty => 'لا توجد مباريات متاحة للتوقع حالياً.';
+
+  @override
+  String get predictionsMineEmpty => 'لم تتوقع أي مباراة بعد.';
+
+  @override
+  String get predictionsLeaderboardEmpty => 'لا يوجد متوقعون بعد.';
+
+  @override
+  String get predictionPointsLabel => 'نقاط التوقعات';
+
+  @override
+  String predictionPosition(int position) {
+    return 'المركز #$position';
+  }
+
+  @override
+  String predictionWonCount(int won, int settled) {
+    return '$won/$settled صحيحة';
+  }
+
+  @override
+  String predictionCrowdCount(int count) {
+    return '$count توقع';
+  }
+
+  @override
+  String get predictionPredict => 'توقّع';
+
+  @override
+  String get predictionEdit => 'تعديل';
+
+  @override
+  String get predictionClosed => 'مغلق';
+
+  @override
+  String predictionStatusWon(int points) {
+    return 'صحيح +$points';
+  }
+
+  @override
+  String get predictionStatusLost => 'خاطئ';
+
+  @override
+  String get predictionStatusVoid => 'ملغي';
+
+  @override
+  String get predictionStatusPending => 'بانتظار النتيجة';
+
+  @override
+  String get predictionSaved => 'تم حفظ توقعك';
+
+  @override
+  String get predictionPick => 'من سيفوز؟';
+
+  @override
+  String get predictionExactScore => 'نتيجة السيتات (اختياري، نقاط إضافية)';
+
+  @override
+  String get predictionSave => 'حفظ التوقع';
+
+  @override
+  String get coinsTitle => 'نقاطي';
+
+  @override
+  String get coinsBalance => 'رصيد عملة Playmaker';
+
+  @override
+  String get coinsStore => 'المتجر';
+
+  @override
+  String coinsRate(int coins) {
+    return '$coins B = 1 دينار';
+  }
+
+  @override
+  String get coinsBuy => 'شراء';
+
+  @override
+  String get coinsHistory => 'السجل';
+
+  @override
+  String get coinsHistoryEmpty => 'لا توجد حركات بعد.';
+
+  @override
+  String get coinsSeparateNote => 'عملة Playmaker منفصلة عن جواهر الشعبية.';
+
+  @override
+  String get popularityTitle => 'الشعبية';
+
+  @override
+  String popularityGems(int count) {
+    return '$count جوهرة';
+  }
+
+  @override
+  String popularityGifts(int count) {
+    return '$count هدية مستلمة';
+  }
+
+  @override
+  String popularityNextRank(int gems, String rank) {
+    return '$gems جوهرة للوصول إلى $rank';
+  }
+
+  @override
+  String get popularityTopRank => 'وصلت لأعلى رتبة';
+
+  @override
+  String get popularityReceivedTitle => 'الهدايا المستلمة';
+
+  @override
+  String get popularityLatest => 'أحدث الهدايا';
+
+  @override
+  String get popularityEmpty => 'لا هدايا بعد — كن أول من يرسل هدية!';
+
+  @override
+  String get popularityNote =>
+      'الجواهر تعكس الشعبية فقط — لا تُصرف ولا تُحوّل لأي شيء.';
+
+  @override
+  String get giftsTitle => 'الهدايا والشعبية';
+
+  @override
+  String get giftsSend => 'إهداء';
+
+  @override
+  String giftsSendTitle(String name) {
+    return 'أرسل هدية إلى $name';
+  }
+
+  @override
+  String get giftsDailyClaim => 'استلم هدية اليوم';
+
+  @override
+  String get giftsDailyClaimed => 'تم استلام هدية اليوم';
+
+  @override
+  String get giftsDailyClaimedSnack => 'هدية اليوم صارت عندك — أرسلها للاعب!';
+
+  @override
+  String get giftsMyStock => 'هداياي المجانية';
+
+  @override
+  String get giftsStockEmpty =>
+      'لا توجد هدايا مجانية بعد. استلم هدية اليوم أو العب مباريات معتمدة أو شارك في البطولات لتحصل عليها.';
+
+  @override
+  String get giftsSendToPlayers => 'ابحث عن لاعب لإهدائه';
+
+  @override
+  String get giftsCatalog => 'كل الهدايا';
+
+  @override
+  String get giftsFree => 'مجانية';
+
+  @override
+  String get giftsNoneLeft => 'نفدت';
+
+  @override
+  String get giftsPaidSection => 'هدايا مميزة';
+
+  @override
+  String get giftsMinorCantBuy => 'شراء الهدايا متاح لعمر 18 سنة فما فوق.';
+
+  @override
+  String get giftsSent => 'تم إرسال الهدية!';
+
+  @override
+  String get statWinners => 'Winner';
+
+  @override
+  String get statWinnersHint => 'نقاط حسمها بضربة مباشرة ناجحة';
+
+  @override
+  String get statErrors => 'Loser';
+
+  @override
+  String get statErrorsHint => 'نقاط خسرها بسبب أخطائه';
+
+  @override
+  String get rankingsFilters => 'الفلاتر';
+
+  @override
+  String get rankingsFilterGender => 'شباب / بنات';
+
+  @override
+  String get rankingsFilterNationality => 'الجنسية';
+
+  @override
+  String get rankingsFilterAge => 'الفئة العمرية';
+
+  @override
+  String get rankingsFiltersApply => 'تطبيق';
+
+  @override
+  String get rankingsFiltersClear => 'مسح الكل';
+
+  @override
+  String get filterGenderMale => 'شباب';
+
+  @override
+  String get filterGenderFemale => 'بنات';
+
+  @override
+  String get filterJordanian => 'أردني';
+
+  @override
+  String get filterForeign => 'غير أردني';
+
+  @override
+  String ageUnder(int age) {
+    return 'تحت $age سنة';
+  }
+
+  @override
+  String get ageAdults => 'الكبار (18+)';
+
+  @override
+  String ageOver(int age) {
+    return '$age سنة فما فوق';
+  }
+
+  @override
   String tournamentEntryFee(String amount) {
     return 'رسوم المشاركة $amount لكل فريق';
   }
@@ -2714,4 +3010,32 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get findPartnerHint =>
       'ابحث بالاسم أو رمز اللاعب، افتح ملفه ثم اضغط «اطلب شراكة أساسية».';
+
+  @override
+  String get characterTitle => 'شخصية 3D';
+
+  @override
+  String get characterChange => 'تغيير';
+
+  @override
+  String get characterPick => 'اختر شخصيتك 3D مجاناً';
+
+  @override
+  String get characterPickHint =>
+      'مجانية للجميع. مشتركو البريميوم يقدرون كمان يحوّلوا صورتهم لشخصية 3D خاصة فيهم.';
+
+  @override
+  String get characterEmpty => 'لا توجد شخصيات بعد';
+
+  @override
+  String get characterSaved => 'تم حفظ شخصيتك.';
+
+  @override
+  String get characterCurrent => 'شخصيتك الحالية';
+
+  @override
+  String get characterUse => 'استخدم هذه الشخصية';
+
+  @override
+  String get characterRemove => 'إزالة الشخصية';
 }

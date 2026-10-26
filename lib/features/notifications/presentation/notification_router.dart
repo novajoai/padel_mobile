@@ -54,6 +54,10 @@ class NotificationRouter {
         return AppRoutes.notifications;
       case NotificationScreen.registrations:
         return AppRoutes.myRegistrations;
+      case NotificationScreen.popularity:
+        return playerId == null ? AppRoutes.gifts : AppRoutes.playerPopularity(playerId);
+      case NotificationScreen.predictions:
+        return AppRoutes.predictions;
       case NotificationScreen.unknown:
         return null;
     }

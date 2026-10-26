@@ -17,6 +17,7 @@ import '../../../../core/widgets/player_avatar.dart';
 import '../../../../core/widgets/shimmer_skeleton.dart';
 import '../../../../core/widgets/state_views.dart';
 import '../../../../l10n/gen/app_localizations.dart';
+import '../../../engagement/presentation/engagement_pages.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../../auth/presentation/bloc/auth_state.dart';
 import '../../../notifications/presentation/bloc/unread_count_cubit.dart';
@@ -94,6 +95,10 @@ class _HomeView extends StatelessWidget {
           padding: AppSpacing.pageH,
           sliver: SliverToBoxAdapter(child: _MaxWidth(child: hero.$2.staggered(context, 0))),
         ),
+      SliverPadding(
+        padding: const EdgeInsetsDirectional.fromSTEB(AppSpacing.gutter, AppSpacing.lg, AppSpacing.gutter, 0),
+        sliver: const SliverToBoxAdapter(child: _MaxWidth(child: EngagementShortcuts())),
+      ),
       SliverPadding(
         padding: const EdgeInsetsDirectional.fromSTEB(AppSpacing.gutter, AppSpacing.xxl, AppSpacing.gutter, AppSpacing.huge),
         sliver: SliverLayoutBuilder(

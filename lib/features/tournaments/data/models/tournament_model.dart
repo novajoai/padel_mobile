@@ -27,6 +27,7 @@ abstract class TournamentCategoryModel with _$TournamentCategoryModel {
     @JsonKey(name: 'is_full') @Default(false) bool isFull,
     @JsonKey(name: 'waitlist_count') @Default(0) int waitlistCount,
     @JsonKey(name: 'completed_at') DateTime? completedAt,
+    @JsonKey(name: 'champion_photo_url') String? championPhotoUrl,
     MatchTeamModel? champion,
   }) = _TournamentCategoryModel;
 
@@ -54,6 +55,7 @@ extension TournamentCategoryModelX on TournamentCategoryModel {
         isFull: isFull,
         waitlistCount: waitlistCount,
         completedAt: completedAt,
+        championPhotoUrl: championPhotoUrl,
         champion: champion?.toEntity(),
       );
 }

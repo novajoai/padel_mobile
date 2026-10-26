@@ -26,6 +26,8 @@ _PlayerStatsModel _$PlayerStatsModelFromJson(Map<String, dynamic> json) =>
       lastPlayedAt: json['last_played_at'] == null
           ? null
           : DateTime.parse(json['last_played_at'] as String),
+      winners: (json['winners'] as num?)?.toInt(),
+      errors: (json['errors'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$PlayerStatsModelToJson(_PlayerStatsModel instance) =>
@@ -46,4 +48,6 @@ Map<String, dynamic> _$PlayerStatsModelToJson(_PlayerStatsModel instance) =>
       'titles': instance.titles,
       'finals_reached': instance.finalsReached,
       'last_played_at': instance.lastPlayedAt?.toIso8601String(),
+      'winners': instance.winners,
+      'errors': instance.errors,
     };

@@ -1,5 +1,6 @@
 import '../../../../core/utils/json_utils.dart';
 import '../../../partners/data/models/partner_models.dart';
+import '../../../engagement/domain/engagement_entities.dart';
 import '../../domain/entities/player_profile.dart';
 import 'achievement_model.dart';
 import 'player_history_model.dart';
@@ -24,6 +25,8 @@ class PlayerProfileMapper {
       achievements: _achievements(Json.map(json['achievements'])),
       recentResults: Json.listOfMaps(json['recent_results']).map(resultRowFromJson).toList(),
       threeDProfile: _threeD(Json.map(json['three_d_profile'])),
+      popularity: Json.map(json['popularity']) == null ? null : Popularity.fromJson(Json.map(json['popularity'])!),
+      character: Json.map(json['character']) == null ? null : AvatarCharacter.fromJson(Json.map(json['character'])!),
     );
   }
 

@@ -1,7 +1,7 @@
 name: padel
 description: "Padel"
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ^3.10.7
@@ -100,3 +100,5 @@ flutter:
      - assets/fonts/
      # Title artwork and the bronze / silver / gold frames.
      - assets/titles/
+     # Popularity gem and rank badges (from the Playmaker football app).
+     - assets/fame/

@@ -52,6 +52,8 @@ enum NotificationType {
   registrationPartnerInvite('registration_partner_invite'),
   registrationPartnerAccepted('registration_partner_accepted'),
   registrationPartnerDeclined('registration_partner_declined'),
+  giftReceived('gift_received'),
+  predictionWon('prediction_won'),
   unknown('unknown');
 
   final String apiValue;
@@ -78,6 +80,8 @@ enum NotificationScreen {
   casualMatch,
   announcement,
   registrations,
+  popularity,
+  predictions,
   unknown;
 
   static NotificationScreen fromApi(String? raw) => switch (raw) {
@@ -93,6 +97,8 @@ enum NotificationScreen {
         'casual_match' => casualMatch,
         'announcement' => announcement,
         'registrations' => registrations,
+        'popularity' => popularity,
+        'predictions' => predictions,
         _ => unknown,
       };
 }

@@ -141,6 +141,22 @@ class ApiEndpoints {
   static String aiInsight(int id) => 'ai/insights/$id';
   static const String my3dProfile = 'me/3d-profile';
 
+  // Predictions · Playmaker Coins · popularity gifts
+  static const String predictionMatches = 'predictions/matches';
+  static const String myPredictions = 'me/predictions';
+  static const String predictionsLeaderboard = 'predictions/leaderboard';
+  static String matchPrediction(int matchId) => 'matches/$matchId/prediction';
+  static const String myCoins = 'me/coins';
+  static const String characters = 'characters';
+  static const String myCharacter = 'me/character';
+  static const String coinsCheckout = 'coins/checkout';
+  static const String gifts = 'gifts';
+  static const String giftsDaily = 'gifts/daily';
+  static String playerPopularity(String playerId) => 'players/$playerId/popularity';
+  static String playerGifts(String playerId) => 'players/$playerId/gifts';
+  static String playerGiftCheckout(String playerId) => 'players/$playerId/gifts/checkout';
+  static const String rankingFilters = 'rankings/filters';
+
   // Scorekeeper (staff)
   static const String scorekeeperLogin = 'scorekeeper/auth/login';
   static const String scorekeeperMatches = 'scorekeeper/matches';

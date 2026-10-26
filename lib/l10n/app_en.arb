@@ -1107,6 +1107,159 @@
   "myRegistrationsTitle": "My registrations",
   "myRegistrationsEmpty": "You haven't registered for a tournament yet",
   "registrationCancel": "Cancel registration",
+  "statsForm": "Form (last 10 matches)",
+  "statsLast10": "Last 10",
+  "statsOverall": "Overall",
+  "statsByRound": "By round",
+  "statsSetsAnalysis": "Sets",
+  "statsWonFirstSet": "After winning the first set",
+  "statsLostFirstSet": "After losing the first set",
+  "statsTiebreaks": "Tie-break sets",
+  "statsComebacks": "Comeback wins",
+  "statsServeAndPoints": "Serve & points",
+  "statsAces": "Aces",
+  "statsDoubleFaults": "Double faults",
+  "statsPointsWon": "Points won",
+  "statsPointsShare": "Share of points won",
+  "statsByPartner": "With each partner",
+  "statsByOpponent": "Against opponents",
+  "statsPerMatch": "Match by match",
+  "statsSeeAll": "All stats",
+  "predictionsTitle": "Predictions",
+  "predictionsTabOpen": "Matches",
+  "predictionsTabMine": "My predictions",
+  "predictionsTabLeaderboard": "Top predictors",
+  "predictionsRules": "Certified tournaments only. Right winner: {winner} points · exact sets: +{exact}.",
+  "@predictionsRules": {
+    "placeholders": {
+      "winner": {"type": "int"},
+      "exact": {"type": "int"}
+    }
+  },
+  "predictionsEmpty": "No matches open for predictions right now.",
+  "predictionsMineEmpty": "You haven't predicted any match yet.",
+  "predictionsLeaderboardEmpty": "No predictors yet.",
+  "predictionPointsLabel": "Prediction points",
+  "predictionPosition": "Rank #{position}",
+  "@predictionPosition": {
+    "placeholders": {
+      "position": {"type": "int"}
+    }
+  },
+  "predictionWonCount": "{won}/{settled} correct",
+  "@predictionWonCount": {
+    "placeholders": {
+      "won": {"type": "int"},
+      "settled": {"type": "int"}
+    }
+  },
+  "predictionCrowdCount": "{count} predictions",
+  "@predictionCrowdCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "predictionPredict": "Predict",
+  "predictionEdit": "Change",
+  "predictionClosed": "Closed",
+  "predictionStatusWon": "Correct +{points}",
+  "@predictionStatusWon": {
+    "placeholders": {
+      "points": {"type": "int"}
+    }
+  },
+  "predictionStatusLost": "Wrong",
+  "predictionStatusVoid": "Void",
+  "predictionStatusPending": "Waiting for the result",
+  "predictionSaved": "Prediction saved",
+  "predictionPick": "Who wins?",
+  "predictionExactScore": "Exact sets (optional, bonus points)",
+  "predictionSave": "Save prediction",
+  "coinsTitle": "My points",
+  "coinsBalance": "Playmaker Coins balance",
+  "coinsStore": "Store",
+  "coinsRate": "{coins} B = 1 JOD",
+  "@coinsRate": {
+    "placeholders": {
+      "coins": {"type": "int"}
+    }
+  },
+  "coinsBuy": "Buy",
+  "coinsHistory": "History",
+  "coinsHistoryEmpty": "No movements yet.",
+  "coinsSeparateNote": "Playmaker Coins are separate from popularity gems.",
+  "popularityTitle": "Popularity",
+  "popularityGems": "{count} gems",
+  "@popularityGems": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "popularityGifts": "{count} gifts received",
+  "@popularityGifts": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "popularityNextRank": "{gems} gems to {rank}",
+  "@popularityNextRank": {
+    "placeholders": {
+      "gems": {"type": "int"},
+      "rank": {"type": "String"}
+    }
+  },
+  "popularityTopRank": "Top rank reached",
+  "popularityReceivedTitle": "Gifts received",
+  "popularityLatest": "Latest gifts",
+  "popularityEmpty": "No gifts yet — be the first to send one!",
+  "popularityNote": "Gems only show popularity — they are never spent or converted.",
+  "giftsTitle": "Gifts & popularity",
+  "giftsSend": "Send a gift",
+  "giftsSendTitle": "Send a gift to {name}",
+  "@giftsSendTitle": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "giftsDailyClaim": "Claim today's gift",
+  "giftsDailyClaimed": "Today's gift claimed",
+  "giftsDailyClaimedSnack": "Today's gift is yours — send it to a player!",
+  "giftsMyStock": "My free gifts",
+  "giftsStockEmpty": "No free gifts yet. Claim the daily gift, play verified matches or enter tournaments to earn them.",
+  "giftsSendToPlayers": "Find a player to send gifts to",
+  "giftsCatalog": "All gifts",
+  "giftsFree": "Free",
+  "giftsNoneLeft": "None left",
+  "giftsPaidSection": "Premium gifts",
+  "giftsMinorCantBuy": "Buying gifts is for players aged 18 and over.",
+  "giftsSent": "Gift sent!",
+  "statWinners": "Winner",
+  "statWinnersHint": "Points won with a direct winning shot",
+  "statErrors": "Loser",
+  "statErrorsHint": "Points lost with own errors",
+  "rankingsFilters": "Filters",
+  "rankingsFilterGender": "Boys / Girls",
+  "rankingsFilterNationality": "Nationality",
+  "rankingsFilterAge": "Age group",
+  "rankingsFiltersApply": "Apply",
+  "rankingsFiltersClear": "Clear all",
+  "filterGenderMale": "Boys / Men",
+  "filterGenderFemale": "Girls / Women",
+  "filterJordanian": "Jordanian",
+  "filterForeign": "Non-Jordanian",
+  "ageUnder": "Under {age}",
+  "@ageUnder": {
+    "placeholders": {
+      "age": {"type": "int"}
+    }
+  },
+  "ageAdults": "Adults (18+)",
+  "ageOver": "{age}+",
+  "@ageOver": {
+    "placeholders": {
+      "age": {"type": "int"}
+    }
+  },
   "tournamentEntryFee": "Entry fee {amount} per team",
   "@tournamentEntryFee": {
     "placeholders": {
@@ -1447,5 +1600,14 @@
   "premiumDaysLeft": "{count} days left",
   "@premiumDaysLeft": {"placeholders":{"count":{"type":"int"}}},
   "findPartner": "Find a partner",
-  "findPartnerHint": "Search by name or player ID, open the player's profile, then tap \"Request as main partner\"."
+  "findPartnerHint": "Search by name or player ID, open the player's profile, then tap \"Request as main partner\".",
+  "characterTitle": "3D character",
+  "characterChange": "Change",
+  "characterPick": "Pick your free 3D character",
+  "characterPickHint": "Free for everyone. Premium members can also turn their own photo into a personal 3D character.",
+  "characterEmpty": "No characters yet",
+  "characterSaved": "Your character has been saved.",
+  "characterCurrent": "Your character",
+  "characterUse": "Use this character",
+  "characterRemove": "Remove character"
 }

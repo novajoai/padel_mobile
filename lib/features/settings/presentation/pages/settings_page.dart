@@ -40,13 +40,21 @@ class SettingsPage extends StatelessWidget {
           _Section(title: l10n.settingsLanguage),
           ValueListenableBuilder<String>(
             valueListenable: LocaleController.instance.languageCode,
-            builder: (context, code, _) => SegmentedButton<String>(
-              segments: [
-                ButtonSegment(value: 'ar', label: Text(l10n.settingsLanguageArabic)),
-                ButtonSegment(value: 'en', label: Text(l10n.settingsLanguageEnglish)),
-              ],
-              selected: {code},
-              onSelectionChanged: (s) => LocaleController.instance.setLanguage(s.first),
+            builder: (context, code, _) => AppCard(
+              padding: EdgeInsets.zero,
+              child: Column(
+                children: [
+                  for (final lang in LocaleController.supported)
+                    ListTile(
+                      title: Text(LocaleController.nativeNames[lang] ?? lang),
+                      trailing: Icon(
+                        lang == code ? Icons.radio_button_checked_rounded : Icons.radio_button_off_rounded,
+                        color: lang == code ? context.tokens.highlight : context.tokens.textMuted,
+                      ),
+                      onTap: () => LocaleController.instance.setLanguage(lang),
+                    ),
+                ],
+              ),
             ),
           ),
           _Section(title: l10n.settingsAppearance),
@@ -81,6 +89,9 @@ class SettingsPage extends StatelessWidget {
                 if (accountType.hasPlayerProfile) ...[
                   _Link(icon: Icons.edit_rounded, label: l10n.profileEdit, onTap: () => context.push(AppRoutes.editProfile)),
                   _Link(icon: Icons.diamond_rounded, label: l10n.settingsPremium, color: AppColors.premiumGold, onTap: () => context.push(AppRoutes.premium)),
+                  _Link(icon: Icons.toll_rounded, label: l10n.coinsTitle, color: AppColors.premiumGold, onTap: () => context.push(AppRoutes.myCoins)),
+                  _Link(icon: Icons.card_giftcard_rounded, label: l10n.giftsTitle, onTap: () => context.push(AppRoutes.gifts)),
+                  _Link(icon: Icons.insights_rounded, label: l10n.predictionsTitle, onTap: () => context.push(AppRoutes.predictions)),
                   _Link(icon: Icons.event_note_rounded, label: l10n.settingsMyTraining, onTap: () => context.push(AppRoutes.myBookings)),
                   _Link(icon: Icons.confirmation_number_rounded, label: l10n.myRegistrationsTitle, onTap: () => context.push(AppRoutes.myRegistrations)),
                   _Link(icon: Icons.receipt_long_rounded, label: l10n.settingsPayments, onTap: () => context.push(AppRoutes.payments)),

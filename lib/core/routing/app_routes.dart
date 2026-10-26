@@ -60,5 +60,12 @@ class AppRoutes {
   static const aiInsights = '/premium/ai';
   static const threeD = '/premium/3d';
   static const payments = '/me/payments';
+
+  // Predictions · My points · Popularity
+  static const predictions = '/predictions';
+  static const myCoins = '/me/coins';
+  static const characters = '/me/characters';
+  static const gifts = '/me/gifts';
+  static String playerPopularity(String playerId) => '/players/$playerId/popularity';
   static String payment(String reference) => '/me/payments/$reference';
 }

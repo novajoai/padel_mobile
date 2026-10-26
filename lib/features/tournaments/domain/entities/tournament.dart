@@ -91,6 +91,9 @@ class TournamentCategory extends Equatable {
   final bool isFull;
   final int waitlistCount;
   final DateTime? completedAt;
+
+  /// Winners' photo uploaded from the dashboard.
+  final String? championPhotoUrl;
   final MatchTeam? champion;
 
   const TournamentCategory({
@@ -111,6 +114,7 @@ class TournamentCategory extends Equatable {
     required this.isFull,
     this.waitlistCount = 0,
     this.completedAt,
+    this.championPhotoUrl,
     this.champion,
   });
 
@@ -135,6 +139,7 @@ class TournamentCategory extends Equatable {
         isFull,
         waitlistCount,
         completedAt,
+        championPhotoUrl,
         champion,
       ];
 }

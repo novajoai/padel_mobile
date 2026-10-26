@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/engagement/presentation/characters_page.dart';
+import '../../features/engagement/presentation/engagement_pages.dart';
+
 import '../../features/auth/domain/entities/auth_session.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../../features/auth/presentation/bloc/auth_state.dart';
@@ -166,6 +169,10 @@ GoRouter buildAppRouter(AuthBloc authBloc, {GlobalKey<NavigatorState>? navigator
             path: 'rating-history',
             builder: (_, s) => RatingHistoryPage(playerId: s.pathParameters['playerId']!),
           ),
+          GoRoute(
+            path: 'popularity',
+            builder: (_, s) => PopularityPage(playerId: s.pathParameters['playerId']!),
+          ),
         ],
       ),
       GoRoute(path: AppRoutes.editProfile, builder: (_, _) => const EditProfilePage()),
@@ -182,6 +189,10 @@ GoRouter buildAppRouter(AuthBloc authBloc, {GlobalKey<NavigatorState>? navigator
       ),
       GoRoute(path: AppRoutes.trainingProgress, builder: (_, _) => const TrainingProgressPage()),
       GoRoute(path: AppRoutes.payments, builder: (_, _) => const PaymentsPage()),
+      GoRoute(path: AppRoutes.predictions, builder: (_, _) => const PredictionsPage()),
+      GoRoute(path: AppRoutes.myCoins, builder: (_, _) => const MyCoinsPage()),
+      GoRoute(path: AppRoutes.characters, builder: (_, _) => const CharactersPage()),
+      GoRoute(path: AppRoutes.gifts, builder: (_, _) => const GiftsPage()),
       GoRoute(
         path: '/me/payments/:reference',
         builder: (_, s) => PaymentStatusPage(reference: s.pathParameters['reference']!),

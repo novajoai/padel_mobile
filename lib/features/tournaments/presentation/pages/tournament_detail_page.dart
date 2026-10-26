@@ -480,6 +480,20 @@ class _CategoryCard extends StatelessWidget {
             Gap.xs,
             Text(l10n.categoryWaitlist(category.waitlistCount), style: context.text.labelSmall),
           ],
+          if (category.championPhotoUrl != null) ...[
+            Gap.md,
+            ClipRRect(
+              borderRadius: AppRadius.controlAll,
+              child: AspectRatio(
+                aspectRatio: 16 / 10,
+                child: Image.network(
+                  category.championPhotoUrl!,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                ),
+              ),
+            ),
+          ],
           if (champion != null) ...[
             Gap.md,
             Container(

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PlayerStatsModel {
 
-@JsonKey(name: 'matches_played') int get matchesPlayed; int get wins; int get losses;@JsonKey(name: 'win_rate') num? get winRate;@JsonKey(name: 'walkover_wins') int get walkoverWins;@JsonKey(name: 'walkover_losses') int get walkoverLosses;@JsonKey(name: 'sets_won') int get setsWon;@JsonKey(name: 'sets_lost') int get setsLost;@JsonKey(name: 'games_won') int get gamesWon;@JsonKey(name: 'games_lost') int get gamesLost;@JsonKey(name: 'current_streak') Map<String, dynamic>? get currentStreak;@JsonKey(name: 'best_win_streak') int get bestWinStreak;@JsonKey(name: 'tournaments_played') int get tournamentsPlayed; int get titles;@JsonKey(name: 'finals_reached') int get finalsReached;@JsonKey(name: 'last_played_at') DateTime? get lastPlayedAt;
+@JsonKey(name: 'matches_played') int get matchesPlayed; int get wins; int get losses;@JsonKey(name: 'win_rate') num? get winRate;@JsonKey(name: 'walkover_wins') int get walkoverWins;@JsonKey(name: 'walkover_losses') int get walkoverLosses;@JsonKey(name: 'sets_won') int get setsWon;@JsonKey(name: 'sets_lost') int get setsLost;@JsonKey(name: 'games_won') int get gamesWon;@JsonKey(name: 'games_lost') int get gamesLost;@JsonKey(name: 'current_streak') Map<String, dynamic>? get currentStreak;@JsonKey(name: 'best_win_streak') int get bestWinStreak;@JsonKey(name: 'tournaments_played') int get tournamentsPlayed; int get titles;@JsonKey(name: 'finals_reached') int get finalsReached;@JsonKey(name: 'last_played_at') DateTime? get lastPlayedAt; int? get winners; int? get errors;
 /// Create a copy of PlayerStatsModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $PlayerStatsModelCopyWith<PlayerStatsModel> get copyWith => _$PlayerStatsModelCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlayerStatsModel&&(identical(other.matchesPlayed, matchesPlayed) || other.matchesPlayed == matchesPlayed)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.winRate, winRate) || other.winRate == winRate)&&(identical(other.walkoverWins, walkoverWins) || other.walkoverWins == walkoverWins)&&(identical(other.walkoverLosses, walkoverLosses) || other.walkoverLosses == walkoverLosses)&&(identical(other.setsWon, setsWon) || other.setsWon == setsWon)&&(identical(other.setsLost, setsLost) || other.setsLost == setsLost)&&(identical(other.gamesWon, gamesWon) || other.gamesWon == gamesWon)&&(identical(other.gamesLost, gamesLost) || other.gamesLost == gamesLost)&&const DeepCollectionEquality().equals(other.currentStreak, currentStreak)&&(identical(other.bestWinStreak, bestWinStreak) || other.bestWinStreak == bestWinStreak)&&(identical(other.tournamentsPlayed, tournamentsPlayed) || other.tournamentsPlayed == tournamentsPlayed)&&(identical(other.titles, titles) || other.titles == titles)&&(identical(other.finalsReached, finalsReached) || other.finalsReached == finalsReached)&&(identical(other.lastPlayedAt, lastPlayedAt) || other.lastPlayedAt == lastPlayedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlayerStatsModel&&(identical(other.matchesPlayed, matchesPlayed) || other.matchesPlayed == matchesPlayed)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.winRate, winRate) || other.winRate == winRate)&&(identical(other.walkoverWins, walkoverWins) || other.walkoverWins == walkoverWins)&&(identical(other.walkoverLosses, walkoverLosses) || other.walkoverLosses == walkoverLosses)&&(identical(other.setsWon, setsWon) || other.setsWon == setsWon)&&(identical(other.setsLost, setsLost) || other.setsLost == setsLost)&&(identical(other.gamesWon, gamesWon) || other.gamesWon == gamesWon)&&(identical(other.gamesLost, gamesLost) || other.gamesLost == gamesLost)&&const DeepCollectionEquality().equals(other.currentStreak, currentStreak)&&(identical(other.bestWinStreak, bestWinStreak) || other.bestWinStreak == bestWinStreak)&&(identical(other.tournamentsPlayed, tournamentsPlayed) || other.tournamentsPlayed == tournamentsPlayed)&&(identical(other.titles, titles) || other.titles == titles)&&(identical(other.finalsReached, finalsReached) || other.finalsReached == finalsReached)&&(identical(other.lastPlayedAt, lastPlayedAt) || other.lastPlayedAt == lastPlayedAt)&&(identical(other.winners, winners) || other.winners == winners)&&(identical(other.errors, errors) || other.errors == errors));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,matchesPlayed,wins,losses,winRate,walkoverWins,walkoverLosses,setsWon,setsLost,gamesWon,gamesLost,const DeepCollectionEquality().hash(currentStreak),bestWinStreak,tournamentsPlayed,titles,finalsReached,lastPlayedAt);
+int get hashCode => Object.hash(runtimeType,matchesPlayed,wins,losses,winRate,walkoverWins,walkoverLosses,setsWon,setsLost,gamesWon,gamesLost,const DeepCollectionEquality().hash(currentStreak),bestWinStreak,tournamentsPlayed,titles,finalsReached,lastPlayedAt,winners,errors);
 
 @override
 String toString() {
-  return 'PlayerStatsModel(matchesPlayed: $matchesPlayed, wins: $wins, losses: $losses, winRate: $winRate, walkoverWins: $walkoverWins, walkoverLosses: $walkoverLosses, setsWon: $setsWon, setsLost: $setsLost, gamesWon: $gamesWon, gamesLost: $gamesLost, currentStreak: $currentStreak, bestWinStreak: $bestWinStreak, tournamentsPlayed: $tournamentsPlayed, titles: $titles, finalsReached: $finalsReached, lastPlayedAt: $lastPlayedAt)';
+  return 'PlayerStatsModel(matchesPlayed: $matchesPlayed, wins: $wins, losses: $losses, winRate: $winRate, walkoverWins: $walkoverWins, walkoverLosses: $walkoverLosses, setsWon: $setsWon, setsLost: $setsLost, gamesWon: $gamesWon, gamesLost: $gamesLost, currentStreak: $currentStreak, bestWinStreak: $bestWinStreak, tournamentsPlayed: $tournamentsPlayed, titles: $titles, finalsReached: $finalsReached, lastPlayedAt: $lastPlayedAt, winners: $winners, errors: $errors)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $PlayerStatsModelCopyWith<$Res>  {
   factory $PlayerStatsModelCopyWith(PlayerStatsModel value, $Res Function(PlayerStatsModel) _then) = _$PlayerStatsModelCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'matches_played') int matchesPlayed, int wins, int losses,@JsonKey(name: 'win_rate') num? winRate,@JsonKey(name: 'walkover_wins') int walkoverWins,@JsonKey(name: 'walkover_losses') int walkoverLosses,@JsonKey(name: 'sets_won') int setsWon,@JsonKey(name: 'sets_lost') int setsLost,@JsonKey(name: 'games_won') int gamesWon,@JsonKey(name: 'games_lost') int gamesLost,@JsonKey(name: 'current_streak') Map<String, dynamic>? currentStreak,@JsonKey(name: 'best_win_streak') int bestWinStreak,@JsonKey(name: 'tournaments_played') int tournamentsPlayed, int titles,@JsonKey(name: 'finals_reached') int finalsReached,@JsonKey(name: 'last_played_at') DateTime? lastPlayedAt
+@JsonKey(name: 'matches_played') int matchesPlayed, int wins, int losses,@JsonKey(name: 'win_rate') num? winRate,@JsonKey(name: 'walkover_wins') int walkoverWins,@JsonKey(name: 'walkover_losses') int walkoverLosses,@JsonKey(name: 'sets_won') int setsWon,@JsonKey(name: 'sets_lost') int setsLost,@JsonKey(name: 'games_won') int gamesWon,@JsonKey(name: 'games_lost') int gamesLost,@JsonKey(name: 'current_streak') Map<String, dynamic>? currentStreak,@JsonKey(name: 'best_win_streak') int bestWinStreak,@JsonKey(name: 'tournaments_played') int tournamentsPlayed, int titles,@JsonKey(name: 'finals_reached') int finalsReached,@JsonKey(name: 'last_played_at') DateTime? lastPlayedAt, int? winners, int? errors
 });
 
 
@@ -65,7 +65,7 @@ class _$PlayerStatsModelCopyWithImpl<$Res>
 
 /// Create a copy of PlayerStatsModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? matchesPlayed = null,Object? wins = null,Object? losses = null,Object? winRate = freezed,Object? walkoverWins = null,Object? walkoverLosses = null,Object? setsWon = null,Object? setsLost = null,Object? gamesWon = null,Object? gamesLost = null,Object? currentStreak = freezed,Object? bestWinStreak = null,Object? tournamentsPlayed = null,Object? titles = null,Object? finalsReached = null,Object? lastPlayedAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? matchesPlayed = null,Object? wins = null,Object? losses = null,Object? winRate = freezed,Object? walkoverWins = null,Object? walkoverLosses = null,Object? setsWon = null,Object? setsLost = null,Object? gamesWon = null,Object? gamesLost = null,Object? currentStreak = freezed,Object? bestWinStreak = null,Object? tournamentsPlayed = null,Object? titles = null,Object? finalsReached = null,Object? lastPlayedAt = freezed,Object? winners = freezed,Object? errors = freezed,}) {
   return _then(_self.copyWith(
 matchesPlayed: null == matchesPlayed ? _self.matchesPlayed : matchesPlayed // ignore: cast_nullable_to_non_nullable
 as int,wins: null == wins ? _self.wins : wins // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,9 @@ as int,tournamentsPlayed: null == tournamentsPlayed ? _self.tournamentsPlayed : 
 as int,titles: null == titles ? _self.titles : titles // ignore: cast_nullable_to_non_nullable
 as int,finalsReached: null == finalsReached ? _self.finalsReached : finalsReached // ignore: cast_nullable_to_non_nullable
 as int,lastPlayedAt: freezed == lastPlayedAt ? _self.lastPlayedAt : lastPlayedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as DateTime?,winners: freezed == winners ? _self.winners : winners // ignore: cast_nullable_to_non_nullable
+as int?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 
@@ -168,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'matches_played')  int matchesPlayed,  int wins,  int losses, @JsonKey(name: 'win_rate')  num? winRate, @JsonKey(name: 'walkover_wins')  int walkoverWins, @JsonKey(name: 'walkover_losses')  int walkoverLosses, @JsonKey(name: 'sets_won')  int setsWon, @JsonKey(name: 'sets_lost')  int setsLost, @JsonKey(name: 'games_won')  int gamesWon, @JsonKey(name: 'games_lost')  int gamesLost, @JsonKey(name: 'current_streak')  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak')  int bestWinStreak, @JsonKey(name: 'tournaments_played')  int tournamentsPlayed,  int titles, @JsonKey(name: 'finals_reached')  int finalsReached, @JsonKey(name: 'last_played_at')  DateTime? lastPlayedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'matches_played')  int matchesPlayed,  int wins,  int losses, @JsonKey(name: 'win_rate')  num? winRate, @JsonKey(name: 'walkover_wins')  int walkoverWins, @JsonKey(name: 'walkover_losses')  int walkoverLosses, @JsonKey(name: 'sets_won')  int setsWon, @JsonKey(name: 'sets_lost')  int setsLost, @JsonKey(name: 'games_won')  int gamesWon, @JsonKey(name: 'games_lost')  int gamesLost, @JsonKey(name: 'current_streak')  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak')  int bestWinStreak, @JsonKey(name: 'tournaments_played')  int tournamentsPlayed,  int titles, @JsonKey(name: 'finals_reached')  int finalsReached, @JsonKey(name: 'last_played_at')  DateTime? lastPlayedAt,  int? winners,  int? errors)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PlayerStatsModel() when $default != null:
-return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.walkoverWins,_that.walkoverLosses,_that.setsWon,_that.setsLost,_that.gamesWon,_that.gamesLost,_that.currentStreak,_that.bestWinStreak,_that.tournamentsPlayed,_that.titles,_that.finalsReached,_that.lastPlayedAt);case _:
+return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.walkoverWins,_that.walkoverLosses,_that.setsWon,_that.setsLost,_that.gamesWon,_that.gamesLost,_that.currentStreak,_that.bestWinStreak,_that.tournamentsPlayed,_that.titles,_that.finalsReached,_that.lastPlayedAt,_that.winners,_that.errors);case _:
   return orElse();
 
 }
@@ -189,10 +191,10 @@ return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'matches_played')  int matchesPlayed,  int wins,  int losses, @JsonKey(name: 'win_rate')  num? winRate, @JsonKey(name: 'walkover_wins')  int walkoverWins, @JsonKey(name: 'walkover_losses')  int walkoverLosses, @JsonKey(name: 'sets_won')  int setsWon, @JsonKey(name: 'sets_lost')  int setsLost, @JsonKey(name: 'games_won')  int gamesWon, @JsonKey(name: 'games_lost')  int gamesLost, @JsonKey(name: 'current_streak')  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak')  int bestWinStreak, @JsonKey(name: 'tournaments_played')  int tournamentsPlayed,  int titles, @JsonKey(name: 'finals_reached')  int finalsReached, @JsonKey(name: 'last_played_at')  DateTime? lastPlayedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'matches_played')  int matchesPlayed,  int wins,  int losses, @JsonKey(name: 'win_rate')  num? winRate, @JsonKey(name: 'walkover_wins')  int walkoverWins, @JsonKey(name: 'walkover_losses')  int walkoverLosses, @JsonKey(name: 'sets_won')  int setsWon, @JsonKey(name: 'sets_lost')  int setsLost, @JsonKey(name: 'games_won')  int gamesWon, @JsonKey(name: 'games_lost')  int gamesLost, @JsonKey(name: 'current_streak')  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak')  int bestWinStreak, @JsonKey(name: 'tournaments_played')  int tournamentsPlayed,  int titles, @JsonKey(name: 'finals_reached')  int finalsReached, @JsonKey(name: 'last_played_at')  DateTime? lastPlayedAt,  int? winners,  int? errors)  $default,) {final _that = this;
 switch (_that) {
 case _PlayerStatsModel():
-return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.walkoverWins,_that.walkoverLosses,_that.setsWon,_that.setsLost,_that.gamesWon,_that.gamesLost,_that.currentStreak,_that.bestWinStreak,_that.tournamentsPlayed,_that.titles,_that.finalsReached,_that.lastPlayedAt);case _:
+return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.walkoverWins,_that.walkoverLosses,_that.setsWon,_that.setsLost,_that.gamesWon,_that.gamesLost,_that.currentStreak,_that.bestWinStreak,_that.tournamentsPlayed,_that.titles,_that.finalsReached,_that.lastPlayedAt,_that.winners,_that.errors);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +211,10 @@ return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'matches_played')  int matchesPlayed,  int wins,  int losses, @JsonKey(name: 'win_rate')  num? winRate, @JsonKey(name: 'walkover_wins')  int walkoverWins, @JsonKey(name: 'walkover_losses')  int walkoverLosses, @JsonKey(name: 'sets_won')  int setsWon, @JsonKey(name: 'sets_lost')  int setsLost, @JsonKey(name: 'games_won')  int gamesWon, @JsonKey(name: 'games_lost')  int gamesLost, @JsonKey(name: 'current_streak')  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak')  int bestWinStreak, @JsonKey(name: 'tournaments_played')  int tournamentsPlayed,  int titles, @JsonKey(name: 'finals_reached')  int finalsReached, @JsonKey(name: 'last_played_at')  DateTime? lastPlayedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'matches_played')  int matchesPlayed,  int wins,  int losses, @JsonKey(name: 'win_rate')  num? winRate, @JsonKey(name: 'walkover_wins')  int walkoverWins, @JsonKey(name: 'walkover_losses')  int walkoverLosses, @JsonKey(name: 'sets_won')  int setsWon, @JsonKey(name: 'sets_lost')  int setsLost, @JsonKey(name: 'games_won')  int gamesWon, @JsonKey(name: 'games_lost')  int gamesLost, @JsonKey(name: 'current_streak')  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak')  int bestWinStreak, @JsonKey(name: 'tournaments_played')  int tournamentsPlayed,  int titles, @JsonKey(name: 'finals_reached')  int finalsReached, @JsonKey(name: 'last_played_at')  DateTime? lastPlayedAt,  int? winners,  int? errors)?  $default,) {final _that = this;
 switch (_that) {
 case _PlayerStatsModel() when $default != null:
-return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.walkoverWins,_that.walkoverLosses,_that.setsWon,_that.setsLost,_that.gamesWon,_that.gamesLost,_that.currentStreak,_that.bestWinStreak,_that.tournamentsPlayed,_that.titles,_that.finalsReached,_that.lastPlayedAt);case _:
+return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.walkoverWins,_that.walkoverLosses,_that.setsWon,_that.setsLost,_that.gamesWon,_that.gamesLost,_that.currentStreak,_that.bestWinStreak,_that.tournamentsPlayed,_that.titles,_that.finalsReached,_that.lastPlayedAt,_that.winners,_that.errors);case _:
   return null;
 
 }
@@ -224,7 +226,7 @@ return $default(_that.matchesPlayed,_that.wins,_that.losses,_that.winRate,_that.
 @JsonSerializable()
 
 class _PlayerStatsModel implements PlayerStatsModel {
-  const _PlayerStatsModel({@JsonKey(name: 'matches_played') this.matchesPlayed = 0, this.wins = 0, this.losses = 0, @JsonKey(name: 'win_rate') this.winRate, @JsonKey(name: 'walkover_wins') this.walkoverWins = 0, @JsonKey(name: 'walkover_losses') this.walkoverLosses = 0, @JsonKey(name: 'sets_won') this.setsWon = 0, @JsonKey(name: 'sets_lost') this.setsLost = 0, @JsonKey(name: 'games_won') this.gamesWon = 0, @JsonKey(name: 'games_lost') this.gamesLost = 0, @JsonKey(name: 'current_streak') final  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak') this.bestWinStreak = 0, @JsonKey(name: 'tournaments_played') this.tournamentsPlayed = 0, this.titles = 0, @JsonKey(name: 'finals_reached') this.finalsReached = 0, @JsonKey(name: 'last_played_at') this.lastPlayedAt}): _currentStreak = currentStreak;
+  const _PlayerStatsModel({@JsonKey(name: 'matches_played') this.matchesPlayed = 0, this.wins = 0, this.losses = 0, @JsonKey(name: 'win_rate') this.winRate, @JsonKey(name: 'walkover_wins') this.walkoverWins = 0, @JsonKey(name: 'walkover_losses') this.walkoverLosses = 0, @JsonKey(name: 'sets_won') this.setsWon = 0, @JsonKey(name: 'sets_lost') this.setsLost = 0, @JsonKey(name: 'games_won') this.gamesWon = 0, @JsonKey(name: 'games_lost') this.gamesLost = 0, @JsonKey(name: 'current_streak') final  Map<String, dynamic>? currentStreak, @JsonKey(name: 'best_win_streak') this.bestWinStreak = 0, @JsonKey(name: 'tournaments_played') this.tournamentsPlayed = 0, this.titles = 0, @JsonKey(name: 'finals_reached') this.finalsReached = 0, @JsonKey(name: 'last_played_at') this.lastPlayedAt, this.winners, this.errors}): _currentStreak = currentStreak;
   factory _PlayerStatsModel.fromJson(Map<String, dynamic> json) => _$PlayerStatsModelFromJson(json);
 
 @override@JsonKey(name: 'matches_played') final  int matchesPlayed;
@@ -251,6 +253,8 @@ class _PlayerStatsModel implements PlayerStatsModel {
 @override@JsonKey() final  int titles;
 @override@JsonKey(name: 'finals_reached') final  int finalsReached;
 @override@JsonKey(name: 'last_played_at') final  DateTime? lastPlayedAt;
+@override final  int? winners;
+@override final  int? errors;
 
 /// Create a copy of PlayerStatsModel
 /// with the given fields replaced by the non-null parameter values.
@@ -265,16 +269,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlayerStatsModel&&(identical(other.matchesPlayed, matchesPlayed) || other.matchesPlayed == matchesPlayed)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.winRate, winRate) || other.winRate == winRate)&&(identical(other.walkoverWins, walkoverWins) || other.walkoverWins == walkoverWins)&&(identical(other.walkoverLosses, walkoverLosses) || other.walkoverLosses == walkoverLosses)&&(identical(other.setsWon, setsWon) || other.setsWon == setsWon)&&(identical(other.setsLost, setsLost) || other.setsLost == setsLost)&&(identical(other.gamesWon, gamesWon) || other.gamesWon == gamesWon)&&(identical(other.gamesLost, gamesLost) || other.gamesLost == gamesLost)&&const DeepCollectionEquality().equals(other._currentStreak, _currentStreak)&&(identical(other.bestWinStreak, bestWinStreak) || other.bestWinStreak == bestWinStreak)&&(identical(other.tournamentsPlayed, tournamentsPlayed) || other.tournamentsPlayed == tournamentsPlayed)&&(identical(other.titles, titles) || other.titles == titles)&&(identical(other.finalsReached, finalsReached) || other.finalsReached == finalsReached)&&(identical(other.lastPlayedAt, lastPlayedAt) || other.lastPlayedAt == lastPlayedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlayerStatsModel&&(identical(other.matchesPlayed, matchesPlayed) || other.matchesPlayed == matchesPlayed)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.winRate, winRate) || other.winRate == winRate)&&(identical(other.walkoverWins, walkoverWins) || other.walkoverWins == walkoverWins)&&(identical(other.walkoverLosses, walkoverLosses) || other.walkoverLosses == walkoverLosses)&&(identical(other.setsWon, setsWon) || other.setsWon == setsWon)&&(identical(other.setsLost, setsLost) || other.setsLost == setsLost)&&(identical(other.gamesWon, gamesWon) || other.gamesWon == gamesWon)&&(identical(other.gamesLost, gamesLost) || other.gamesLost == gamesLost)&&const DeepCollectionEquality().equals(other._currentStreak, _currentStreak)&&(identical(other.bestWinStreak, bestWinStreak) || other.bestWinStreak == bestWinStreak)&&(identical(other.tournamentsPlayed, tournamentsPlayed) || other.tournamentsPlayed == tournamentsPlayed)&&(identical(other.titles, titles) || other.titles == titles)&&(identical(other.finalsReached, finalsReached) || other.finalsReached == finalsReached)&&(identical(other.lastPlayedAt, lastPlayedAt) || other.lastPlayedAt == lastPlayedAt)&&(identical(other.winners, winners) || other.winners == winners)&&(identical(other.errors, errors) || other.errors == errors));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,matchesPlayed,wins,losses,winRate,walkoverWins,walkoverLosses,setsWon,setsLost,gamesWon,gamesLost,const DeepCollectionEquality().hash(_currentStreak),bestWinStreak,tournamentsPlayed,titles,finalsReached,lastPlayedAt);
+int get hashCode => Object.hash(runtimeType,matchesPlayed,wins,losses,winRate,walkoverWins,walkoverLosses,setsWon,setsLost,gamesWon,gamesLost,const DeepCollectionEquality().hash(_currentStreak),bestWinStreak,tournamentsPlayed,titles,finalsReached,lastPlayedAt,winners,errors);
 
 @override
 String toString() {
-  return 'PlayerStatsModel(matchesPlayed: $matchesPlayed, wins: $wins, losses: $losses, winRate: $winRate, walkoverWins: $walkoverWins, walkoverLosses: $walkoverLosses, setsWon: $setsWon, setsLost: $setsLost, gamesWon: $gamesWon, gamesLost: $gamesLost, currentStreak: $currentStreak, bestWinStreak: $bestWinStreak, tournamentsPlayed: $tournamentsPlayed, titles: $titles, finalsReached: $finalsReached, lastPlayedAt: $lastPlayedAt)';
+  return 'PlayerStatsModel(matchesPlayed: $matchesPlayed, wins: $wins, losses: $losses, winRate: $winRate, walkoverWins: $walkoverWins, walkoverLosses: $walkoverLosses, setsWon: $setsWon, setsLost: $setsLost, gamesWon: $gamesWon, gamesLost: $gamesLost, currentStreak: $currentStreak, bestWinStreak: $bestWinStreak, tournamentsPlayed: $tournamentsPlayed, titles: $titles, finalsReached: $finalsReached, lastPlayedAt: $lastPlayedAt, winners: $winners, errors: $errors)';
 }
 
 
@@ -285,7 +289,7 @@ abstract mixin class _$PlayerStatsModelCopyWith<$Res> implements $PlayerStatsMod
   factory _$PlayerStatsModelCopyWith(_PlayerStatsModel value, $Res Function(_PlayerStatsModel) _then) = __$PlayerStatsModelCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'matches_played') int matchesPlayed, int wins, int losses,@JsonKey(name: 'win_rate') num? winRate,@JsonKey(name: 'walkover_wins') int walkoverWins,@JsonKey(name: 'walkover_losses') int walkoverLosses,@JsonKey(name: 'sets_won') int setsWon,@JsonKey(name: 'sets_lost') int setsLost,@JsonKey(name: 'games_won') int gamesWon,@JsonKey(name: 'games_lost') int gamesLost,@JsonKey(name: 'current_streak') Map<String, dynamic>? currentStreak,@JsonKey(name: 'best_win_streak') int bestWinStreak,@JsonKey(name: 'tournaments_played') int tournamentsPlayed, int titles,@JsonKey(name: 'finals_reached') int finalsReached,@JsonKey(name: 'last_played_at') DateTime? lastPlayedAt
+@JsonKey(name: 'matches_played') int matchesPlayed, int wins, int losses,@JsonKey(name: 'win_rate') num? winRate,@JsonKey(name: 'walkover_wins') int walkoverWins,@JsonKey(name: 'walkover_losses') int walkoverLosses,@JsonKey(name: 'sets_won') int setsWon,@JsonKey(name: 'sets_lost') int setsLost,@JsonKey(name: 'games_won') int gamesWon,@JsonKey(name: 'games_lost') int gamesLost,@JsonKey(name: 'current_streak') Map<String, dynamic>? currentStreak,@JsonKey(name: 'best_win_streak') int bestWinStreak,@JsonKey(name: 'tournaments_played') int tournamentsPlayed, int titles,@JsonKey(name: 'finals_reached') int finalsReached,@JsonKey(name: 'last_played_at') DateTime? lastPlayedAt, int? winners, int? errors
 });
 
 
@@ -302,7 +306,7 @@ class __$PlayerStatsModelCopyWithImpl<$Res>
 
 /// Create a copy of PlayerStatsModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? matchesPlayed = null,Object? wins = null,Object? losses = null,Object? winRate = freezed,Object? walkoverWins = null,Object? walkoverLosses = null,Object? setsWon = null,Object? setsLost = null,Object? gamesWon = null,Object? gamesLost = null,Object? currentStreak = freezed,Object? bestWinStreak = null,Object? tournamentsPlayed = null,Object? titles = null,Object? finalsReached = null,Object? lastPlayedAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? matchesPlayed = null,Object? wins = null,Object? losses = null,Object? winRate = freezed,Object? walkoverWins = null,Object? walkoverLosses = null,Object? setsWon = null,Object? setsLost = null,Object? gamesWon = null,Object? gamesLost = null,Object? currentStreak = freezed,Object? bestWinStreak = null,Object? tournamentsPlayed = null,Object? titles = null,Object? finalsReached = null,Object? lastPlayedAt = freezed,Object? winners = freezed,Object? errors = freezed,}) {
   return _then(_PlayerStatsModel(
 matchesPlayed: null == matchesPlayed ? _self.matchesPlayed : matchesPlayed // ignore: cast_nullable_to_non_nullable
 as int,wins: null == wins ? _self.wins : wins // ignore: cast_nullable_to_non_nullable
@@ -320,7 +324,9 @@ as int,tournamentsPlayed: null == tournamentsPlayed ? _self.tournamentsPlayed : 
 as int,titles: null == titles ? _self.titles : titles // ignore: cast_nullable_to_non_nullable
 as int,finalsReached: null == finalsReached ? _self.finalsReached : finalsReached // ignore: cast_nullable_to_non_nullable
 as int,lastPlayedAt: freezed == lastPlayedAt ? _self.lastPlayedAt : lastPlayedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as DateTime?,winners: freezed == winners ? _self.winners : winners // ignore: cast_nullable_to_non_nullable
+as int?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

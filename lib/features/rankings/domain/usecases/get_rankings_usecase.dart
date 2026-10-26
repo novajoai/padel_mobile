@@ -12,10 +12,11 @@ class GetRankingsUseCase {
     RankingType type = RankingType.season,
     String? season,
     String? level,
+    Map<String, String> filters = const {},
     String? q,
     int page = 1,
   }) =>
-      repository.getRankings(type: type, season: season, level: level, q: q, page: page);
+      repository.getRankings(type: type, season: season, level: level, filters: filters, q: q, page: page);
 }
 
 class GetSeasonsUseCase {

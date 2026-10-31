@@ -112,6 +112,12 @@ class PlayerProfile extends Equatable {
   /// Free ready-made 3D character (the Premium 3D identity wins when there is one).
   final AvatarCharacter? character;
 
+  /// False for a visitor who doesn't follow the player: the profile without results.
+  final bool resultsVisible;
+
+  /// Modular character render spec (null until the player makes one).
+  final Map<String, dynamic>? avatar;
+
   const PlayerProfile({
     required this.player,
     this.rankings,
@@ -123,6 +129,8 @@ class PlayerProfile extends Equatable {
     this.threeDProfile,
     this.popularity,
     this.character,
+    this.resultsVisible = true,
+    this.avatar,
   });
 
   PlayerProfile copyWith({SocialSummary? social}) => PlayerProfile(
@@ -136,9 +144,11 @@ class PlayerProfile extends Equatable {
         threeDProfile: threeDProfile,
         popularity: popularity,
         character: character,
+        resultsVisible: resultsVisible,
+        avatar: avatar,
       );
 
   @override
   List<Object?> get props =>
-      [player, rankings, stats, partners, social, achievements, recentResults, threeDProfile, popularity, character];
+      [player, rankings, stats, partners, social, achievements, recentResults, threeDProfile, popularity, character, resultsVisible, avatar];
 }

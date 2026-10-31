@@ -1,0 +1,268 @@
+{
+    "status": true,
+    "message": "OK",
+    "data": {
+        "stage_url": "http://localhost/avatar/stage",
+        "is_premium": false,
+        "slots": [
+            {
+                "key": "body",
+                "name": "Body",
+                "kind": "base",
+                "is_required": true,
+                "items": [
+                    {
+                        "key": "base_male",
+                        "name": "Male",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "base_female",
+                        "name": "Female",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "key": "hair",
+                "name": "Hairstyle",
+                "kind": "skinned",
+                "is_required": false,
+                "items": [
+                    {
+                        "key": "hair_simpleparted",
+                        "name": "Side part",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "hair_buzzed",
+                        "name": "Buzz cut",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "hair_long",
+                        "name": "Long",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "hair_buns",
+                        "name": "Buns",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "hair_buzzedfemale",
+                        "name": "Short crop",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "key": "facial_hair",
+                "name": "Beard",
+                "kind": "skinned",
+                "is_required": false,
+                "items": [
+                    {
+                        "key": "hair_beard",
+                        "name": "Full beard",
+                        "thumbnail_url": null,
+                        "compatible_bases": [
+                            "base_male"
+                        ],
+                        "is_premium": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "key": "outfit",
+                "name": "Outfit",
+                "kind": "skinned",
+                "is_required": true,
+                "items": [
+                    {
+                        "key": "outfit_male_peasant",
+                        "name": "Classic",
+                        "thumbnail_url": null,
+                        "compatible_bases": [
+                            "base_male"
+                        ],
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "outfit_male_ranger",
+                        "name": "Ranger",
+                        "thumbnail_url": null,
+                        "compatible_bases": [
+                            "base_male"
+                        ],
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "outfit_female_peasant",
+                        "name": "Classic",
+                        "thumbnail_url": null,
+                        "compatible_bases": [
+                            "base_female"
+                        ],
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "outfit_female_ranger",
+                        "name": "Ranger",
+                        "thumbnail_url": null,
+                        "compatible_bases": [
+                            "base_female"
+                        ],
+                        "is_premium": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "key": "racket",
+                "name": "Racket",
+                "kind": "attached",
+                "is_required": true,
+                "items": [
+                    {
+                        "key": "racket_round",
+                        "name": "Round · Control",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "racket_teardrop",
+                        "name": "Teardrop · Hybrid",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "key": "racket_diamond",
+                        "name": "Diamond · Power",
+                        "thumbnail_url": null,
+                        "compatible_bases": null,
+                        "is_premium": true,
+                        "locked": true
+                    }
+                ]
+            }
+        ],
+        "channels": [
+            {
+                "key": "skin",
+                "name": "Skin",
+                "required": true,
+                "colors": [
+                    {
+                        "hex": "#ffdbac",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#f1c27d",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#e0ac69",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#c68642",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#8d5524",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#5c3a21",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "key": "hair",
+                "name": "Hair",
+                "required": true,
+                "colors": [
+                    {
+                        "hex": "#151515",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#3b2416",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#6b3e26",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#b55239",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#d9b26f",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    },
+                    {
+                        "hex": "#e8e1d4",
+                        "name": null,
+                        "is_premium": false,
+                        "locked": false
+                    }
+                ]
+            }
+        ]
+    }
+}

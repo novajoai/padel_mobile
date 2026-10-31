@@ -99,6 +99,9 @@ _TournamentModel _$TournamentModelFromJson(Map<String, dynamic> json) =>
               )
               .toList() ??
           const [],
+      sponsors: json['sponsors'] == null
+          ? const []
+          : Sponsor.listFromJson(json['sponsors']),
     );
 
 Map<String, dynamic> _$TournamentModelToJson(

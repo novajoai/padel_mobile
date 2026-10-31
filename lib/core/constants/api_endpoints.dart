@@ -148,6 +148,10 @@ class ApiEndpoints {
   static String matchPrediction(int matchId) => 'matches/$matchId/prediction';
   static const String myCoins = 'me/coins';
   static const String characters = 'characters';
+  static const String sponsorBanners = 'sponsors/banners';
+  static const String avatarCatalog = 'avatar/catalog';
+  static const String avatarPreview = 'avatar/preview';
+  static const String myAvatar = 'me/avatar';
   static const String myCharacter = 'me/character';
   static const String coinsCheckout = 'coins/checkout';
   static const String gifts = 'gifts';

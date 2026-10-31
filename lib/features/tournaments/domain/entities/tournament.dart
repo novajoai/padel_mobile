@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import '../../../../core/models/sponsor.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../../../l10n/gen/app_localizations.dart';
@@ -165,6 +166,9 @@ class Tournament extends Equatable {
   final int liveMatchesCount;
   final List<TournamentCategory> categories;
 
+  /// Tournament sponsors (logos on the tournament).
+  final List<Sponsor> sponsors;
+
   /// Paid tournament: every team pays [entryFee] (cash at the venue or online).
   final bool isPaid;
   final num entryFee;
@@ -190,6 +194,7 @@ class Tournament extends Equatable {
     this.registrationOpen = false,
     this.liveMatchesCount = 0,
     this.categories = const [],
+    this.sponsors = const [],
     this.isPaid = false,
     this.entryFee = 0,
     this.currency = 'JOD',
@@ -218,6 +223,7 @@ class Tournament extends Equatable {
         registrationOpen,
         liveMatchesCount,
         categories,
+        sponsors,
         isPaid,
         entryFee,
         currency,

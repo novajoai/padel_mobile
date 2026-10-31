@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appTitle => 'منصة بادل';
+  String get appTitle => 'Playmaker Padel';
 
   @override
   String get navHome => 'الرئيسية';
@@ -3038,4 +3038,83 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get characterRemove => 'إزالة الشخصية';
+
+  @override
+  String get levelsTitle => 'المستويات';
+
+  @override
+  String levelsYourRating(int rating) {
+    return 'تقييم مهارتك: $rating';
+  }
+
+  @override
+  String levelsToNext(int points, String level) {
+    return 'باقي $points نقطة للوصول إلى $level';
+  }
+
+  @override
+  String get levelsTop => 'أنت في أعلى مستوى!';
+
+  @override
+  String get levelsHint =>
+      'مستواك يتبع تقييم مهارتك، اللي بيطلع وبينزل مع كل مباراة رسمية معتمدة. المستويات من D- (البداية) إلى A+ (الأعلى).';
+
+  @override
+  String levelsRange(int from, int to) {
+    return '$from – $to نقطة';
+  }
+
+  @override
+  String levelsFrom(int from) {
+    return '$from+ نقطة';
+  }
+
+  @override
+  String get resultsLockedTitle => 'النتائج للمتابعين';
+
+  @override
+  String get resultsLockedBody => 'تابع هذا اللاعب لتشاهد نتائجه وإحصائياته.';
+
+  @override
+  String get giftFromPlaymaker => 'من Playmaker · توقع صحيح';
+
+  @override
+  String get sponsoredBy => 'برعاية';
+
+  @override
+  String get avatarTitle => 'شخصيتي';
+
+  @override
+  String get avatarCreate => 'اصنع شخصيتك';
+
+  @override
+  String get avatarCreateHint =>
+      'البشرة، الشعر، الملابس ومضرب البادل — مجاناً.';
+
+  @override
+  String get avatarEdit => 'تعديل';
+
+  @override
+  String get avatarSave => 'حفظ الشخصية';
+
+  @override
+  String get avatarSaved => 'تم حفظ شخصيتك.';
+
+  @override
+  String get avatarColors => 'الألوان';
+
+  @override
+  String get avatarNone => 'بدون';
+
+  @override
+  String get avatarPremiumToSave => 'اخترت عناصر بريميوم — اشترك لتحفظها';
+
+  @override
+  String get avatarLoadFailed => 'تعذّر تحميل الشخصية ثلاثية الأبعاد.';
+
+  @override
+  String get avatarDebug => 'لوحة الفحص';
+
+  @override
+  String get avatarDebugCopied => 'تم نسخ أرقام الفحص.';
 }

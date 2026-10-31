@@ -19,6 +19,7 @@ import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/utils/formatters.dart';
+import '../../../../core/widgets/sponsor_widgets.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/app_network_image.dart';
 import '../../../../core/widgets/badges.dart';
@@ -293,6 +294,10 @@ class _OverviewTab extends StatelessWidget {
           _FactsCard(tournament: t),
           Gap.md,
           _NoteCard(ranked: t.isRanked),
+          if (t.sponsors.isNotEmpty) ...[
+            Gap.lg,
+            SponsorsRow(sponsors: t.sponsors),
+          ],
           if (t.description != null && t.description!.isNotEmpty) ...[
             Gap.xl,
             Text(l10n.tournamentAbout, style: context.text.headlineMedium?.copyWith(fontSize: 24)),

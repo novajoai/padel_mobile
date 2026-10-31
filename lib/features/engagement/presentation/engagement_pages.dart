@@ -774,7 +774,11 @@ class PopularityPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(r.gift.name, style: context.text.titleSmall),
-                                    if (r.sender != null) Text(r.sender!.name, style: context.text.bodySmall),
+                                    if (r.sender != null)
+                                      Text(r.sender!.name, style: context.text.bodySmall)
+                                    // A reward from Playmaker (a right prediction).
+                                    else if (r.fromPlaymaker)
+                                      Text(l10n.giftFromPlaymaker, style: context.text.bodySmall),
                                   ],
                                 ),
                               ),

@@ -34,10 +34,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <!-- Background pushes use the whistle channel (created by the app). -->
+        <!-- Pushes without a channel use the normal-sound channel (the server sends padel_whistle for tournaments). -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="padel_whistle" />
+            android:value="padel_default" />
         <!-- Sign in with Apple on Android: Apple redirects to the backend, which
              bounces back into the app through this callback. -->
         <activity

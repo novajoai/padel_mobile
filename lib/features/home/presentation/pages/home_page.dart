@@ -15,6 +15,7 @@ import '../../../../core/widgets/feedback.dart';
 import '../../../../core/widgets/pm_art.dart';
 import '../../../../core/widgets/player_avatar.dart';
 import '../../../../core/widgets/shimmer_skeleton.dart';
+import '../../../../core/widgets/sponsor_widgets.dart';
 import '../../../../core/widgets/state_views.dart';
 import '../../../../l10n/gen/app_localizations.dart';
 import '../../../engagement/presentation/engagement_pages.dart';
@@ -90,6 +91,11 @@ class _HomeView extends StatelessWidget {
     final sections = feed.ordered.where((s) => s.key != skip).toList();
 
     return [
+      // Sponsors' banner, at the top of the home screen.
+      SliverPadding(
+        padding: const EdgeInsetsDirectional.fromSTEB(AppSpacing.gutter, 0, AppSpacing.gutter, AppSpacing.lg),
+        sliver: const SliverToBoxAdapter(child: _MaxWidth(child: SponsorBanner())),
+      ),
       if (hero != null)
         SliverPadding(
           padding: AppSpacing.pageH,

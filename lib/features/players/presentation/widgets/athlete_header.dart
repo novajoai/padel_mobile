@@ -145,7 +145,7 @@ class AthleteHeader extends StatelessWidget {
                 seasonMovement: rankings?.season.movement,
                 xp: rankings?.xp ?? player.xp,
               ),
-              if (level != null) ...[Gap.lg, PmLevelLadder(level: level)],
+              if (level != null) ...[Gap.lg, PmLevelLadder(level: level, rating: rankings?.skill.rating ?? player.skillRating)],
             ],
           ),
         ),

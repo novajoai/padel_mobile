@@ -1,0 +1,233 @@
+{
+    "status": true,
+    "message": "Your character has been saved.",
+    "data": {
+        "saved": {
+            "items": {
+                "body": "base_female",
+                "hair": "hair_buns",
+                "outfit": "outfit_female_peasant",
+                "racket": "racket_round"
+            },
+            "colors": {
+                "skin": "#c68642",
+                "hair": "#6b3e26"
+            },
+            "updated_at": "2026-10-28T21:04:55+03:00"
+        },
+        "spec": {
+            "base": {
+                "slot": "body",
+                "key": "base_female",
+                "url": "http://localhost/assets/uploads/avatar/fe0323d9-8afe-48f5-b5e8-2c1e0775d8e2.glb?v=1793210694",
+                "config": {
+                    "pose": {
+                        "upperarm_r": [
+                            0,
+                            0,
+                            68
+                        ],
+                        "lowerarm_r": [
+                            60,
+                            0,
+                            0
+                        ],
+                        "upperarm_l": [
+                            0,
+                            0,
+                            -68
+                        ],
+                        "lowerarm_l": [
+                            15,
+                            0,
+                            0
+                        ],
+                        "thumb_02_r": [
+                            0,
+                            0,
+                            -25
+                        ],
+                        "thumb_03_r": [
+                            0,
+                            0,
+                            -25
+                        ],
+                        "index_01_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "index_02_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "index_03_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "middle_01_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "middle_02_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "middle_03_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "ring_01_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "ring_02_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "ring_03_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "pinky_01_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "pinky_02_r": [
+                            55,
+                            0,
+                            0
+                        ],
+                        "pinky_03_r": [
+                            55,
+                            0,
+                            0
+                        ]
+                    },
+                    "camera": {
+                        "distance": 4.4
+                    },
+                    "material_roles": {
+                        "MI_Superhero_Female": "skin",
+                        "MI_Hair_2": "tint:hair",
+                        "MI_Eyes": "none"
+                    },
+                    "regions": {
+                        "head": [
+                            "Head",
+                            "neck_01"
+                        ],
+                        "torso": [
+                            "root",
+                            "pelvis",
+                            "spine_01",
+                            "spine_02",
+                            "spine_03",
+                            "clavicle_l",
+                            "clavicle_r"
+                        ],
+                        "upper_arms": [
+                            "upperarm_l",
+                            "upperarm_r"
+                        ],
+                        "lower_arms": [
+                            "lowerarm_l",
+                            "lowerarm_r"
+                        ],
+                        "hands": [
+                            "hand_l",
+                            "hand_r",
+                            "/^(index|middle|ring|pinky|thumb)_/"
+                        ],
+                        "upper_legs": [
+                            "thigh_l",
+                            "thigh_r"
+                        ],
+                        "lower_legs": [
+                            "calf_l",
+                            "calf_r"
+                        ],
+                        "feet": [
+                            "foot_l",
+                            "foot_r",
+                            "ball_l",
+                            "ball_r",
+                            "ball_leaf_l",
+                            "ball_leaf_r"
+                        ]
+                    }
+                }
+            },
+            "items": [
+                {
+                    "slot": "hair",
+                    "key": "hair_buns",
+                    "url": "http://localhost/assets/uploads/avatar/f522b828-c98c-4e8c-968a-811963d12474.glb?v=1793210694",
+                    "kind": "skinned",
+                    "config": {
+                        "material_roles": {
+                            "MI_Hair_1": "tint:hair",
+                            "MI_Hair_2": "tint:hair"
+                        }
+                    }
+                },
+                {
+                    "slot": "outfit",
+                    "key": "outfit_female_peasant",
+                    "url": "http://localhost/assets/uploads/avatar/0b39f054-d819-4148-a9fa-80d6c0e87d31.glb?v=1793210694",
+                    "kind": "skinned",
+                    "config": {
+                        "material_roles": {
+                            "MI_Regular_Male": "skin",
+                            "MI_Regular_Female": "skin"
+                        },
+                        "hides": [
+                            "torso",
+                            "upper_arms",
+                            "lower_arms",
+                            "hands",
+                            "upper_legs",
+                            "lower_legs",
+                            "feet"
+                        ]
+                    }
+                },
+                {
+                    "slot": "racket",
+                    "key": "racket_round",
+                    "url": "http://localhost/assets/uploads/avatar/24b57796-311d-4c9b-9b52-06f15c66b2f7.glb?v=1793210694",
+                    "kind": "attached",
+                    "config": {
+                        "attach": {
+                            "bone": "hand_r",
+                            "anchor": "middle_01_r",
+                            "grip": [
+                                0,
+                                0.07,
+                                0
+                            ],
+                            "rotation": [
+                                110,
+                                0,
+                                -25
+                            ]
+                        }
+                    }
+                }
+            ],
+            "colors": {
+                "skin": "#c68642",
+                "hair": "#6b3e26"
+            }
+        }
+    }
+}

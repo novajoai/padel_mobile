@@ -109,7 +109,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Padel Platform'**
+  /// **'Playmaker Padel'**
   String get appTitle;
 
   /// No description provided for @navHome.
@@ -5457,6 +5457,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove character'**
   String get characterRemove;
+
+  /// No description provided for @levelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Levels'**
+  String get levelsTitle;
+
+  /// No description provided for @levelsYourRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Skill Rating: {rating}'**
+  String levelsYourRating(int rating);
+
+  /// No description provided for @levelsToNext.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} points to {level}'**
+  String levelsToNext(int points, String level);
+
+  /// No description provided for @levelsTop.
+  ///
+  /// In en, this message translates to:
+  /// **'You are at the top level!'**
+  String get levelsTop;
+
+  /// No description provided for @levelsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your level follows your Skill Rating, which goes up and down with every verified official match. Levels go from D- (start) to A+ (top).'**
+  String get levelsHint;
+
+  /// No description provided for @levelsRange.
+  ///
+  /// In en, this message translates to:
+  /// **'{from} – {to} points'**
+  String levelsRange(int from, int to);
+
+  /// No description provided for @levelsFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'{from}+ points'**
+  String levelsFrom(int from);
+
+  /// No description provided for @resultsLockedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Results for followers'**
+  String get resultsLockedTitle;
+
+  /// No description provided for @resultsLockedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow this player to see their results and stats.'**
+  String get resultsLockedBody;
+
+  /// No description provided for @giftFromPlaymaker.
+  ///
+  /// In en, this message translates to:
+  /// **'From Playmaker · right prediction'**
+  String get giftFromPlaymaker;
+
+  /// No description provided for @sponsoredBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Sponsored by'**
+  String get sponsoredBy;
+
+  /// No description provided for @avatarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My character'**
+  String get avatarTitle;
+
+  /// No description provided for @avatarCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your character'**
+  String get avatarCreate;
+
+  /// No description provided for @avatarCreateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin, hair, outfit and your padel racket — free.'**
+  String get avatarCreateHint;
+
+  /// No description provided for @avatarEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get avatarEdit;
+
+  /// No description provided for @avatarSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save character'**
+  String get avatarSave;
+
+  /// No description provided for @avatarSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Your character has been saved.'**
+  String get avatarSaved;
+
+  /// No description provided for @avatarColors.
+  ///
+  /// In en, this message translates to:
+  /// **'Colors'**
+  String get avatarColors;
+
+  /// No description provided for @avatarNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get avatarNone;
+
+  /// No description provided for @avatarPremiumToSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium items selected — go Premium to save'**
+  String get avatarPremiumToSave;
+
+  /// No description provided for @avatarLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The 3D character couldn\'t load.'**
+  String get avatarLoadFailed;
+
+  /// No description provided for @avatarDebug.
+  ///
+  /// In en, this message translates to:
+  /// **'Debug panel'**
+  String get avatarDebug;
+
+  /// No description provided for @avatarDebugCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Debug numbers copied.'**
+  String get avatarDebugCopied;
 }
 
 class _AppLocalizationsDelegate

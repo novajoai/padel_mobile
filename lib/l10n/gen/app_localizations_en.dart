@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Padel Platform';
+  String get appTitle => 'Playmaker Padel';
 
   @override
   String get navHome => 'Home';
@@ -3028,4 +3028,85 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get characterRemove => 'Remove character';
+
+  @override
+  String get levelsTitle => 'Levels';
+
+  @override
+  String levelsYourRating(int rating) {
+    return 'Your Skill Rating: $rating';
+  }
+
+  @override
+  String levelsToNext(int points, String level) {
+    return '$points points to $level';
+  }
+
+  @override
+  String get levelsTop => 'You are at the top level!';
+
+  @override
+  String get levelsHint =>
+      'Your level follows your Skill Rating, which goes up and down with every verified official match. Levels go from D- (start) to A+ (top).';
+
+  @override
+  String levelsRange(int from, int to) {
+    return '$from – $to points';
+  }
+
+  @override
+  String levelsFrom(int from) {
+    return '$from+ points';
+  }
+
+  @override
+  String get resultsLockedTitle => 'Results for followers';
+
+  @override
+  String get resultsLockedBody =>
+      'Follow this player to see their results and stats.';
+
+  @override
+  String get giftFromPlaymaker => 'From Playmaker · right prediction';
+
+  @override
+  String get sponsoredBy => 'Sponsored by';
+
+  @override
+  String get avatarTitle => 'My character';
+
+  @override
+  String get avatarCreate => 'Create your character';
+
+  @override
+  String get avatarCreateHint =>
+      'Skin, hair, outfit and your padel racket — free.';
+
+  @override
+  String get avatarEdit => 'Edit';
+
+  @override
+  String get avatarSave => 'Save character';
+
+  @override
+  String get avatarSaved => 'Your character has been saved.';
+
+  @override
+  String get avatarColors => 'Colors';
+
+  @override
+  String get avatarNone => 'None';
+
+  @override
+  String get avatarPremiumToSave =>
+      'Premium items selected — go Premium to save';
+
+  @override
+  String get avatarLoadFailed => 'The 3D character couldn\'t load.';
+
+  @override
+  String get avatarDebug => 'Debug panel';
+
+  @override
+  String get avatarDebugCopied => 'Debug numbers copied.';
 }

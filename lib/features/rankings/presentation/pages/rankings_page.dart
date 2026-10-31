@@ -16,6 +16,7 @@ import '../../../../core/widgets/state_builders.dart';
 import '../../../../l10n/gen/app_localizations.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../../auth/presentation/bloc/auth_state.dart';
+import '../../../players/domain/entities/player.dart';
 import '../../domain/entities/ranking_entry.dart';
 import '../bloc/rankings_cubits.dart';
 import '../widgets/ranking_row.dart';
@@ -250,7 +251,7 @@ class _LevelChips extends StatelessWidget {
     final options = context.enums.options(EnumGroup.playerLevels);
     final levels = options.isNotEmpty
         ? options
-        : const ['C', 'C+', 'B', 'B+', 'A', 'A+', 'Elite'].map((l) => EnumOption(l, l)).toList();
+        : PlayerLevelX.codes.map((l) => EnumOption(l, l)).toList();
     return SizedBox(
       height: AppSizes.chipHeight + 8,
       child: ListView(

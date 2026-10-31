@@ -14,6 +14,7 @@ import '../../features/players/di/players_injection.dart';
 import '../../features/premium/di/premium_injection.dart';
 import '../../features/rankings/di/rankings_injection.dart';
 import '../../features/scorekeeper/di/scorekeeper_injection.dart';
+import '../../features/avatar/di/avatar_injection.dart';
 import '../../features/engagement/di/engagement_injection.dart';
 import '../../features/tournaments/di/tournaments_injection.dart';
 import '../../features/venues/di/venues_injection.dart';
@@ -53,4 +54,5 @@ Future<void> configureDependencies() async {
   registerPremiumDependencies(sl);
   registerScorekeeperDependencies(sl);
   registerEngagementDependencies(sl);
+  registerAvatarDependencies(sl);
 }

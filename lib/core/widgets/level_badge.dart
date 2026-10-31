@@ -5,17 +5,16 @@ import '../theme/app_spacing.dart';
 import '../theme/app_text_styles.dart';
 import '../theme/app_tokens.dart';
 
-/// Level → metal, used by avatar rings and level chips: bronze for C,
-/// silver for B, gold for A and the ball's lime for Elite — the same three
-/// grades as the titles.
+/// Level → metal, used by avatar rings and level chips: sea glass for D,
+/// bronze for C, silver for B and gold for A.
 class LevelColors {
   const LevelColors._();
 
   static Color of(String level) => switch (level) {
-    'Elite' => AppColors.accent,
-    'A+' || 'A' => AppColors.gold,
-    'B+' || 'B' => AppColors.medalSilver,
-    'C+' || 'C' => AppColors.medalBronze,
+    'A+' || 'A' || 'A-' => AppColors.gold,
+    'B+' || 'B' || 'B-' => AppColors.medalSilver,
+    'C+' || 'C' || 'C-' => AppColors.medalBronze,
+    'D+' || 'D' || 'D-' => AppColors.info,
     _ => AppColors.textMuted,
   };
 }

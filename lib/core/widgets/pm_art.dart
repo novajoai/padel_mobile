@@ -2,6 +2,9 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../routing/app_routes.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_effects.dart';
@@ -449,17 +452,27 @@ class _PmPulseDotState extends State<PmPulseDot> with SingleTickerProviderStateM
   );
 }
 
-/// The C → Elite ladder: done segments in gold, the player's segment half
-/// filled, and the lime marker on it.
+/// The D- → A+ ladder: done segments in gold, the player's segment half
+/// filled, and the lime marker on it. Tap: the points each level needs.
 class PmLevelLadder extends StatelessWidget {
   final String? level;
 
-  const PmLevelLadder({super.key, required this.level});
+  /// The player's Skill Rating, shown on the levels page.
+  final int? rating;
 
-  static const levels = ['C', 'C+', 'B', 'B+', 'A', 'A+', 'Elite'];
+  const PmLevelLadder({super.key, required this.level, this.rating});
+
+  static const levels = ['D-', 'D', 'D+', 'C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+'];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => context.push(AppRoutes.levels(rating)),
+        child: _ladder(context),
+      );
+
+  Widget _ladder(BuildContext context) {
+    final n = levels.length;
     final i = levels.indexOf(level ?? '');
     final dark = context.tokens.isDark;
     final track = dark ? AppColors.cream08 : AppColors.lightOutline;
@@ -468,7 +481,7 @@ class PmLevelLadder extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, c) {
           const gap = 3.0;
-          final seg = (c.maxWidth - gap * 6) / 7;
+          final seg = (c.maxWidth - gap * (n - 1)) / n;
           return Column(
             children: [
               SizedBox(
@@ -482,7 +495,7 @@ class PmLevelLadder extends StatelessWidget {
                       right: 0,
                       child: Row(
                         children: [
-                          for (var k = 0; k < 7; k++) ...[
+                          for (var k = 0; k < n; k++) ...[
                             if (k > 0) const SizedBox(width: gap),
                             Container(
                               width: seg,
@@ -522,7 +535,7 @@ class PmLevelLadder extends StatelessWidget {
               const SizedBox(height: 6),
               Row(
                 children: [
-                  for (var k = 0; k < 7; k++)
+                  for (var k = 0; k < n; k++)
                     Expanded(
                       child: Text(
                         levels[k],

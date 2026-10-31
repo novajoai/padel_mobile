@@ -28,6 +28,7 @@ import '../../../partners/presentation/bloc/partners_cubits.dart';
 import '../../../partners/presentation/widgets/duo_3d_card.dart';
 import '../../../partners/presentation/widgets/partner_widgets.dart';
 import '../../../partners/presentation/widgets/recommended_partners_section.dart';
+import '../../../avatar/presentation/avatar_profile_section.dart';
 import '../../../engagement/presentation/engagement_pages.dart';
 import '../../../premium/domain/entities/ai_insight.dart';
 import '../../../premium/domain/usecases/premium_usecases.dart';
@@ -82,6 +83,11 @@ class ProfileOverviewTab extends StatelessWidget {
           popularity: profile.popularity!,
           onTap: () => context.push(AppRoutes.playerPopularity(player.playerId)),
         ),
+      AvatarProfileSection(
+        spec: profile.avatar,
+        isOwner: player.isOwner,
+        onChanged: () => context.read<PlayerProfileCubit>().load(player.playerId, silent: true),
+      ),
       if (asset != null && asset.isNotEmpty) ...[
         SectionHeader(eyebrow: l10n.premiumLabel, eyebrowColor: AppColors.premiumGold, title: l10n.profile3dIdentity),
         ThreeDViewer(assetUrl: asset, alt: player.name),
@@ -137,10 +143,12 @@ class ProfileOverviewTab extends StatelessWidget {
       _AchievementShelf(latest: profile.achievements.latest),
       SectionHeader(
         title: l10n.profileRecentResults,
-        actionLabel: player.isOwner || profile.recentResults.isNotEmpty ? l10n.profileRatingHistory : null,
+        actionLabel: profile.resultsVisible && (player.isOwner || profile.recentResults.isNotEmpty) ? l10n.profileRatingHistory : null,
         onAction: () => context.push(AppRoutes.playerRatingHistory(player.playerId)),
       ),
-      if (profile.recentResults.isEmpty)
+      if (!profile.resultsVisible)
+        const ResultsLockedCard()
+      else if (profile.recentResults.isEmpty)
         AppCard(
           child: EmptyState(
             icon: Icons.scoreboard_outlined,
@@ -173,8 +181,10 @@ class ProfileOverviewTab extends StatelessWidget {
         SectionHeader(title: l10n.profileTabStats),
         StatsSummaryGrid(stats: profile.stats!),
       ],
-      SectionHeader(title: l10n.profileTournamentHistory),
-      _TournamentTimeline(playerId: player.playerId),
+      if (profile.resultsVisible) ...[
+        SectionHeader(title: l10n.profileTournamentHistory),
+        _TournamentTimeline(playerId: player.playerId),
+      ],
     ];
 
     return ListView.separated(
@@ -406,6 +416,24 @@ class _TimelineEntry extends StatelessWidget {
 }
 
 /// Results tab — paginated verified results.
+/// A visitor who doesn't follow the player sees the profile without results.
+class ResultsLockedCard extends StatelessWidget {
+  const ResultsLockedCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return AppCard(
+      child: EmptyState(
+        icon: Icons.lock_outline_rounded,
+        title: l10n.resultsLockedTitle,
+        message: l10n.resultsLockedBody,
+        compact: true,
+      ),
+    );
+  }
+}
+
 class ProfileResultsTab extends StatelessWidget {
   final String playerId;
 

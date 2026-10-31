@@ -149,7 +149,7 @@ class HomeSectionView extends StatelessWidget {
 }
 
 /// The home design's player card: perspective court with the flying ball,
-/// the level in gold leaf, the three metrics and the C → Elite ladder.
+/// the level in gold leaf, the three metrics and the D- → A+ ladder.
 class _RankingCard extends StatelessWidget {
   final RankingSnapshotSection data;
 
@@ -207,7 +207,7 @@ class _RankingCard extends StatelessWidget {
             ],
           ),
           Gap.lg,
-          PmLevelLadder(level: level),
+          PmLevelLadder(level: level, rating: data.skillRating),
           Gap.md,
           Container(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 12, vertical: 10),

@@ -75,6 +75,7 @@ class EnumsService extends ChangeNotifier {
 
   Map<String, List<EnumOption>> _groups = const {};
   Map<String, PointEndingRule> _endingRules = const {};
+  Map<String, int> _levelMins = const {};
   bool _loading = false;
 
   bool get isLoaded => _groups.isNotEmpty;
@@ -114,8 +115,17 @@ class EnumsService extends ChangeNotifier {
           ];
         }
       });
+      final mins = <String, int>{};
+      final levels = data[EnumGroup.playerLevels];
+      if (levels is List) {
+        for (final item in levels) {
+          final min = item is Map ? item['min_rating'] : null;
+          if (min is num) mins[item['value'].toString()] = min.toInt();
+        }
+      }
       _groups = parsed;
       _endingRules = rules;
+      if (mins.isNotEmpty) _levelMins = mins;
       notifyListeners();
     } catch (e) {
       // Labels degrade to humanized raw values; nothing else depends on this.
@@ -126,6 +136,15 @@ class EnumsService extends ChangeNotifier {
   }
 
   List<EnumOption> options(String group) => _groups[group] ?? const [];
+
+  /// Skill Rating each level starts at (lowest level first); the server's
+  /// `ranking.level_thresholds`, with its defaults until meta/enums loads.
+  Map<String, int> get levelMinRatings => _levelMins.isNotEmpty ? _levelMins : defaultLevelMinRatings;
+
+  static const defaultLevelMinRatings = {
+    'D-': 0, 'D': 700, 'D+': 800, 'C-': 900, 'C': 1000, 'C+': 1100,
+    'B-': 1200, 'B': 1300, 'B+': 1400, 'A-': 1500, 'A': 1600, 'A+': 1700,
+  };
 
   /// Rule for a point ending type, or null when `meta/enums` has not loaded.
   PointEndingRule? endingRule(String endingType) => _endingRules[endingType];

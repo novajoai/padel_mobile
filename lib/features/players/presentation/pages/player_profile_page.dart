@@ -171,15 +171,25 @@ class _ProfileContent extends StatelessWidget {
         body: TabBarView(
           children: [
             ProfileOverviewTab(profile: profile),
-            ProfileResultsTab(playerId: player.playerId),
+            if (profile.resultsVisible) ProfileResultsTab(playerId: player.playerId) else const _LockedTab(),
             ProfileAchievementsTab(playerId: player.playerId),
             ProfilePartnersTab(playerId: player.playerId, isOwner: isOwner),
-            ProfileStatsTab(playerId: player.playerId),
+            if (profile.resultsVisible) ProfileStatsTab(playerId: player.playerId) else const _LockedTab(),
           ],
         ),
       ),
     );
   }
+}
+
+class _LockedTab extends StatelessWidget {
+  const _LockedTab();
+
+  @override
+  Widget build(BuildContext context) => ListView(
+        padding: AppSpacing.page,
+        children: const [ResultsLockedCard()],
+      );
 }
 
 class _OwnerActions extends StatelessWidget {

@@ -9,7 +9,7 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get appTitle => 'Padelplatform';
+  String get appTitle => 'Playmaker Padel';
 
   @override
   String get navHome => 'Home';
@@ -3032,4 +3032,85 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get characterRemove => 'Personage verwijderen';
+
+  @override
+  String get levelsTitle => 'Niveaus';
+
+  @override
+  String levelsYourRating(int rating) {
+    return 'Jouw Skill Rating: $rating';
+  }
+
+  @override
+  String levelsToNext(int points, String level) {
+    return 'Nog $points punten tot $level';
+  }
+
+  @override
+  String get levelsTop => 'Je zit op het hoogste niveau!';
+
+  @override
+  String get levelsHint =>
+      'Je niveau volgt je Skill Rating, die stijgt en daalt met elke geverifieerde officiële wedstrijd. Niveaus lopen van D- (start) tot A+ (top).';
+
+  @override
+  String levelsRange(int from, int to) {
+    return '$from – $to punten';
+  }
+
+  @override
+  String levelsFrom(int from) {
+    return '$from+ punten';
+  }
+
+  @override
+  String get resultsLockedTitle => 'Resultaten voor volgers';
+
+  @override
+  String get resultsLockedBody =>
+      'Volg deze speler om de resultaten en statistieken te zien.';
+
+  @override
+  String get giftFromPlaymaker => 'Van Playmaker · juiste voorspelling';
+
+  @override
+  String get sponsoredBy => 'Gesponsord door';
+
+  @override
+  String get avatarTitle => 'Mijn personage';
+
+  @override
+  String get avatarCreate => 'Maak je personage';
+
+  @override
+  String get avatarCreateHint =>
+      'Huid, haar, kleding en je padelracket — gratis.';
+
+  @override
+  String get avatarEdit => 'Bewerken';
+
+  @override
+  String get avatarSave => 'Personage opslaan';
+
+  @override
+  String get avatarSaved => 'Je personage is opgeslagen.';
+
+  @override
+  String get avatarColors => 'Kleuren';
+
+  @override
+  String get avatarNone => 'Geen';
+
+  @override
+  String get avatarPremiumToSave =>
+      'Premium-items gekozen — word Premium om op te slaan';
+
+  @override
+  String get avatarLoadFailed => 'Het 3D-personage kon niet laden.';
+
+  @override
+  String get avatarDebug => 'Debugpaneel';
+
+  @override
+  String get avatarDebugCopied => 'Gegevens gekopieerd.';
 }

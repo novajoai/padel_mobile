@@ -9,7 +9,7 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get appTitle => 'Plataforma de Padel';
+  String get appTitle => 'Playmaker Padel';
 
   @override
   String get navHome => 'Início';
@@ -3035,4 +3035,85 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get characterRemove => 'Remover personagem';
+
+  @override
+  String get levelsTitle => 'Níveis';
+
+  @override
+  String levelsYourRating(int rating) {
+    return 'O teu Skill Rating: $rating';
+  }
+
+  @override
+  String levelsToNext(int points, String level) {
+    return 'Faltam $points pontos para $level';
+  }
+
+  @override
+  String get levelsTop => 'Estás no nível máximo!';
+
+  @override
+  String get levelsHint =>
+      'O teu nível segue o teu Skill Rating, que sobe e desce com cada jogo oficial verificado. Os níveis vão de D- (início) a A+ (máximo).';
+
+  @override
+  String levelsRange(int from, int to) {
+    return '$from – $to pontos';
+  }
+
+  @override
+  String levelsFrom(int from) {
+    return '$from+ pontos';
+  }
+
+  @override
+  String get resultsLockedTitle => 'Resultados para seguidores';
+
+  @override
+  String get resultsLockedBody =>
+      'Segue este jogador para ver os resultados e as estatísticas.';
+
+  @override
+  String get giftFromPlaymaker => 'Da Playmaker · previsão certa';
+
+  @override
+  String get sponsoredBy => 'Patrocinado por';
+
+  @override
+  String get avatarTitle => 'O meu personagem';
+
+  @override
+  String get avatarCreate => 'Cria o teu personagem';
+
+  @override
+  String get avatarCreateHint =>
+      'Pele, cabelo, roupa e a tua raquete — grátis.';
+
+  @override
+  String get avatarEdit => 'Editar';
+
+  @override
+  String get avatarSave => 'Guardar personagem';
+
+  @override
+  String get avatarSaved => 'O teu personagem foi guardado.';
+
+  @override
+  String get avatarColors => 'Cores';
+
+  @override
+  String get avatarNone => 'Nenhum';
+
+  @override
+  String get avatarPremiumToSave =>
+      'Escolheste itens Premium — torna-te Premium para guardar';
+
+  @override
+  String get avatarLoadFailed => 'Não foi possível carregar o personagem 3D.';
+
+  @override
+  String get avatarDebug => 'Painel de depuração';
+
+  @override
+  String get avatarDebugCopied => 'Dados copiados.';
 }

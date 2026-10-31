@@ -240,10 +240,13 @@ class ReceivedGift extends Equatable {
   final PlayerSummary? sender;
   final DateTime? at;
 
-  const ReceivedGift({required this.gift, this.sender, this.at});
+  /// A reward from Playmaker (no sender), e.g. a right prediction.
+  final bool fromPlaymaker;
+
+  const ReceivedGift({required this.gift, this.sender, this.at, this.fromPlaymaker = false});
 
   @override
-  List<Object?> get props => [gift, sender, at];
+  List<Object?> get props => [gift, sender, at, fromPlaymaker];
 }
 
 class Popularity extends Equatable {
@@ -293,6 +296,7 @@ class Popularity extends Equatable {
             gift: Gift.fromJson(Json.map(r['gift']) ?? const {}),
             sender: Json.map(r['sender']) == null ? null : PlayerSummaryModel.fromJson(Json.map(r['sender'])!).toEntity(),
             at: DateTime.tryParse(Json.string(r['created_at']) ?? ''),
+            fromPlaymaker: Json.string(r['source']) == 'reward',
           ),
       ],
     );

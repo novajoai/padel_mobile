@@ -27,6 +27,9 @@ class PlayerProfileMapper {
       threeDProfile: _threeD(Json.map(json['three_d_profile'])),
       popularity: Json.map(json['popularity']) == null ? null : Popularity.fromJson(Json.map(json['popularity'])!),
       character: Json.map(json['character']) == null ? null : AvatarCharacter.fromJson(Json.map(json['character'])!),
+      // Older servers don't send it: results were public.
+      resultsVisible: json['results_visible'] == null || Json.boolean(json['results_visible']),
+      avatar: Json.map(json['avatar']),
     );
   }
 

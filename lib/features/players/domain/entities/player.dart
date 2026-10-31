@@ -15,40 +15,19 @@ extension PlayerSideX on PlayerSide {
       };
 }
 
-/// C < C+ < B < B+ < A < A+ < Elite, in the exact order the backend uses.
-enum PlayerLevel { c, cPlus, b, bPlus, a, aPlus, elite }
+/// D- < D < D+ < C- < … < A < A+, in the exact order the backend uses.
+enum PlayerLevel { dMinus, d, dPlus, cMinus, c, cPlus, bMinus, b, bPlus, aMinus, a, aPlus }
 
 extension PlayerLevelX on PlayerLevel {
+  /// Level codes, lowest first.
+  static const codes = ['D-', 'D', 'D+', 'C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+'];
+
   static PlayerLevel? fromApi(String? raw) {
-    switch (raw) {
-      case 'C':
-        return PlayerLevel.c;
-      case 'C+':
-        return PlayerLevel.cPlus;
-      case 'B':
-        return PlayerLevel.b;
-      case 'B+':
-        return PlayerLevel.bPlus;
-      case 'A':
-        return PlayerLevel.a;
-      case 'A+':
-        return PlayerLevel.aPlus;
-      case 'Elite':
-        return PlayerLevel.elite;
-      default:
-        return null;
-    }
+    final i = codes.indexOf(raw ?? '');
+    return i < 0 ? null : PlayerLevel.values[i];
   }
 
-  String get label => switch (this) {
-        PlayerLevel.c => 'C',
-        PlayerLevel.cPlus => 'C+',
-        PlayerLevel.b => 'B',
-        PlayerLevel.bPlus => 'B+',
-        PlayerLevel.a => 'A',
-        PlayerLevel.aPlus => 'A+',
-        PlayerLevel.elite => 'Elite',
-      };
+  String get label => codes[index];
 }
 
 /// Lightweight reference to another player (e.g. `main_partner`).

@@ -11,6 +11,8 @@ class AppRoutes {
   static const home = '/';
   static const compete = '/compete';
   static const rankings = '/rankings';
+  static const levelsPath = '/levels';
+  static String levels([int? rating]) => rating == null ? levelsPath : '$levelsPath?rating=$rating';
   static const play = '/play';
   static const profile = '/profile';
 
@@ -65,6 +67,7 @@ class AppRoutes {
   static const predictions = '/predictions';
   static const myCoins = '/me/coins';
   static const characters = '/me/characters';
+  static const avatarEditor = '/me/avatar';
   static const gifts = '/me/gifts';
   static String playerPopularity(String playerId) => '/players/$playerId/popularity';
   static String payment(String reference) => '/me/payments/$reference';

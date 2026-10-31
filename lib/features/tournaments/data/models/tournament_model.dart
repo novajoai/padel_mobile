@@ -1,3 +1,4 @@
+import '../../../../core/models/sponsor.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/entities/tournament.dart';
@@ -85,6 +86,7 @@ abstract class TournamentModel with _$TournamentModel {
     @Default('JOD') String currency,
     @JsonKey(name: 'live_matches_count') @Default(0) int liveMatchesCount,
     @Default([]) List<TournamentCategoryModel> categories,
+    @JsonKey(fromJson: Sponsor.listFromJson, includeToJson: false) @Default([]) List<Sponsor> sponsors,
   }) = _TournamentModel;
 
   factory TournamentModel.fromJson(Map<String, dynamic> json) =>
@@ -115,5 +117,6 @@ extension TournamentModelX on TournamentModel {
         currency: currency,
         liveMatchesCount: liveMatchesCount,
         categories: categories.map((c) => c.toEntity()).toList(),
+        sponsors: sponsors,
       );
 }

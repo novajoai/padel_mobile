@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/avatar/presentation/avatar_editor_page.dart';
 import '../../features/engagement/presentation/characters_page.dart';
+import '../../features/rankings/presentation/pages/levels_page.dart';
 import '../../features/engagement/presentation/engagement_pages.dart';
 
 import '../../features/auth/domain/entities/auth_session.dart';
@@ -191,7 +193,12 @@ GoRouter buildAppRouter(AuthBloc authBloc, {GlobalKey<NavigatorState>? navigator
       GoRoute(path: AppRoutes.payments, builder: (_, _) => const PaymentsPage()),
       GoRoute(path: AppRoutes.predictions, builder: (_, _) => const PredictionsPage()),
       GoRoute(path: AppRoutes.myCoins, builder: (_, _) => const MyCoinsPage()),
+      GoRoute(
+        path: AppRoutes.levelsPath,
+        builder: (_, s) => LevelsPage(rating: int.tryParse(s.uri.queryParameters['rating'] ?? '')),
+      ),
       GoRoute(path: AppRoutes.characters, builder: (_, _) => const CharactersPage()),
+      GoRoute(path: AppRoutes.avatarEditor, builder: (_, _) => const AvatarEditorPage()),
       GoRoute(path: AppRoutes.gifts, builder: (_, _) => const GiftsPage()),
       GoRoute(
         path: '/me/payments/:reference',

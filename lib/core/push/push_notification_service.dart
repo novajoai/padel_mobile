@@ -20,15 +20,23 @@ class PushNotificationService implements DeviceTokenProvider {
 
   PushNotificationService(this.dio);
 
-  /// Same whistle as the Playmaker football app (res/raw/whistle, Runner/whistle.caf).
-  /// The server sends this channel id (services.fcm.android_channel); a new id
-  /// because an Android channel's sound can't change once it exists.
-  static const _channel = AndroidNotificationChannel(
+  /// Tournaments: the Playmaker football whistle (res/raw/whistle, Runner/whistle.caf).
+  /// The server picks the channel per notification (`data.sound`: whistle | default).
+  static const _whistleChannel = AndroidNotificationChannel(
     'padel_whistle',
-    'Playmaker Padel',
-    description: 'Match, tournament, booking and social updates',
+    'Tournaments',
+    description: 'Tournament news and your tournament matches',
     importance: Importance.high,
     sound: RawResourceAndroidNotificationSound('whistle'),
+    playSound: true,
+  );
+
+  /// Everything else: the phone's normal notification sound.
+  static const _defaultChannel = AndroidNotificationChannel(
+    'padel_default',
+    'Playmaker Padel',
+    description: 'Bookings, partners, social and app updates',
+    importance: Importance.high,
     playSound: true,
   );
 
@@ -86,11 +94,9 @@ class PushNotificationService implements DeviceTokenProvider {
         } catch (_) {}
       },
     );
-    await _local
-        .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin
-        >()
-        ?.createNotificationChannel(_channel);
+    final android = _local.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
+    await android?.createNotificationChannel(_whistleChannel);
+    await android?.createNotificationChannel(_defaultChannel);
 
     FirebaseMessaging.onMessage.listen(_showForeground);
     FirebaseMessaging.onMessageOpenedApp.listen((m) => _taps.add(m.data));
@@ -181,26 +187,28 @@ class PushNotificationService implements DeviceTokenProvider {
     final title = notification?.title ?? message.data['title']?.toString();
     final body = notification?.body ?? message.data['message']?.toString();
     if (title == null && body == null) return;
+    final whistle = message.data['sound']?.toString() == 'whistle';
+    final channel = whistle ? _whistleChannel : _defaultChannel;
     await _local.show(
       id: message.hashCode & 0x7fffffff,
       title: title,
       body: body,
       notificationDetails: NotificationDetails(
         android: AndroidNotificationDetails(
-          _channel.id,
-          _channel.name,
-          channelDescription: _channel.description,
+          channel.id,
+          channel.name,
+          channelDescription: channel.description,
           importance: Importance.high,
           priority: Priority.high,
-          sound: _channel.sound,
+          sound: channel.sound,
           playSound: true,
           icon: '@mipmap/launcher_icon',
         ),
-        iOS: const DarwinNotificationDetails(
+        iOS: DarwinNotificationDetails(
           presentAlert: true,
           presentBadge: true,
           presentSound: true,
-          sound: 'whistle.caf',
+          sound: whistle ? 'whistle.caf' : null,
         ),
       ),
       payload: jsonEncode(message.data),

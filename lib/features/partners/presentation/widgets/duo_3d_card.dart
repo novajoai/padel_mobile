@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../core/di/injection.dart';
+import '../../../../core/routing/app_routes.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/state/view_state.dart';
 import '../../../../core/theme/app_effects.dart';
@@ -14,6 +16,7 @@ import '../../../../core/widgets/court_lines.dart';
 import '../../../../core/widgets/feedback.dart';
 import '../../../../core/widgets/state_views.dart';
 import '../../../../l10n/gen/app_localizations.dart';
+import '../../../avatar/presentation/avatar_stage.dart';
 import '../../../premium/presentation/widgets/three_d_viewer.dart';
 import '../../domain/entities/duo_media.dart';
 import '../bloc/duo_3d_cubit.dart';
@@ -76,7 +79,8 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    if (!data.providerConfigured) return ComingSoonState(compact: true, message: l10n.duo3dComingSoon);
+    final duo3d = _AvatarDuo(data: data);
+    if (!data.providerConfigured) return duo3d;
 
     final current = data.current;
     final pending = current?.status.isPending ?? false;
@@ -85,6 +89,10 @@ class _Body extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        duo3d,
+        Gap.lg,
+        Text(l10n.duo3dVideoTitle, style: context.text.titleSmall),
+        Gap.sm,
         if (shown != null) ...[_DuoMediaView(media: shown), Gap.md],
         if (pending)
           _Notice(icon: Icons.hourglass_top_rounded, text: l10n.duo3dProcessing, busy: true)
@@ -104,6 +112,44 @@ class _Body extends StatelessWidget {
         ],
       ],
     );
+  }
+}
+
+/// The two players' 3D characters side by side (needs both to have made one).
+class _AvatarDuo extends StatelessWidget {
+  final DuoMediaState data;
+
+  const _AvatarDuo({required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    if (data.hasAvatarDuo) {
+      return AvatarStage(
+        stageUrl: data.stageUrl!,
+        spec: {'duo': [data.playerAvatar, data.partnerAvatar]},
+        height: 320,
+      );
+    }
+    if (data.playerAvatar == null) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _Notice(icon: Icons.face_retouching_natural_rounded, text: l10n.duo3dNeedMyCharacter),
+          Gap.md,
+          FilledButton.icon(
+            onPressed: () async {
+              final cubit = context.read<Duo3dCubit>();
+              final changed = await context.push<bool>(AppRoutes.avatarEditor);
+              if (changed == true) cubit.load();
+            },
+            icon: const Icon(Icons.face_retouching_natural_rounded),
+            label: Text(l10n.avatarCreate),
+          ),
+        ],
+      );
+    }
+    return _Notice(icon: Icons.hourglass_empty_rounded, text: l10n.duo3dNeedPartnerCharacter(data.partnerName ?? ''));
   }
 }
 

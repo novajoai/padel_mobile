@@ -2891,7 +2891,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get duo3dBody =>
-      'Een 3D-scène van jou en je partner samen op de baan.';
+      'Jij en je vaste partner naast elkaar op de baan, als jullie 3D-personages.';
 
   @override
   String get duo3dGenerate => 'Onze scène maken';
@@ -3068,7 +3068,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get resultsLockedBody =>
-      'Volg deze speler om de resultaten en statistieken te zien.';
+      'Volg deze speler om de resultaten, statistieken en partners te zien.';
 
   @override
   String get giftFromPlaymaker => 'Van Playmaker · juiste voorspelling';
@@ -3113,4 +3113,31 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get avatarDebugCopied => 'Gegevens gekopieerd.';
+
+  @override
+  String get duo3dNeedMyCharacter =>
+      'Maak eerst je 3D-personage: het verschijnt naast je partner.';
+
+  @override
+  String duo3dNeedPartnerCharacter(String name) {
+    return 'Wachten tot $name een 3D-personage maakt.';
+  }
+
+  @override
+  String get duo3dVideoTitle => 'Duovideo';
+
+  @override
+  String get predictionsCertifiedTournaments => 'Gecertificeerde toernooien';
+
+  @override
+  String predictionsOpenMatches(int count) {
+    return '$count wedstrijden open om te voorspellen';
+  }
+
+  @override
+  String get predictionsAfterDraw => 'Voorspellingen openen na de loting';
+
+  @override
+  String get predictionsEmptyHint =>
+      'Zodra een gecertificeerd toernooi zijn wedstrijden publiceert, kun je ze hier voorspellen.';
 }

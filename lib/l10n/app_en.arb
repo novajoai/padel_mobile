@@ -1565,7 +1565,7 @@
   "fieldCountry": "Country",
   "partnerEnded": "Partnership ended",
   "duo3dTitle": "Duo 3D identity",
-  "duo3dBody": "A 3D scene of you and your partner together on court.",
+  "duo3dBody": "You and your main partner side by side on court, as your 3D characters.",
   "duo3dGenerate": "Create our scene",
   "duo3dRegenerate": "Create a new one",
   "duo3dProcessing": "Creating your duo scene… this can take a few minutes.",
@@ -1622,7 +1622,7 @@
   "levelsFrom": "{from}+ points",
   "@levelsFrom": {"placeholders":{"from":{"type":"int"}}},
   "resultsLockedTitle": "Results for followers",
-  "resultsLockedBody": "Follow this player to see their results and stats.",
+  "resultsLockedBody": "Follow this player to see their results, stats and partners.",
   "giftFromPlaymaker": "From Playmaker · right prediction",
   "sponsoredBy": "Sponsored by",
   "avatarTitle": "My character",
@@ -1636,5 +1636,14 @@
   "avatarPremiumToSave": "Premium items selected — go Premium to save",
   "avatarLoadFailed": "The 3D character couldn't load.",
   "avatarDebug": "Debug panel",
-  "avatarDebugCopied": "Debug numbers copied."
+  "avatarDebugCopied": "Debug numbers copied.",
+  "duo3dNeedMyCharacter": "Create your 3D character first: it appears next to your partner.",
+  "duo3dNeedPartnerCharacter": "Waiting for {name} to create their 3D character.",
+  "@duo3dNeedPartnerCharacter": {"placeholders":{"name":{"type":"String"}}},
+  "duo3dVideoTitle": "Duo video",
+  "predictionsCertifiedTournaments": "Certified tournaments",
+  "predictionsOpenMatches": "{count} matches open to predict",
+  "@predictionsOpenMatches": {"placeholders":{"count":{"type":"int"}}},
+  "predictionsAfterDraw": "Predictions open once the matches are drawn",
+  "predictionsEmptyHint": "When a certified tournament publishes its matches, you can predict them here."
 }

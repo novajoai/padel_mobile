@@ -368,3 +368,31 @@ class CharacterCatalog extends Equatable {
   @override
   List<Object?> get props => [selectedId, characters];
 }
+
+/// `GET predictions/tournaments`: a certified tournament, listed as soon as it is approved.
+class PredictionTournament extends Equatable {
+  final int id;
+  final String name;
+  final String? imageUrl;
+  final DateTime? startDate;
+
+  /// ranked | certified
+  final String competitionType;
+
+  /// Matches that can be predicted now (0 until the draw has both teams).
+  final int openMatches;
+
+  const PredictionTournament({required this.id, required this.name, this.imageUrl, this.startDate, this.competitionType = 'certified', this.openMatches = 0});
+
+  factory PredictionTournament.fromJson(Map<String, dynamic> j) => PredictionTournament(
+        id: Json.integer(j['id']) ?? 0,
+        name: Json.string(j['name']) ?? '',
+        imageUrl: Json.string(j['image_url']),
+        startDate: Json.date(j['start_date']),
+        competitionType: Json.string(j['competition_type']) ?? 'certified',
+        openMatches: Json.integer(j['open_matches']) ?? 0,
+      );
+
+  @override
+  List<Object?> get props => [id, name, imageUrl, startDate, competitionType, openMatches];
+}

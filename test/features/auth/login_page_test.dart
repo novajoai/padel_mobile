@@ -153,7 +153,7 @@ void main() {
       testWidgets('phone → code → welcome → signed in ($locale)', (tester) async {
         when(() => repo.sendOtp(phone: any(named: 'phone'))).thenAnswer((_) async => const Right(_challenge));
         when(
-          () => repo.verifyOtp(sessionId: 's1', phone: '+962791234567', code: '123456'),
+          () => repo.verifyOtp(sessionId: 's1', phone: '+962791234567', code: '1234'),
         ).thenAnswer((_) async => const Right(AuthSession(token: 't', accountType: AccountType.coach)));
         final l10n = await pump(tester, locale);
         expect(tester.takeException(), isNull);
@@ -175,8 +175,8 @@ void main() {
         expect(find.text('+962 79 123 4567'), findsOneWidget);
         expect(find.text('0:30'), findsOneWidget);
 
-        // 6th digit auto-verifies; after the welcome view the bloc signs in.
-        await tester.enterText(find.byType(TextField).last, '123456');
+        // The last (4th) digit auto-verifies; after the welcome view the bloc signs in.
+        await tester.enterText(find.byType(TextField).last, '1234');
         await tester.pump(const Duration(seconds: 1));
         await tester.pump(const Duration(seconds: 1));
         expect(find.text(l10n.pmWelcomeTitle), findsOneWidget);
@@ -202,7 +202,7 @@ void main() {
       await tester.pump();
       await tap(tester, find.text(l10n.pmContinue));
       await tester.pump(const Duration(milliseconds: 500));
-      await tester.enterText(find.byType(TextField).last, '000000');
+      await tester.enterText(find.byType(TextField).last, '0000');
       await tester.pump(const Duration(milliseconds: 100));
       expect(find.text('Wrong code, 4 attempts left'), findsOneWidget);
       await tester.pump(const Duration(seconds: 1));
@@ -248,7 +248,7 @@ void main() {
       expect(find.text(l10n.pmPhoneHint), findsOneWidget);
       expect(bloc.state, isNot(isA<AuthAuthenticated>()));
       await dispose(tester);
-    });
+    }, variant: TargetPlatformVariant.only(TargetPlatform.iOS)); // Sign in with Apple is offered on iPhone only.
 
     testWidgets('the phone input draws no border of its own when focused', (tester) async {
       await pump(tester, 'en');

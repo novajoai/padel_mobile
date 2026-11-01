@@ -17,6 +17,9 @@ class EngagementRepository {
   EngagementRepository(this.dio);
 
   // Predictions
+  ApiResult<List<PredictionTournament>> certifiedTournaments() => guard(() async =>
+      ApiEnvelope.listOf(await dio.get(ApiEndpoints.predictionTournaments), PredictionTournament.fromJson));
+
   ApiResult<Paginated<PredictionMatch>> openMatches({int page = 1}) => guard(() async {
         final r = await dio.get(ApiEndpoints.predictionMatches, queryParameters: {'page': page});
         return ApiEnvelope.paginated(r, PredictionMatch.fromJson);

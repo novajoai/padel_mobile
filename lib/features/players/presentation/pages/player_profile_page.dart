@@ -92,12 +92,14 @@ class _ProfileContent extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final player = profile.player;
     final isOwner = player.isOwner;
+    // A visitor who doesn't follow the player: Overview (incl. the 3D character) and Achievements only.
+    final full = profile.resultsVisible;
     final tabs = [
       l10n.profileTabOverview,
-      l10n.profileTabResults,
+      if (full) l10n.profileTabResults,
       l10n.profileTabAchievements,
-      l10n.profileTabPartners,
-      l10n.profileTabStats,
+      if (full) l10n.profileTabPartners,
+      if (full) l10n.profileTabStats,
     ];
 
     return DefaultTabController(
@@ -171,25 +173,15 @@ class _ProfileContent extends StatelessWidget {
         body: TabBarView(
           children: [
             ProfileOverviewTab(profile: profile),
-            if (profile.resultsVisible) ProfileResultsTab(playerId: player.playerId) else const _LockedTab(),
+            if (full) ProfileResultsTab(playerId: player.playerId),
             ProfileAchievementsTab(playerId: player.playerId),
-            ProfilePartnersTab(playerId: player.playerId, isOwner: isOwner),
-            if (profile.resultsVisible) ProfileStatsTab(playerId: player.playerId) else const _LockedTab(),
+            if (full) ProfilePartnersTab(playerId: player.playerId, isOwner: isOwner),
+            if (full) ProfileStatsTab(playerId: player.playerId),
           ],
         ),
       ),
     );
   }
-}
-
-class _LockedTab extends StatelessWidget {
-  const _LockedTab();
-
-  @override
-  Widget build(BuildContext context) => ListView(
-        padding: AppSpacing.page,
-        children: const [ResultsLockedCard()],
-      );
 }
 
 class _OwnerActions extends StatelessWidget {
@@ -275,11 +267,13 @@ class _VisitorActions extends StatelessWidget {
             );
           }
         },
-        onChallenge: () => showChallengeDialog(
-          context,
-          playerId: player.playerId,
-          playerName: player.name,
-        ),
+        onChallenge: profile.social.isFriend
+            ? () => showChallengeDialog(
+                  context,
+                  playerId: player.playerId,
+                  playerName: player.name,
+                )
+            : null,
         onRequestPartner: () =>
             context.read<PartnerActionCubit>().send(player.playerId),
         onGift: () async {

@@ -11,7 +11,8 @@ class SocialActionBar extends StatelessWidget {
   final bool hasRespected;
   final VoidCallback onFollowToggle;
   final VoidCallback onRespect;
-  final VoidCallback onChallenge;
+  /// Null when the player isn't a friend (challenges are between friends only).
+  final VoidCallback? onChallenge;
   final VoidCallback? onRequestPartner;
 
   /// Send a popularity gift (green gems).
@@ -22,7 +23,7 @@ class SocialActionBar extends StatelessWidget {
     required this.isFollowing,
     required this.onFollowToggle,
     required this.onRespect,
-    required this.onChallenge,
+    this.onChallenge,
     this.hasRespected = false,
     this.onRequestPartner,
     this.onGift,
@@ -41,13 +42,13 @@ class SocialActionBar extends StatelessWidget {
                     foregroundColor: AppColors.white,
                     side: const BorderSide(color: AppColors.textMuted),
                   ),
-                  icon: const Icon(Icons.check_rounded),
-                  label: Text(l10n.actionFollowing),
+                  icon: const Icon(Icons.check_rounded, size: 18),
+                  label: _FitLabel(l10n.actionFollowing),
                 )
               : FilledButton.icon(
                   onPressed: onFollowToggle,
-                  icon: const Icon(Icons.person_add_alt_1_rounded),
-                  label: Text(l10n.actionFollow),
+                  icon: const Icon(Icons.person_add_alt_1_rounded, size: 18),
+                  label: _FitLabel(l10n.actionFollow),
                 ),
         ).animate(key: ValueKey(isFollowing)).fadeIn(duration: 150.ms),
         Gap.sm,
@@ -57,8 +58,10 @@ class SocialActionBar extends StatelessWidget {
           onPressed: hasRespected ? null : onRespect,
           active: hasRespected,
         ),
-        Gap.sm,
-        _RoundAction(icon: Icons.sports_tennis_rounded, tooltip: l10n.tooltipChallenge, onPressed: onChallenge),
+        if (onChallenge != null) ...[
+          Gap.sm,
+          _RoundAction(icon: Icons.sports_tennis_rounded, tooltip: l10n.tooltipChallenge, onPressed: onChallenge),
+        ],
         if (onRequestPartner != null) ...[
           Gap.sm,
           _RoundAction(icon: Icons.handshake_rounded, tooltip: l10n.partnerRequestAsMain, onPressed: onRequestPartner),
@@ -70,6 +73,19 @@ class SocialActionBar extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Button label that scales down to fit narrow screens and long translations instead of being cut.
+class _FitLabel extends StatelessWidget {
+  final String text;
+
+  const _FitLabel(this.text);
+
+  @override
+  Widget build(BuildContext context) => FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(text, maxLines: 1, softWrap: false),
+      );
 }
 
 class _RoundAction extends StatelessWidget {

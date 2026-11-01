@@ -831,7 +831,7 @@
     "fieldCountry": "Land",
     "partnerEnded": "Partnerschaft beendet",
     "duo3dTitle": "Duo-3D-Identität",
-    "duo3dBody": "Eine 3D-Szene von dir und deinem Partner zusammen auf dem Platz.",
+    "duo3dBody": "Du und dein Hauptpartner nebeneinander auf dem Platz, als eure 3D-Charaktere.",
     "duo3dGenerate": "Unsere Szene erstellen",
     "duo3dRegenerate": "Neue erstellen",
     "duo3dProcessing": "Eure Duo-Szene wird erstellt … das kann ein paar Minuten dauern.",
@@ -900,7 +900,7 @@
     "levelsRange": "{from} – {to} Punkte",
     "levelsFrom": "{from}+ Punkte",
     "resultsLockedTitle": "Ergebnisse für Follower",
-    "resultsLockedBody": "Folge diesem Spieler, um seine Ergebnisse und Statistiken zu sehen.",
+    "resultsLockedBody": "Folge diesem Spieler, um Ergebnisse, Statistiken und Partner zu sehen.",
     "giftFromPlaymaker": "Von Playmaker · richtige Vorhersage",
     "sponsoredBy": "Gesponsert von",
     "avatarTitle": "Mein Charakter",
@@ -914,5 +914,12 @@
     "avatarPremiumToSave": "Premium-Artikel gewählt — werde Premium zum Speichern",
     "avatarLoadFailed": "Der 3D-Charakter konnte nicht geladen werden.",
     "avatarDebug": "Debug-Panel",
-    "avatarDebugCopied": "Daten kopiert."
+    "avatarDebugCopied": "Daten kopiert.",
+    "duo3dNeedMyCharacter": "Erstelle zuerst deinen 3D-Charakter: Er erscheint neben deinem Partner.",
+    "duo3dNeedPartnerCharacter": "Warten, bis {name} einen 3D-Charakter erstellt.",
+    "duo3dVideoTitle": "Duo-Video",
+    "predictionsCertifiedTournaments": "Zertifizierte Turniere",
+    "predictionsOpenMatches": "{count} Spiele offen zum Tippen",
+    "predictionsAfterDraw": "Tipps öffnen nach der Auslosung",
+    "predictionsEmptyHint": "Sobald ein zertifiziertes Turnier seine Spiele veröffentlicht, kannst du sie hier tippen."
 }

@@ -849,7 +849,7 @@
   "fieldCountry": "الدولة",
   "partnerEnded": "تم إلغاء الشراكة",
   "duo3dTitle": "هوية الثنائي ثلاثية الأبعاد",
-  "duo3dBody": "مشهد ثلاثي الأبعاد لك ولشريكك معًا في الملعب.",
+  "duo3dBody": "أنت وشريكك الأساسي جنبًا إلى جنب في الملعب، بشخصياتكم ثلاثية الأبعاد.",
   "duo3dGenerate": "أنشئ مشهدنا",
   "duo3dRegenerate": "أنشئ مشهدًا جديدًا",
   "duo3dProcessing": "جاري إنشاء مشهدكما… قد يستغرق ذلك بضع دقائق.",
@@ -900,7 +900,7 @@
   "levelsRange": "{from} – {to} نقطة",
   "levelsFrom": "{from}+ نقطة",
   "resultsLockedTitle": "النتائج للمتابعين",
-  "resultsLockedBody": "تابع هذا اللاعب لتشاهد نتائجه وإحصائياته.",
+  "resultsLockedBody": "تابع هذا اللاعب لتشاهد نتائجه وإحصائياته وشركاءه.",
   "giftFromPlaymaker": "من Playmaker · توقع صحيح",
   "sponsoredBy": "برعاية",
   "avatarTitle": "شخصيتي",
@@ -914,5 +914,12 @@
   "avatarPremiumToSave": "اخترت عناصر بريميوم — اشترك لتحفظها",
   "avatarLoadFailed": "تعذّر تحميل الشخصية ثلاثية الأبعاد.",
   "avatarDebug": "لوحة الفحص",
-  "avatarDebugCopied": "تم نسخ أرقام الفحص."
+  "avatarDebugCopied": "تم نسخ أرقام الفحص.",
+  "duo3dNeedMyCharacter": "اصنع شخصيتك ثلاثية الأبعاد أولًا لتظهر بجانب شريكك.",
+  "duo3dNeedPartnerCharacter": "بانتظار {name} لينشئ شخصيته ثلاثية الأبعاد.",
+  "duo3dVideoTitle": "فيديو الثنائي",
+  "predictionsCertifiedTournaments": "البطولات المعتمدة",
+  "predictionsOpenMatches": "{count} مباراة مفتوحة للتوقع",
+  "predictionsAfterDraw": "التوقعات تفتح بعد سحب القرعة وتحديد المباريات",
+  "predictionsEmptyHint": "لما تنشر بطولة معتمدة مبارياتها، بتقدر تتوقعها هون."
 }

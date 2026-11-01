@@ -41,6 +41,7 @@ abstract class DuoMediaStateModel with _$DuoMediaStateModel {
     @JsonKey(name: 'requires_photos') @Default(false) bool requiresPhotos,
     DuoMediaModel? current,
     @JsonKey(name: 'latest_completed') DuoMediaModel? latestCompleted,
+    @JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false) Map<String, dynamic>? avatarDuo,
   }) = _DuoMediaStateModel;
 
   factory DuoMediaStateModel.fromJson(Map<String, dynamic> json) => _$DuoMediaStateModelFromJson(json);
@@ -52,5 +53,11 @@ extension DuoMediaStateModelX on DuoMediaStateModel {
     requiresPhotos: requiresPhotos,
     current: current?.toEntity(),
     latestCompleted: latestCompleted?.toEntity(),
+    stageUrl: avatarDuo?['stage_url'] as String?,
+    playerAvatar: _mapOrNull(avatarDuo?['player']),
+    partnerAvatar: _mapOrNull(avatarDuo?['partner']),
+    partnerName: avatarDuo?['partner_name'] as String?,
   );
 }
+
+Map<String, dynamic>? _mapOrNull(Object? raw) => raw is Map ? raw.cast<String, dynamic>() : null;

@@ -70,7 +70,8 @@ class _SponsorBannerState extends State<SponsorBanner> {
         ClipRRect(
           borderRadius: AppRadius.xlAll,
           child: AspectRatio(
-            aspectRatio: 3 / 1,
+            // 16:9 (e.g. 1600×900): taller than before so the banner isn't cropped.
+            aspectRatio: 16 / 9,
             child: PageView.builder(
               controller: _page,
               itemCount: _sponsors.length,

@@ -2901,7 +2901,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get duo3dBody =>
-      'Eine 3D-Szene von dir und deinem Partner zusammen auf dem Platz.';
+      'Du und dein Hauptpartner nebeneinander auf dem Platz, als eure 3D-Charaktere.';
 
   @override
   String get duo3dGenerate => 'Unsere Szene erstellen';
@@ -3079,7 +3079,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get resultsLockedBody =>
-      'Folge diesem Spieler, um seine Ergebnisse und Statistiken zu sehen.';
+      'Folge diesem Spieler, um Ergebnisse, Statistiken und Partner zu sehen.';
 
   @override
   String get giftFromPlaymaker => 'Von Playmaker · richtige Vorhersage';
@@ -3125,4 +3125,31 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get avatarDebugCopied => 'Daten kopiert.';
+
+  @override
+  String get duo3dNeedMyCharacter =>
+      'Erstelle zuerst deinen 3D-Charakter: Er erscheint neben deinem Partner.';
+
+  @override
+  String duo3dNeedPartnerCharacter(String name) {
+    return 'Warten, bis $name einen 3D-Charakter erstellt.';
+  }
+
+  @override
+  String get duo3dVideoTitle => 'Duo-Video';
+
+  @override
+  String get predictionsCertifiedTournaments => 'Zertifizierte Turniere';
+
+  @override
+  String predictionsOpenMatches(int count) {
+    return '$count Spiele offen zum Tippen';
+  }
+
+  @override
+  String get predictionsAfterDraw => 'Tipps öffnen nach der Auslosung';
+
+  @override
+  String get predictionsEmptyHint =>
+      'Sobald ein zertifiziertes Turnier seine Spiele veröffentlicht, kannst du sie hier tippen.';
 }

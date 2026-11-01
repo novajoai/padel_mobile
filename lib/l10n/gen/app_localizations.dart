@@ -5203,7 +5203,7 @@ abstract class AppLocalizations {
   /// No description provided for @duo3dBody.
   ///
   /// In en, this message translates to:
-  /// **'A 3D scene of you and your partner together on court.'**
+  /// **'You and your main partner side by side on court, as your 3D characters.'**
   String get duo3dBody;
 
   /// No description provided for @duo3dGenerate.
@@ -5509,7 +5509,7 @@ abstract class AppLocalizations {
   /// No description provided for @resultsLockedBody.
   ///
   /// In en, this message translates to:
-  /// **'Follow this player to see their results and stats.'**
+  /// **'Follow this player to see their results, stats and partners.'**
   String get resultsLockedBody;
 
   /// No description provided for @giftFromPlaymaker.
@@ -5595,6 +5595,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Debug numbers copied.'**
   String get avatarDebugCopied;
+
+  /// No description provided for @duo3dNeedMyCharacter.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your 3D character first: it appears next to your partner.'**
+  String get duo3dNeedMyCharacter;
+
+  /// No description provided for @duo3dNeedPartnerCharacter.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for {name} to create their 3D character.'**
+  String duo3dNeedPartnerCharacter(String name);
+
+  /// No description provided for @duo3dVideoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Duo video'**
+  String get duo3dVideoTitle;
+
+  /// No description provided for @predictionsCertifiedTournaments.
+  ///
+  /// In en, this message translates to:
+  /// **'Certified tournaments'**
+  String get predictionsCertifiedTournaments;
+
+  /// No description provided for @predictionsOpenMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} matches open to predict'**
+  String predictionsOpenMatches(int count);
+
+  /// No description provided for @predictionsAfterDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Predictions open once the matches are drawn'**
+  String get predictionsAfterDraw;
+
+  /// No description provided for @predictionsEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'When a certified tournament publishes its matches, you can predict them here.'**
+  String get predictionsEmptyHint;
 }
 
 class _AppLocalizationsDelegate

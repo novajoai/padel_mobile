@@ -50,7 +50,11 @@ class PlayerProfileCubit extends Cubit<PlayerProfileState> {
         if (!isClosed) emit(current);
         return failure;
       },
-      (_) => null,
+      (_) {
+        // Followers see results, stats and partners: refresh what this viewer may see.
+        if (!isClosed) load(id, silent: true);
+        return null;
+      },
     );
   }
 

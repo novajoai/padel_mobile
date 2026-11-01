@@ -143,6 +143,7 @@ class ApiEndpoints {
 
   // Predictions · Playmaker Coins · popularity gifts
   static const String predictionMatches = 'predictions/matches';
+  static const String predictionTournaments = 'predictions/tournaments';
   static const String myPredictions = 'me/predictions';
   static const String predictionsLeaderboard = 'predictions/leaderboard';
   static String matchPrediction(int matchId) => 'matches/$matchId/prediction';

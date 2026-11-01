@@ -136,7 +136,8 @@ class AthleteHeader extends StatelessWidget {
               Gap.lg,
               actions,
               Gap.lg,
-              _MetricRow(
+              // Skill Rating, Season points and XP: for the player and their followers only.
+              if (profile.resultsVisible) _MetricRow(
                 skill: rankings?.skill.rating ?? player.skillRating,
                 level: level,
                 skillMovement: rankings?.skill.movement,
@@ -145,7 +146,7 @@ class AthleteHeader extends StatelessWidget {
                 seasonMovement: rankings?.season.movement,
                 xp: rankings?.xp ?? player.xp,
               ),
-              if (level != null) ...[Gap.lg, PmLevelLadder(level: level, rating: rankings?.skill.rating ?? player.skillRating)],
+              if (level != null) ...[Gap.lg, PmLevelLadder(level: level, rating: profile.resultsVisible ? (rankings?.skill.rating ?? player.skillRating) : null)],
             ],
           ),
         ),
@@ -187,10 +188,13 @@ class _SocialCounts extends StatelessWidget {
       decoration: AppGlass.well(true, radius: AppRadius.controlAll),
       child: Row(
         children: [
-          count(l10n.profileFollowers, social.followers, () => context.push(AppRoutes.playerFollowers(id))),
-          rule(),
-          count(l10n.profileFollowing, social.following, () => context.push(AppRoutes.playerFollowing(id))),
-          rule(),
+          // Followers / following: for the player and their followers only.
+          if (profile.resultsVisible) ...[
+            count(l10n.profileFollowers, social.followers, () => context.push(AppRoutes.playerFollowers(id))),
+            rule(),
+            count(l10n.profileFollowing, social.following, () => context.push(AppRoutes.playerFollowing(id))),
+            rule(),
+          ],
           count(l10n.profileRespects, social.respects, null),
         ],
       ),

@@ -46,6 +46,7 @@ _DuoMediaStateModel _$DuoMediaStateModelFromJson(Map<String, dynamic> json) =>
           : DuoMediaModel.fromJson(
               json['latest_completed'] as Map<String, dynamic>,
             ),
+      avatarDuo: _mapOrNull(json['avatar_duo']),
     );
 
 Map<String, dynamic> _$DuoMediaStateModelToJson(_DuoMediaStateModel instance) =>

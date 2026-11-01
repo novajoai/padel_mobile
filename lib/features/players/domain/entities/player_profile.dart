@@ -52,12 +52,20 @@ class SocialSummary extends Equatable {
   final bool isFollowing;
   final bool hasRespected;
 
+  /// The player follows the viewer.
+  final bool followsYou;
+
+  /// Both follow each other: only friends can challenge each other.
+  final bool isFriend;
+
   const SocialSummary({
     this.followers = 0,
     this.following = 0,
     this.respects = 0,
     this.isFollowing = false,
     this.hasRespected = false,
+    this.followsYou = false,
+    this.isFriend = false,
   });
 
   SocialSummary copyWith({int? followers, int? respects, bool? isFollowing, bool? hasRespected}) =>
@@ -67,10 +75,13 @@ class SocialSummary extends Equatable {
         respects: respects ?? this.respects,
         isFollowing: isFollowing ?? this.isFollowing,
         hasRespected: hasRespected ?? this.hasRespected,
+        followsYou: followsYou,
+        // Following back someone who follows you makes you friends (and the reverse).
+        isFriend: (isFollowing ?? this.isFollowing) && followsYou,
       );
 
   @override
-  List<Object?> get props => [followers, following, respects, isFollowing, hasRespected];
+  List<Object?> get props => [followers, following, respects, isFollowing, hasRespected, followsYou, isFriend];
 }
 
 class AchievementsSummary extends Equatable {

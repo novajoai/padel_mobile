@@ -831,7 +831,7 @@
     "fieldCountry": "Land",
     "partnerEnded": "Partnerschap beëindigd",
     "duo3dTitle": "Duo-3D-identiteit",
-    "duo3dBody": "Een 3D-scène van jou en je partner samen op de baan.",
+    "duo3dBody": "Jij en je vaste partner naast elkaar op de baan, als jullie 3D-personages.",
     "duo3dGenerate": "Onze scène maken",
     "duo3dRegenerate": "Een nieuwe maken",
     "duo3dProcessing": "Jullie duoscène wordt gemaakt… dit kan een paar minuten duren.",
@@ -900,7 +900,7 @@
     "levelsRange": "{from} – {to} punten",
     "levelsFrom": "{from}+ punten",
     "resultsLockedTitle": "Resultaten voor volgers",
-    "resultsLockedBody": "Volg deze speler om de resultaten en statistieken te zien.",
+    "resultsLockedBody": "Volg deze speler om de resultaten, statistieken en partners te zien.",
     "giftFromPlaymaker": "Van Playmaker · juiste voorspelling",
     "sponsoredBy": "Gesponsord door",
     "avatarTitle": "Mijn personage",
@@ -914,5 +914,12 @@
     "avatarPremiumToSave": "Premium-items gekozen — word Premium om op te slaan",
     "avatarLoadFailed": "Het 3D-personage kon niet laden.",
     "avatarDebug": "Debugpaneel",
-    "avatarDebugCopied": "Gegevens gekopieerd."
+    "avatarDebugCopied": "Gegevens gekopieerd.",
+    "duo3dNeedMyCharacter": "Maak eerst je 3D-personage: het verschijnt naast je partner.",
+    "duo3dNeedPartnerCharacter": "Wachten tot {name} een 3D-personage maakt.",
+    "duo3dVideoTitle": "Duovideo",
+    "predictionsCertifiedTournaments": "Gecertificeerde toernooien",
+    "predictionsOpenMatches": "{count} wedstrijden open om te voorspellen",
+    "predictionsAfterDraw": "Voorspellingen openen na de loting",
+    "predictionsEmptyHint": "Zodra een gecertificeerd toernooi zijn wedstrijden publiceert, kun je ze hier voorspellen."
 }

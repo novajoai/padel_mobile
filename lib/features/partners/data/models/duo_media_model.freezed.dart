@@ -299,7 +299,7 @@ as DateTime?,
 /// @nodoc
 mixin _$DuoMediaStateModel {
 
-@JsonKey(name: 'provider_configured') bool get providerConfigured;@JsonKey(name: 'requires_photos') bool get requiresPhotos; DuoMediaModel? get current;@JsonKey(name: 'latest_completed') DuoMediaModel? get latestCompleted;
+@JsonKey(name: 'provider_configured') bool get providerConfigured;@JsonKey(name: 'requires_photos') bool get requiresPhotos; DuoMediaModel? get current;@JsonKey(name: 'latest_completed') DuoMediaModel? get latestCompleted;@JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false) Map<String, dynamic>? get avatarDuo;
 /// Create a copy of DuoMediaStateModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -312,16 +312,16 @@ $DuoMediaStateModelCopyWith<DuoMediaStateModel> get copyWith => _$DuoMediaStateM
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DuoMediaStateModel&&(identical(other.providerConfigured, providerConfigured) || other.providerConfigured == providerConfigured)&&(identical(other.requiresPhotos, requiresPhotos) || other.requiresPhotos == requiresPhotos)&&(identical(other.current, current) || other.current == current)&&(identical(other.latestCompleted, latestCompleted) || other.latestCompleted == latestCompleted));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DuoMediaStateModel&&(identical(other.providerConfigured, providerConfigured) || other.providerConfigured == providerConfigured)&&(identical(other.requiresPhotos, requiresPhotos) || other.requiresPhotos == requiresPhotos)&&(identical(other.current, current) || other.current == current)&&(identical(other.latestCompleted, latestCompleted) || other.latestCompleted == latestCompleted)&&const DeepCollectionEquality().equals(other.avatarDuo, avatarDuo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,providerConfigured,requiresPhotos,current,latestCompleted);
+int get hashCode => Object.hash(runtimeType,providerConfigured,requiresPhotos,current,latestCompleted,const DeepCollectionEquality().hash(avatarDuo));
 
 @override
 String toString() {
-  return 'DuoMediaStateModel(providerConfigured: $providerConfigured, requiresPhotos: $requiresPhotos, current: $current, latestCompleted: $latestCompleted)';
+  return 'DuoMediaStateModel(providerConfigured: $providerConfigured, requiresPhotos: $requiresPhotos, current: $current, latestCompleted: $latestCompleted, avatarDuo: $avatarDuo)';
 }
 
 
@@ -332,7 +332,7 @@ abstract mixin class $DuoMediaStateModelCopyWith<$Res>  {
   factory $DuoMediaStateModelCopyWith(DuoMediaStateModel value, $Res Function(DuoMediaStateModel) _then) = _$DuoMediaStateModelCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'provider_configured') bool providerConfigured,@JsonKey(name: 'requires_photos') bool requiresPhotos, DuoMediaModel? current,@JsonKey(name: 'latest_completed') DuoMediaModel? latestCompleted
+@JsonKey(name: 'provider_configured') bool providerConfigured,@JsonKey(name: 'requires_photos') bool requiresPhotos, DuoMediaModel? current,@JsonKey(name: 'latest_completed') DuoMediaModel? latestCompleted,@JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false) Map<String, dynamic>? avatarDuo
 });
 
 
@@ -349,13 +349,14 @@ class _$DuoMediaStateModelCopyWithImpl<$Res>
 
 /// Create a copy of DuoMediaStateModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? providerConfigured = null,Object? requiresPhotos = null,Object? current = freezed,Object? latestCompleted = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? providerConfigured = null,Object? requiresPhotos = null,Object? current = freezed,Object? latestCompleted = freezed,Object? avatarDuo = freezed,}) {
   return _then(_self.copyWith(
 providerConfigured: null == providerConfigured ? _self.providerConfigured : providerConfigured // ignore: cast_nullable_to_non_nullable
 as bool,requiresPhotos: null == requiresPhotos ? _self.requiresPhotos : requiresPhotos // ignore: cast_nullable_to_non_nullable
 as bool,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
 as DuoMediaModel?,latestCompleted: freezed == latestCompleted ? _self.latestCompleted : latestCompleted // ignore: cast_nullable_to_non_nullable
-as DuoMediaModel?,
+as DuoMediaModel?,avatarDuo: freezed == avatarDuo ? _self.avatarDuo : avatarDuo // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of DuoMediaStateModel
@@ -464,10 +465,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'provider_configured')  bool providerConfigured, @JsonKey(name: 'requires_photos')  bool requiresPhotos,  DuoMediaModel? current, @JsonKey(name: 'latest_completed')  DuoMediaModel? latestCompleted)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'provider_configured')  bool providerConfigured, @JsonKey(name: 'requires_photos')  bool requiresPhotos,  DuoMediaModel? current, @JsonKey(name: 'latest_completed')  DuoMediaModel? latestCompleted, @JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false)  Map<String, dynamic>? avatarDuo)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DuoMediaStateModel() when $default != null:
-return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_that.latestCompleted);case _:
+return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_that.latestCompleted,_that.avatarDuo);case _:
   return orElse();
 
 }
@@ -485,10 +486,10 @@ return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'provider_configured')  bool providerConfigured, @JsonKey(name: 'requires_photos')  bool requiresPhotos,  DuoMediaModel? current, @JsonKey(name: 'latest_completed')  DuoMediaModel? latestCompleted)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'provider_configured')  bool providerConfigured, @JsonKey(name: 'requires_photos')  bool requiresPhotos,  DuoMediaModel? current, @JsonKey(name: 'latest_completed')  DuoMediaModel? latestCompleted, @JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false)  Map<String, dynamic>? avatarDuo)  $default,) {final _that = this;
 switch (_that) {
 case _DuoMediaStateModel():
-return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_that.latestCompleted);case _:
+return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_that.latestCompleted,_that.avatarDuo);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -505,10 +506,10 @@ return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'provider_configured')  bool providerConfigured, @JsonKey(name: 'requires_photos')  bool requiresPhotos,  DuoMediaModel? current, @JsonKey(name: 'latest_completed')  DuoMediaModel? latestCompleted)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'provider_configured')  bool providerConfigured, @JsonKey(name: 'requires_photos')  bool requiresPhotos,  DuoMediaModel? current, @JsonKey(name: 'latest_completed')  DuoMediaModel? latestCompleted, @JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false)  Map<String, dynamic>? avatarDuo)?  $default,) {final _that = this;
 switch (_that) {
 case _DuoMediaStateModel() when $default != null:
-return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_that.latestCompleted);case _:
+return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_that.latestCompleted,_that.avatarDuo);case _:
   return null;
 
 }
@@ -520,13 +521,22 @@ return $default(_that.providerConfigured,_that.requiresPhotos,_that.current,_tha
 @JsonSerializable()
 
 class _DuoMediaStateModel implements DuoMediaStateModel {
-  const _DuoMediaStateModel({@JsonKey(name: 'provider_configured') this.providerConfigured = false, @JsonKey(name: 'requires_photos') this.requiresPhotos = false, this.current, @JsonKey(name: 'latest_completed') this.latestCompleted});
+  const _DuoMediaStateModel({@JsonKey(name: 'provider_configured') this.providerConfigured = false, @JsonKey(name: 'requires_photos') this.requiresPhotos = false, this.current, @JsonKey(name: 'latest_completed') this.latestCompleted, @JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false) final  Map<String, dynamic>? avatarDuo}): _avatarDuo = avatarDuo;
   factory _DuoMediaStateModel.fromJson(Map<String, dynamic> json) => _$DuoMediaStateModelFromJson(json);
 
 @override@JsonKey(name: 'provider_configured') final  bool providerConfigured;
 @override@JsonKey(name: 'requires_photos') final  bool requiresPhotos;
 @override final  DuoMediaModel? current;
 @override@JsonKey(name: 'latest_completed') final  DuoMediaModel? latestCompleted;
+ final  Map<String, dynamic>? _avatarDuo;
+@override@JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false) Map<String, dynamic>? get avatarDuo {
+  final value = _avatarDuo;
+  if (value == null) return null;
+  if (_avatarDuo is EqualUnmodifiableMapView) return _avatarDuo;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
 
 /// Create a copy of DuoMediaStateModel
 /// with the given fields replaced by the non-null parameter values.
@@ -541,16 +551,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DuoMediaStateModel&&(identical(other.providerConfigured, providerConfigured) || other.providerConfigured == providerConfigured)&&(identical(other.requiresPhotos, requiresPhotos) || other.requiresPhotos == requiresPhotos)&&(identical(other.current, current) || other.current == current)&&(identical(other.latestCompleted, latestCompleted) || other.latestCompleted == latestCompleted));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DuoMediaStateModel&&(identical(other.providerConfigured, providerConfigured) || other.providerConfigured == providerConfigured)&&(identical(other.requiresPhotos, requiresPhotos) || other.requiresPhotos == requiresPhotos)&&(identical(other.current, current) || other.current == current)&&(identical(other.latestCompleted, latestCompleted) || other.latestCompleted == latestCompleted)&&const DeepCollectionEquality().equals(other._avatarDuo, _avatarDuo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,providerConfigured,requiresPhotos,current,latestCompleted);
+int get hashCode => Object.hash(runtimeType,providerConfigured,requiresPhotos,current,latestCompleted,const DeepCollectionEquality().hash(_avatarDuo));
 
 @override
 String toString() {
-  return 'DuoMediaStateModel(providerConfigured: $providerConfigured, requiresPhotos: $requiresPhotos, current: $current, latestCompleted: $latestCompleted)';
+  return 'DuoMediaStateModel(providerConfigured: $providerConfigured, requiresPhotos: $requiresPhotos, current: $current, latestCompleted: $latestCompleted, avatarDuo: $avatarDuo)';
 }
 
 
@@ -561,7 +571,7 @@ abstract mixin class _$DuoMediaStateModelCopyWith<$Res> implements $DuoMediaStat
   factory _$DuoMediaStateModelCopyWith(_DuoMediaStateModel value, $Res Function(_DuoMediaStateModel) _then) = __$DuoMediaStateModelCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'provider_configured') bool providerConfigured,@JsonKey(name: 'requires_photos') bool requiresPhotos, DuoMediaModel? current,@JsonKey(name: 'latest_completed') DuoMediaModel? latestCompleted
+@JsonKey(name: 'provider_configured') bool providerConfigured,@JsonKey(name: 'requires_photos') bool requiresPhotos, DuoMediaModel? current,@JsonKey(name: 'latest_completed') DuoMediaModel? latestCompleted,@JsonKey(name: 'avatar_duo', fromJson: _mapOrNull, includeToJson: false) Map<String, dynamic>? avatarDuo
 });
 
 
@@ -578,13 +588,14 @@ class __$DuoMediaStateModelCopyWithImpl<$Res>
 
 /// Create a copy of DuoMediaStateModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? providerConfigured = null,Object? requiresPhotos = null,Object? current = freezed,Object? latestCompleted = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? providerConfigured = null,Object? requiresPhotos = null,Object? current = freezed,Object? latestCompleted = freezed,Object? avatarDuo = freezed,}) {
   return _then(_DuoMediaStateModel(
 providerConfigured: null == providerConfigured ? _self.providerConfigured : providerConfigured // ignore: cast_nullable_to_non_nullable
 as bool,requiresPhotos: null == requiresPhotos ? _self.requiresPhotos : requiresPhotos // ignore: cast_nullable_to_non_nullable
 as bool,current: freezed == current ? _self.current : current // ignore: cast_nullable_to_non_nullable
 as DuoMediaModel?,latestCompleted: freezed == latestCompleted ? _self.latestCompleted : latestCompleted // ignore: cast_nullable_to_non_nullable
-as DuoMediaModel?,
+as DuoMediaModel?,avatarDuo: freezed == avatarDuo ? _self._avatarDuo : avatarDuo // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
   ));
 }
 

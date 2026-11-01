@@ -2902,7 +2902,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get duo3dTitle => 'هوية الثنائي ثلاثية الأبعاد';
 
   @override
-  String get duo3dBody => 'مشهد ثلاثي الأبعاد لك ولشريكك معًا في الملعب.';
+  String get duo3dBody =>
+      'أنت وشريكك الأساسي جنبًا إلى جنب في الملعب، بشخصياتكم ثلاثية الأبعاد.';
 
   @override
   String get duo3dGenerate => 'أنشئ مشهدنا';
@@ -3073,7 +3074,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resultsLockedTitle => 'النتائج للمتابعين';
 
   @override
-  String get resultsLockedBody => 'تابع هذا اللاعب لتشاهد نتائجه وإحصائياته.';
+  String get resultsLockedBody =>
+      'تابع هذا اللاعب لتشاهد نتائجه وإحصائياته وشركاءه.';
 
   @override
   String get giftFromPlaymaker => 'من Playmaker · توقع صحيح';
@@ -3117,4 +3119,32 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get avatarDebugCopied => 'تم نسخ أرقام الفحص.';
+
+  @override
+  String get duo3dNeedMyCharacter =>
+      'اصنع شخصيتك ثلاثية الأبعاد أولًا لتظهر بجانب شريكك.';
+
+  @override
+  String duo3dNeedPartnerCharacter(String name) {
+    return 'بانتظار $name لينشئ شخصيته ثلاثية الأبعاد.';
+  }
+
+  @override
+  String get duo3dVideoTitle => 'فيديو الثنائي';
+
+  @override
+  String get predictionsCertifiedTournaments => 'البطولات المعتمدة';
+
+  @override
+  String predictionsOpenMatches(int count) {
+    return '$count مباراة مفتوحة للتوقع';
+  }
+
+  @override
+  String get predictionsAfterDraw =>
+      'التوقعات تفتح بعد سحب القرعة وتحديد المباريات';
+
+  @override
+  String get predictionsEmptyHint =>
+      'لما تنشر بطولة معتمدة مبارياتها، بتقدر تتوقعها هون.';
 }

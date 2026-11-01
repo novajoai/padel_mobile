@@ -831,7 +831,7 @@
     "fieldCountry": "País",
     "partnerEnded": "Parceria terminada",
     "duo3dTitle": "Identidade 3D de dupla",
-    "duo3dBody": "Uma cena 3D de ti e do teu parceiro juntos em campo.",
+    "duo3dBody": "Tu e o teu parceiro principal lado a lado no campo, com os vossos personagens 3D.",
     "duo3dGenerate": "Criar a nossa cena",
     "duo3dRegenerate": "Criar uma nova",
     "duo3dProcessing": "A criar a vossa cena… pode demorar alguns minutos.",
@@ -900,7 +900,7 @@
     "levelsRange": "{from} – {to} pontos",
     "levelsFrom": "{from}+ pontos",
     "resultsLockedTitle": "Resultados para seguidores",
-    "resultsLockedBody": "Segue este jogador para ver os resultados e as estatísticas.",
+    "resultsLockedBody": "Segue este jogador para ver os resultados, estatísticas e parceiros.",
     "giftFromPlaymaker": "Da Playmaker · previsão certa",
     "sponsoredBy": "Patrocinado por",
     "avatarTitle": "O meu personagem",
@@ -914,5 +914,12 @@
     "avatarPremiumToSave": "Escolheste itens Premium — torna-te Premium para guardar",
     "avatarLoadFailed": "Não foi possível carregar o personagem 3D.",
     "avatarDebug": "Painel de depuração",
-    "avatarDebugCopied": "Dados copiados."
+    "avatarDebugCopied": "Dados copiados.",
+    "duo3dNeedMyCharacter": "Cria primeiro o teu personagem 3D: aparece ao lado do teu parceiro.",
+    "duo3dNeedPartnerCharacter": "À espera que {name} crie o seu personagem 3D.",
+    "duo3dVideoTitle": "Vídeo da dupla",
+    "predictionsCertifiedTournaments": "Torneios certificados",
+    "predictionsOpenMatches": "{count} jogos abertos para prever",
+    "predictionsAfterDraw": "As previsões abrem após o sorteio",
+    "predictionsEmptyHint": "Quando um torneio certificado publicar os jogos, podes prevê-los aqui."
 }

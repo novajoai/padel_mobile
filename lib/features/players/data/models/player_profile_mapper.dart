@@ -62,6 +62,8 @@ class PlayerProfileMapper {
       respects: Json.integer(json['respects']) ?? 0,
       isFollowing: Json.boolean(json['is_following']),
       hasRespected: Json.boolean(json['has_respected']),
+      followsYou: Json.boolean(json['follows_you']),
+      isFriend: Json.boolean(json['is_friend']),
     );
   }
 

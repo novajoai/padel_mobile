@@ -22,6 +22,7 @@ import '../../../core/widgets/state_builders.dart';
 import '../../../l10n/gen/app_localizations.dart';
 import '../../premium/domain/entities/premium.dart';
 import '../../tournaments/domain/entities/match.dart';
+import '../data/engagement_repository.dart';
 import '../domain/engagement_entities.dart';
 import 'engagement_cubits.dart';
 
@@ -100,9 +101,16 @@ class _OpenMatches extends StatelessWidget {
           onRetry: cubit.load,
           header: Padding(
             padding: const EdgeInsetsDirectional.only(bottom: AppSpacing.md),
-            child: Text(l10n.predictionsRules(3, 2), style: context.text.bodySmall),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(l10n.predictionsRules(3, 2), style: context.text.bodySmall),
+                // Approved tournaments show here at once, even before their draw.
+                const _CertifiedTournaments(),
+              ],
+            ),
           ),
-          empty: EmptyState(icon: Icons.insights_rounded, title: l10n.predictionsEmpty, message: l10n.predictionsRules(3, 2)),
+          empty: EmptyState(icon: Icons.insights_rounded, title: l10n.predictionsEmpty, message: l10n.predictionsEmptyHint),
           separator: Gap.md,
           itemBuilder: (context, item, _) => _PredictionCard(
             item: item,
@@ -111,6 +119,66 @@ class _OpenMatches extends StatelessWidget {
               context.read<MyPredictionsCubit>().refresh();
             },
           ),
+        );
+      },
+    );
+  }
+}
+
+/// Certified tournaments on the predictions tab: how many matches are open, or "after the draw".
+class _CertifiedTournaments extends StatefulWidget {
+  const _CertifiedTournaments();
+
+  @override
+  State<_CertifiedTournaments> createState() => _CertifiedTournamentsState();
+}
+
+class _CertifiedTournamentsState extends State<_CertifiedTournaments> {
+  late final Future<List<PredictionTournament>> _load =
+      sl<EngagementRepository>().certifiedTournaments().then((r) => r.fold((_) => const <PredictionTournament>[], (list) => list));
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return FutureBuilder<List<PredictionTournament>>(
+      future: _load,
+      builder: (context, snap) {
+        final list = snap.data ?? const <PredictionTournament>[];
+        if (list.isEmpty) return const SizedBox.shrink();
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Gap.lg,
+            Text(l10n.predictionsCertifiedTournaments, style: context.text.titleSmall),
+            Gap.sm,
+            for (final t in list)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(bottom: AppSpacing.sm),
+                child: AppCard(
+                  padding: AppSpacing.cardDense,
+                  onTap: () => context.push(AppRoutes.tournament(t.id)),
+                  child: Row(
+                    children: [
+                      Icon(t.competitionType == 'ranked' ? Icons.workspace_premium_rounded : Icons.verified_rounded, color: context.tokens.highlight),
+                      Gap.md,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(t.name, style: context.text.titleSmall, maxLines: 1, overflow: TextOverflow.ellipsis),
+                            Text(
+                              t.openMatches > 0 ? l10n.predictionsOpenMatches(t.openMatches) : l10n.predictionsAfterDraw,
+                              style: context.text.bodySmall?.copyWith(color: t.openMatches > 0 ? context.tokens.highlight : null),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Icon(Icons.chevron_right_rounded),
+                    ],
+                  ),
+                ),
+              ),
+          ],
         );
       },
     );
